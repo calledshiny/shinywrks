@@ -586,9 +586,10 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
         </div>
       </section>
 
-      {/* Filter + projects */}
-        {/* Filter row inside dot half */}
-        <div style={{ padding: '10px 48px 0', display: 'flex', gap: 4, flexShrink: 0 }}>
+      {/* Project section: filter + strip grouped together */}
+      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', borderTop: '1px solid #E8E2D6', marginTop: 16 }}>
+        {/* Filter row */}
+        <div style={{ padding: '8px 48px', display: 'flex', gap: 4, flexShrink: 0 }}>
           {FILTER_TAGS.map(t => (
             <button key={t} className={`filter-tag${activeFilter === t ? ' active' : ''}`} onClick={() => setActiveFilter(t)}>{t}</button>
           ))}
@@ -596,20 +597,20 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
         {/* Project strip */}
         <div
           ref={stripRef}
-          className="dot-bg"
-        style={{
-          flex: 1, minHeight: 0,
-          display: 'flex', alignItems: 'flex-end', gap: 3,
-          overflowX: 'auto', overflowY: 'hidden',
-          padding: '10px 48px 40px',
-          scrollbarWidth: 'none',
-          MsOverflowStyle: 'none',
-        }}
-      >
-        {filtered.map((p, i) => (
-          <ProjectCard key={p.id} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
-        ))}
+          style={{
+            flex: 1, minHeight: 0,
+            display: 'flex', alignItems: 'flex-end', gap: 3,
+            overflowX: 'auto', overflowY: 'hidden',
+            padding: '4px 48px 40px',
+            scrollbarWidth: 'none',
+            MsOverflowStyle: 'none',
+          }}
+        >
+          {filtered.map((p, i) => (
+            <ProjectCard key={p.id} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
+          ))}
         </div>
+      </div>
 
     </div>
   );

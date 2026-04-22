@@ -256,11 +256,17 @@
         d.tc = 0;
       }
 
+      // Fast in, slow out
+      const lerpIn = 0.35;
+      const lerpOut = 0.04;
+      const entering = d.tc > (d.cf || 0);
+      const speed = entering ? lerpIn : lerpOut;
+
       // Lerp toward target
-      d.ox += (d.tx - d.ox) * LERP_SPEED;
-      d.oy += (d.ty - d.oy) * LERP_SPEED;
-      d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * LERP_SPEED;
-      d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * LERP_SPEED;
+      d.ox += (d.tx - d.ox) * speed;
+      d.oy += (d.ty - d.oy) * speed;
+      d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
+      d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
       // Angle-based chrome: light from top-left, shadow bottom-right
       const cf = d.cf || 0;
@@ -280,7 +286,7 @@
       const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * cf);
       const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
       const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
-      const dotR = BASE_RADIUS + cf * 2.5;
+      const dotR = BASE_RADIUS + cf * 1.4;
 
       ctx.beginPath();
       ctx.arc(d.bx + d.ox, d.by + d.oy, dotR, 0, Math.PI * 2);

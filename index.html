@@ -188,15 +188,15 @@
   const BASE_ALPHA = 0.15;
   const REPEL_RADIUS = 100;
   const MAX_REPEL = 14;
-  const LERP_SPEED = 0.025;
+  const LERP_SPEED = 0.04;
 
   let mouse = { x: -999, y: -999 };
   let dots = [];
 
   const BASE_COLOR    = [100, 88, 72];
-  const CHROME_DARK   = [50,  46, 42];
-  const CHROME_MID    = [185, 180, 174];
-  const CHROME_BRIGHT = [248, 246, 243];
+  const CHROME_DARK   = [20,  18, 15];
+  const CHROME_MID    = [160, 155, 148];
+  const CHROME_BRIGHT = [255, 254, 252];
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -246,7 +246,7 @@
         const force = (1 - dist / REPEL_RADIUS);
         d.tx = (dx / dist) * force * MAX_REPEL;
         d.ty = (dy / dist) * force * MAX_REPEL;
-        d.ta = BASE_ALPHA + force * 0.85;
+        d.ta = BASE_ALPHA + force * 1.0;
         d.tc = force; // chrome factor 0→1
       } else {
         d.tx = 0; d.ty = 0;
@@ -278,7 +278,7 @@
       const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * cf);
       const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
       const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
-      const dotR = BASE_RADIUS + cf * 1.2;
+      const dotR = BASE_RADIUS + cf * 2.5;
 
       ctx.beginPath();
       ctx.arc(d.bx + d.ox, d.by + d.oy, dotR, 0, Math.PI * 2);

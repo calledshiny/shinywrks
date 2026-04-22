@@ -186,8 +186,8 @@
   const SPACING = 20;
   const BASE_RADIUS = 1.0;
   const BASE_ALPHA = 0.15;
-  const REPEL_RADIUS = 100;
-  const MAX_REPEL = 14;
+  const REPEL_RADIUS = 90;
+  const MAX_REPEL = 10;
   const LERP_SPEED = 0.04;
 
   let mouse = { x: -999, y: -999 };
@@ -256,13 +256,8 @@
         d.tc = 0;
       }
 
-      // Fast in, slow out
-      const lerpIn = 0.35;
-      const lerpOut = 0.04;
-      const entering = d.tc > (d.cf || 0);
-      const speed = entering ? lerpIn : lerpOut;
-
-      // Lerp toward target
+      // Single smooth spring — responsive but never snappy
+      const speed = 0.09;
       d.ox += (d.tx - d.ox) * speed;
       d.oy += (d.ty - d.oy) * speed;
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;

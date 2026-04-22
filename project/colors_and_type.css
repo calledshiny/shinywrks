@@ -1,0 +1,209 @@
+/* ============================================================
+   SHINY — Design System Tokens
+   Justin Wiemann / shiny
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
+/* ============================================================
+   COLOR TOKENS
+   ============================================================ */
+
+:root {
+  /* Core Darks */
+  --color-void:        #0D0B08;
+  --color-tobacco:     #1A1209;
+  --color-warm-dark:   #3D3428;
+
+  /* Core Lights */
+  --color-sand:        #C4B8A4;
+  --color-bone:        #E8E2D6;
+  --color-off-white:   #F5F3EF;
+
+  /* Accents */
+  --color-silver:      #D4D0CC;
+  --color-chrome:      linear-gradient(135deg, #E8E4E0 0%, #D4D0CC 30%, #F5F3EF 50%, #D4D0CC 70%, #C0BCBA 100%);
+  --color-chrome-flat: #D4D0CC;
+
+  /* Semantic */
+  --color-bg:          var(--color-void);
+  --color-bg-2:        var(--color-tobacco);
+  --color-surface:     var(--color-warm-dark);
+  --color-fg-1:        var(--color-off-white);
+  --color-fg-2:        var(--color-bone);
+  --color-fg-muted:    var(--color-sand);
+  --color-border:      var(--color-warm-dark);
+  --color-border-light:var(--color-sand);
+  --color-accent:      var(--color-silver);
+
+  /* ============================================================
+     TYPOGRAPHY TOKENS
+     ============================================================ */
+
+  /* Font Families */
+  --font-display:  'Space Grotesk', 'Neue Haas Grotesk', 'PP Neue Montreal', Arial, sans-serif;
+  --font-body:     'Space Grotesk', sans-serif;
+  --font-mono:     'Space Mono', 'Courier New', monospace;
+
+  /* Scale */
+  --text-mega:     clamp(80px, 10vw, 160px);
+  --text-hero:     clamp(48px, 6vw, 96px);
+  --text-display:  clamp(32px, 4vw, 64px);
+  --text-title:    clamp(24px, 3vw, 40px);
+  --text-body:     16px;
+  --text-body-sm:  15px;
+  --text-label:    12px;
+  --text-micro:    11px;
+
+  /* Weight */
+  --weight-display: 500;
+  --weight-body:    400;
+  --weight-label:   400;
+  --weight-bold:    700;
+
+  /* Tracking */
+  --tracking-display: -0.02em;
+  --tracking-body:     0em;
+  --tracking-label:    0.05em;
+  --tracking-section:  0.15em;
+  --tracking-wide:     0.18em;
+
+  /* Leading */
+  --leading-display: 0.95;
+  --leading-title:   1.1;
+  --leading-body:    1.6;
+  --leading-label:   1.4;
+
+  /* ============================================================
+     SPACING TOKENS
+     ============================================================ */
+
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-24:  96px;
+  --space-32:  128px;
+  --space-48:  192px;
+
+  /* Section spacing */
+  --section-gap: clamp(96px, 12vw, 200px);
+
+  /* ============================================================
+     BORDERS & RADIUS
+     ============================================================ */
+
+  --radius:      0px;
+  --border-thin: 1px solid var(--color-border);
+  --border-light: 1px solid var(--color-border-light);
+
+  /* ============================================================
+     TRANSITIONS
+     ============================================================ */
+
+  --ease-out-slow: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-base: 400ms var(--ease-out-slow);
+  --transition-fast: 200ms var(--ease-out-slow);
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT DEFAULTS
+   ============================================================ */
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg-2);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-display);
+  color: var(--color-fg-1);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--leading-title);
+  color: var(--color-fg-1);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-title);
+  font-weight: var(--weight-display);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-fg-1);
+}
+
+p {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--leading-body);
+  color: var(--color-fg-2);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-sand);
+}
+
+/* Label / nav / meta utility */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: var(--weight-label);
+  letter-spacing: var(--tracking-section);
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+/* Section marker */
+.section-marker {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-sand);
+}
+
+/* Chrome text effect */
+.chrome-text {
+  background: linear-gradient(135deg, #E8E4E0 0%, #D4D0CC 30%, #F5F3EF 50%, #D4D0CC 70%, #C0BCBA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Film grain overlay for images */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.4;
+}

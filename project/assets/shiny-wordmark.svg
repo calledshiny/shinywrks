@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40">
+  <defs>
+    <linearGradient id="chrome-wm" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E8E4E0"></stop>
+      <stop offset="30%" stop-color="#D4D0CC"></stop>
+      <stop offset="50%" stop-color="#F5F3EF"></stop>
+      <stop offset="70%" stop-color="#C0BCBA"></stop>
+      <stop offset="100%" stop-color="#D4D0CC"></stop>
+    </linearGradient>
+  </defs>
+  <text x="0" y="30" font-family="&#39;Space Grotesk&#39;, Arial, sans-serif" font-weight="500" font-size="32" letter-spacing="-0.02em" fill="url(#chrome-wm)">shiny</text>
+</svg>

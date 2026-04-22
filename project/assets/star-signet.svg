@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <defs>
+    <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8E4E0"></stop>
+      <stop offset="25%" stop-color="#D4D0CC"></stop>
+      <stop offset="50%" stop-color="#F5F3EF"></stop>
+      <stop offset="75%" stop-color="#C0BCBA"></stop>
+      <stop offset="100%" stop-color="#D4D0CC"></stop>
+    </linearGradient>
+  </defs>
+  
+  <polygon points="24,2 28.9,16.4 44,16.4 31.6,25.2 36.5,39.6 24,30.8 11.5,39.6 16.4,25.2 4,16.4 19.1,16.4" fill="url(#chrome)"></polygon>
+</svg>

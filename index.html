@@ -918,12 +918,17 @@ function Footer({ onNav }) {
         <StarSignet size={10}/>
         <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4B8A4' }}>shinywrks</span>
       </button>
-      <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.06em', color: '#C4B8A4' }}>
-        <a href="mailto:hello@justinwiemann.com" style={{ color: '#3D3428', textDecoration: 'none' }}>hello@justinwiemann.com</a>
-        <span style={{ margin: '0 12px' }}>—</span>
-        <a href="https://instagram.com/justinwiemann" style={{ color: '#C4B8A4', textDecoration: 'none' }}>@justinwiemann</a>
-        <span style={{ margin: '0 12px' }}>—</span>
-        <span>© 2026</span>
+      <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.06em', display: 'flex', alignItems: 'center', gap: 24 }}>
+        <a href="mailto:hello@justinwiemann.com" style={{ color: '#1A1209', textDecoration: 'none', letterSpacing: '0.04em' }}>hello@justinwiemann.com</a>
+        <span style={{ color: '#E8E2D6' }}>|</span>
+        <a href="https://instagram.com/justinwiemann" style={{
+          textDecoration: 'none',
+          background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
+          WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+        }}>@justinwiemann</a>
+        <span style={{ color: '#E8E2D6' }}>|</span>
+        <span style={{ color: '#C4B8A4' }}>© 2026</span>
       </div>
     </footer>
   );

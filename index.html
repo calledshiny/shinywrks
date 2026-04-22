@@ -483,17 +483,22 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
     : PROJECTS.filter(p => p.tag === activeFilter);
 
   const stripRef = React.useRef();
+  const wrapRef = React.useRef();
 
   React.useEffect(() => {
     const strip = stripRef.current;
-    if (!strip) return;
+    const wrap = wrapRef.current;
+    if (!strip || !wrap) return;
     const onWheel = (e) => {
-      // redirect vertical scroll to horizontal
       e.preventDefault();
       strip.scrollLeft += e.deltaY + e.deltaX;
     };
-    strip.addEventListener('wheel', onWheel, { passive: false });
-    return () => strip.removeEventListener('wheel', onWheel);
+    wrap.addEventListener('wheel', onWheel, { passive: false });
+    document.body.style.overflow = 'hidden';
+    return () => {
+      wrap.removeEventListener('wheel', onWheel);
+      document.body.style.overflow = '';
+    };
   }, []);
 
   // Varied heights as % of strip height — creates the editorial rhythm
@@ -501,7 +506,7 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
   const heightPcts = [0.78, 0.56, 0.42, 0.84, 0.64, 0.50];
 
   return (
-    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', paddingTop: 65, position: 'relative', zIndex: 1 }}>
+    <div ref={wrapRef} style={{ height: '100vh', display: 'flex', flexDirection: 'column', overflow: 'hidden', paddingTop: 65, position: 'relative', zIndex: 1 }}>
 
       {/* Hero section */}
 

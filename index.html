@@ -222,8 +222,10 @@
   }
 
   window.addEventListener('mousemove', e => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const interactive = el && el.closest('button, a, input, select, textarea, [role="button"]');
+    if (interactive) { mouse.x = -999; mouse.y = -999; }
+    else { mouse.x = e.clientX; mouse.y = e.clientY; }
   });
 
   window.addEventListener('mouseleave', () => {

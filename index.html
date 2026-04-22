@@ -188,16 +188,15 @@
   const BASE_ALPHA = 0.15;
   const REPEL_RADIUS = 100;
   const MAX_REPEL = 14;
-  const LERP_SPEED = 0.05;
+  const LERP_SPEED = 0.025;
 
   let mouse = { x: -999, y: -999 };
-  // Store per-dot offset state for smooth animation
-  // Per-dot color lerp state
   let dots = [];
 
-  // Chrome color components
-  const BASE_COLOR  = [100, 88, 72];
-  const CHROME_COLOR = [210, 205, 198]; // silver-chrome
+  const BASE_COLOR    = [100, 88, 72];
+  const CHROME_DARK   = [50,  46, 42];
+  const CHROME_MID    = [185, 180, 174];
+  const CHROME_BRIGHT = [248, 246, 243];
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -261,13 +260,25 @@
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * LERP_SPEED;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * LERP_SPEED;
 
-      // Interpolate base→chrome color
+      // Angle-based chrome: light from top-left, shadow bottom-right
       const cf = d.cf || 0;
-      const r = Math.round(BASE_COLOR[0] + (CHROME_COLOR[0] - BASE_COLOR[0]) * cf);
-      const g = Math.round(BASE_COLOR[1] + (CHROME_COLOR[1] - BASE_COLOR[1]) * cf);
-      const b = Math.round(BASE_COLOR[2] + (CHROME_COLOR[2] - BASE_COLOR[2]) * cf);
-      // Vary size slightly with chrome factor
-      const dotR = BASE_RADIUS + cf * 0.8;
+      const angle = Math.atan2(d.by - mouse.y, d.bx - mouse.x);
+      const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2; // 0=shadow, 1=highlight
+      const cSrc = highlight < 0.5
+        ? [
+            CHROME_DARK[0] + (CHROME_MID[0] - CHROME_DARK[0]) * (highlight * 2),
+            CHROME_DARK[1] + (CHROME_MID[1] - CHROME_DARK[1]) * (highlight * 2),
+            CHROME_DARK[2] + (CHROME_MID[2] - CHROME_DARK[2]) * (highlight * 2),
+          ]
+        : [
+            CHROME_MID[0] + (CHROME_BRIGHT[0] - CHROME_MID[0]) * ((highlight - 0.5) * 2),
+            CHROME_MID[1] + (CHROME_BRIGHT[1] - CHROME_MID[1]) * ((highlight - 0.5) * 2),
+            CHROME_MID[2] + (CHROME_BRIGHT[2] - CHROME_MID[2]) * ((highlight - 0.5) * 2),
+          ];
+      const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * cf);
+      const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
+      const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
+      const dotR = BASE_RADIUS + cf * 1.2;
 
       ctx.beginPath();
       ctx.arc(d.bx + d.ox, d.by + d.oy, dotR, 0, Math.PI * 2);

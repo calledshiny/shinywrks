@@ -308,7 +308,7 @@
         }
       }
 
-      const lerpSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.55 : 0.28;
+      const lerpSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.55 : 0.10;
       d.ox += (d.tx - d.ox) * lerpSpeed;
       d.oy += (d.ty - d.oy) * lerpSpeed;
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * lerpSpeed;

@@ -314,22 +314,22 @@
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
-      // Total displacement (cursor + pulse push)
-      const totalOx = d.ox + pulsePushX;
-      const totalOy = d.oy + pulsePushY;
-      const offsetMag = Math.sqrt(totalOx * totalOx + totalOy * totalOy);
-      const rodAngle = offsetMag > 0.01 ? Math.atan2(totalOy, totalOx) : 0;
-
-      // Rod shape: circle at rest, ellipse when tilted
+      // Rod shape driven by cursor only — clean, no pulse interference
+      const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);
+      const rodAngle = cursorMag > 0.01 ? Math.atan2(d.oy, d.ox) : 0;
+      const tiltFactor = Math.min(1, cursorMag / 8);
       const cf = d.cf || 0;
-      const tiltFactor = Math.min(1, offsetMag / 8); // 0→1 as rod tilts
       const baseR = BASE_RADIUS;
-      const radiusX = baseR + offsetMag * 0.22;
+      const radiusX = baseR + cursorMag * 0.22;
       const radiusY = Math.max(0.1, baseR * (1 - tiltFactor * 0.82));
 
-      // Chrome applies to any displacement — cursor cf or pulse tilt
+      // Position: cursor displacement only (pulse push removed from position)
+      const totalOx = d.ox;
+      const totalOy = d.oy;
+
+      // Chrome from cursor cf; pulse adds brightness only
       const chromeFactor = Math.min(1, cf + tiltFactor * 0.7);
-      const angle = offsetMag > 0.1 ? Math.atan2(totalOy, totalOx) : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
+      const angle = cursorMag > 0.1 ? Math.atan2(d.oy, d.ox) : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
         ? [

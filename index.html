@@ -284,8 +284,9 @@
         d.tc = 0;
       }
 
-      // Pulse contribution — additive glow as wave front passes
+      // Pulse contribution — alpha glow + subtle radial push
       let pulseAlpha = 0;
+      let pulsePushX = 0, pulsePushY = 0;
       for (const p of pulses) {
         const pdx = d.bx - p.x;
         const pdy = d.by - p.y;
@@ -294,6 +295,11 @@
         const fade = Math.pow(1 - p.radius / p.maxRadius, 0.4);
         const contribution = p.intensity * fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
         pulseAlpha += contribution;
+        if (pdist > 0) {
+          const pushMag = contribution * 4;
+          pulsePushX += (pdx / pdist) * pushMag;
+          pulsePushY += (pdy / pdist) * pushMag;
+        }
       }
 
       const speed = 0.09;
@@ -302,7 +308,18 @@
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
+      // Total displacement (cursor + pulse push)
+      const totalOx = d.ox + pulsePushX;
+      const totalOy = d.oy + pulsePushY;
+      const offsetMag = Math.sqrt(totalOx * totalOx + totalOy * totalOy);
+      const rodAngle = offsetMag > 0.01 ? Math.atan2(totalOy, totalOx) : 0;
+
+      // Rod shape: circle at rest, ellipse when tilted
       const cf = d.cf || 0;
+      const baseR = BASE_RADIUS + cf * 1.4;
+      const radiusX = baseR + offsetMag * 0.28; // elongates along tilt direction
+      const radiusY = Math.max(0.35, baseR / (1 + offsetMag * 0.06)); // compresses perpendicular
+
       const angle = Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
@@ -319,11 +336,10 @@
       const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * cf);
       const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
       const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
-      const dotR = BASE_RADIUS + cf * 1.4;
       const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();
-      ctx.arc(d.bx + d.ox, d.by + d.oy, dotR, 0, Math.PI * 2);
+      ctx.ellipse(d.bx + totalOx, d.by + totalOy, radiusX, radiusY, rodAngle, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${r},${g},${b},${finalAlpha})`;
       ctx.fill();
     }

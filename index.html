@@ -298,7 +298,7 @@
         const pdy = d.by - p.y;
         const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
         const delta = pdist - p.radius;
-        const fade = Math.pow(1 - p.radius / p.maxRadius, 0.3);
+        const fade = Math.pow(1 - p.radius / p.maxRadius, 1.2);
         const contribution = p.intensity * fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
         pulseAlpha += contribution;
         if (pdist > 0) {
@@ -308,18 +308,16 @@
         }
       }
 
-      const speed = 0.18;
+      const speed = 0.28;
       d.ox += (d.tx - d.ox) * speed;
       d.oy += (d.ty - d.oy) * speed;
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
-      // Rod shape: cursor drives tilt, pulse adds a gentle radial nudge
+      // Rod shape: cursor only
       const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);
-      const totalOx = d.ox + pulsePushX * 0.4;
-      const totalOy = d.oy + pulsePushY * 0.4;
-      const totalMag = Math.sqrt(totalOx * totalOx + totalOy * totalOy);
-      const rodAngle = totalMag > 0.01 ? Math.atan2(totalOy, totalOx) : 0;
+      const totalMag = cursorMag;
+      const rodAngle = cursorMag > 0.01 ? Math.atan2(d.oy, d.ox) : 0;
       const tiltFactor = Math.min(1, totalMag / 8);
       const cf = d.cf || 0;
       const baseR = BASE_RADIUS;
@@ -328,7 +326,7 @@
 
       // Chrome from cursor cf; pulse adds brightness only
       const chromeFactor = Math.min(1, cf + tiltFactor * 0.7);
-      const angle = totalMag > 0.1 ? rodAngle : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
+      const angle = cursorMag > 0.1 ? rodAngle : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
         ? [

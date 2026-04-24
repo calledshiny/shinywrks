@@ -235,7 +235,34 @@
   window.addEventListener('resize', resize);
   resize();
 
+  // ── Pulse wave system ──────────────────────────────────────────
+  let pulses = [];
+  let lastPulseTime = performance.now();
+  let nextPulseIn = 2000 + Math.random() * 2000;
+
+  function spawnPulse() {
+    pulses.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: 0,
+      maxRadius: 180 + Math.random() * 180,
+      speed: 0.9 + Math.random() * 0.6,
+      intensity: 0.10 + Math.random() * 0.08,
+      sigma: 22 + Math.random() * 14,
+    });
+  }
+
   function draw() {
+    const now = performance.now();
+    if (now - lastPulseTime > nextPulseIn) {
+      spawnPulse();
+      lastPulseTime = now;
+      nextPulseIn = 1800 + Math.random() * 2800;
+    }
+    // advance pulses
+    pulses = pulses.filter(p => p.radius < p.maxRadius);
+    for (const p of pulses) p.radius += p.speed;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < dots.length; i++) {
@@ -249,24 +276,34 @@
         d.tx = (dx / dist) * force * MAX_REPEL;
         d.ty = (dy / dist) * force * MAX_REPEL;
         d.ta = BASE_ALPHA + force * 1.0;
-        d.tc = force; // chrome factor 0→1
+        d.tc = force;
       } else {
         d.tx = 0; d.ty = 0;
         d.ta = BASE_ALPHA;
         d.tc = 0;
       }
 
-      // Single smooth spring — responsive but never snappy
+      // Pulse contribution — additive glow as wave front passes
+      let pulseAlpha = 0;
+      for (const p of pulses) {
+        const pdx = d.bx - p.x;
+        const pdy = d.by - p.y;
+        const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
+        const delta = pdist - p.radius;
+        const fade = 1 - p.radius / p.maxRadius; // fades as it expands
+        const contribution = p.intensity * fade * Math.exp(-0.5 * (delta / p.sigma) ** 2);
+        pulseAlpha += contribution;
+      }
+
       const speed = 0.09;
       d.ox += (d.tx - d.ox) * speed;
       d.oy += (d.ty - d.oy) * speed;
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
-      // Angle-based chrome: light from top-left, shadow bottom-right
       const cf = d.cf || 0;
       const angle = Math.atan2(d.by - mouse.y, d.bx - mouse.x);
-      const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2; // 0=shadow, 1=highlight
+      const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
         ? [
             CHROME_DARK[0] + (CHROME_MID[0] - CHROME_DARK[0]) * (highlight * 2),
@@ -282,10 +319,11 @@
       const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
       const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
       const dotR = BASE_RADIUS + cf * 1.4;
+      const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();
       ctx.arc(d.bx + d.ox, d.by + d.oy, dotR, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, d.a)})`;
+      ctx.fillStyle = `rgba(${r},${g},${b},${finalAlpha})`;
       ctx.fill();
     }
 

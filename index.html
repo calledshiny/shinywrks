@@ -500,6 +500,8 @@ const PROJECTS = [
 
 const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'Graphics', 'Video'];
 
+const STAR_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cline x1='5' y1='5' x2='19' y2='19'/%3E%3Cline x1='19' y1='5' x2='5' y2='19'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair`;
+
 // ─── NAV ──────────────────────────────────────────────────────────────────────
 function Nav({ page, onNav }) {
   return (
@@ -541,7 +543,7 @@ function ProjectCard({ p, hPct, onNav }) {
       onClick={() => onNav('project', p)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ flexShrink: 0, height: `${hPct * 100}%`, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: 'pointer' }}
+      style={{ flexShrink: 0, height: `${hPct * 100}%`, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
     >
       <div style={{ flex: 1, minHeight: 0, position: 'relative', overflow: 'hidden', background: p.bg }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`, mixBlendMode: 'overlay', pointerEvents: 'none' }}/>
@@ -610,7 +612,7 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
             fontFamily: 'Space Mono, monospace', fontSize: 10,
             letterSpacing: '0.12em', textTransform: 'uppercase',
             color: '#1A1209', background: 'none', border: '1px solid #C4B8A4',
-            padding: '8px 18px', cursor: 'pointer',
+            padding: '8px 18px', cursor: STAR_CURSOR,
             transition: 'border-color 300ms, color 300ms',
           }}
           onMouseEnter={e => { e.target.style.borderColor='#0D0B08'; e.target.style.color='#0D0B08'; }}

@@ -245,7 +245,7 @@
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 0,
-      maxRadius: 60 + Math.random() * 80,
+      maxRadius: 100 + Math.random() * 100,
       speed: 2.0 + Math.random() * 1.5,
       intensity: 0.65 + Math.random() * 0.3,
       sigma: 22 + Math.random() * 16,
@@ -292,7 +292,7 @@
         const pdy = d.by - p.y;
         const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
         const delta = pdist - p.radius;
-        const fade = Math.pow(1 - p.radius / p.maxRadius, 0.4);
+        const fade = Math.pow(1 - p.radius / p.maxRadius, 1.8);
         const contribution = p.intensity * fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
         pulseAlpha += contribution;
         if (pdist > 0) {

@@ -317,8 +317,8 @@
       // Rod shape: circle at rest, ellipse when tilted
       const cf = d.cf || 0;
       const baseR = BASE_RADIUS + cf * 1.4;
-      const radiusX = baseR + offsetMag * 0.28; // elongates along tilt direction
-      const radiusY = Math.max(0.35, baseR / (1 + offsetMag * 0.06)); // compresses perpendicular
+      const radiusX = baseR + offsetMag * 0.28;
+      const radiusY = Math.max(0.2, baseR / (1 + offsetMag * 0.18));
 
       const angle = Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;

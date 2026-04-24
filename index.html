@@ -213,8 +213,9 @@
         dots.push({
           bx: c * SPACING,
           by: r * SPACING,
-          ox: 0, oy: 0, // current offset
-          tx: 0, ty: 0, // target offset
+          ox: 0, oy: 0,
+          vx: 0, vy: 0,
+          tx: 0, ty: 0,
           a: BASE_ALPHA,
         });
       }
@@ -308,11 +309,15 @@
         }
       }
 
-      const lerpSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.55 : 0.10;
-      d.ox += (d.tx - d.ox) * lerpSpeed;
-      d.oy += (d.ty - d.oy) * lerpSpeed;
-      d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * lerpSpeed;
-      d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * lerpSpeed;
+      // Spring physics: reactive but natural
+      d.vx = (d.vx + (d.tx - d.ox) * 0.22) * 0.74;
+      d.vy = (d.vy + (d.ty - d.oy) * 0.22) * 0.74;
+      d.ox += d.vx;
+      d.oy += d.vy;
+      // Alpha/chrome: fast attack, slow release
+      const aSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.45 : 0.12;
+      d.a  = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - d.a)  * aSpeed;
+      d.cf = (d.cf || 0)          + ((d.tc || 0)          - d.cf) * aSpeed;
 
       // Rod shape: cursor only
       const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);

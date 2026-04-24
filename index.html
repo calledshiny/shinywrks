@@ -187,7 +187,7 @@
   const BASE_RADIUS = 1.0;
   const BASE_ALPHA = 0.15;
   const REPEL_RADIUS = 90;
-  const MAX_REPEL = 10;
+  const MAX_REPEL = 6;
   const LERP_SPEED = 0.04;
 
   let mouse = { x: -999, y: -999 };
@@ -320,8 +320,8 @@
       const tiltFactor = Math.min(1, cursorMag / 8);
       const cf = d.cf || 0;
       const baseR = BASE_RADIUS;
-      const radiusX = baseR + cursorMag * 0.22;
-      const radiusY = Math.max(0.1, baseR * (1 - tiltFactor * 0.82));
+      const radiusX = baseR + cursorMag * 0.12;
+      const radiusY = Math.max(0.4, baseR * (1 - tiltFactor * 0.55));
 
       // Position: cursor displacement only (pulse push removed from position)
       const totalOx = d.ox;

@@ -245,10 +245,10 @@
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 0,
-      maxRadius: 180 + Math.random() * 180,
-      speed: 0.7 + Math.random() * 0.4,
-      intensity: 0.35 + Math.random() * 0.2,
-      sigma: 30 + Math.random() * 20,
+      maxRadius: 160 + Math.random() * 160,
+      speed: 0.8 + Math.random() * 0.5,
+      intensity: 0.7 + Math.random() * 0.3,
+      sigma: 50 + Math.random() * 30,
     });
   }
 
@@ -291,8 +291,8 @@
         const pdy = d.by - p.y;
         const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
         const delta = pdist - p.radius;
-        const fade = 1 - p.radius / p.maxRadius; // fades as it expands
-        const contribution = p.intensity * fade * Math.exp(-0.5 * (delta / p.sigma) ** 2);
+        const fade = Math.pow(1 - p.radius / p.maxRadius, 0.4);
+        const contribution = p.intensity * fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
         pulseAlpha += contribution;
       }
 

@@ -254,11 +254,10 @@
 
   function draw() {
     const now = performance.now();
-    if (now - lastPulseTime > nextPulseIn) {
+    if (pulses.length === 0 && now - lastPulseTime > nextPulseIn) {
       spawnPulse();
-      if (Math.random() > 0.5) spawnPulse(); // sometimes two at once
       lastPulseTime = now;
-      nextPulseIn = 800 + Math.random() * 1400;
+      nextPulseIn = 1500 + Math.random() * 2000;
     }
     // advance pulses
     pulses = pulses.filter(p => p.radius < p.maxRadius);

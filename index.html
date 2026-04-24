@@ -247,17 +247,24 @@
       radius: 0,
       maxRadius: 500 + Math.random() * 400,
       speed: 6 + Math.random() * 4,
-      intensity: 0.55 + Math.random() * 0.25,
+      intensity: 0.85 + Math.random() * 0.15,
       sigma: 60 + Math.random() * 40,
     });
   }
 
   function draw() {
     const now = performance.now();
-    if (pulses.length === 0 && now - lastPulseTime > nextPulseIn) {
-      spawnPulse();
+    if (now - lastPulseTime > nextPulseIn) {
+      // Only spawn if new origin is far enough from existing ones
+      let tries = 0, spawned = false;
+      while (tries++ < 8 && !spawned) {
+        const nx = Math.random() * canvas.width;
+        const ny = Math.random() * canvas.height;
+        const tooClose = pulses.some(p => Math.hypot(nx - p.x, ny - p.y) < 250);
+        if (!tooClose) { pulses.push({ x: nx, y: ny, radius: 0, maxRadius: 500 + Math.random() * 400, speed: 6 + Math.random() * 4, intensity: 0.55 + Math.random() * 0.25, sigma: 60 + Math.random() * 40 }); spawned = true; }
+      }
       lastPulseTime = now;
-      nextPulseIn = 300 + Math.random() * 600;
+      nextPulseIn = 400 + Math.random() * 500;
     }
     // advance pulses
     pulses = pulses.filter(p => p.radius < p.maxRadius);

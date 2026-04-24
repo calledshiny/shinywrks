@@ -245,8 +245,8 @@
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 0,
-      maxRadius: 500 + Math.random() * 400,
-      speed: 6 + Math.random() * 4,
+      maxRadius: Math.hypot(canvas.width, canvas.height),
+      speed: 8 + Math.random() * 4,
       intensity: 0.85 + Math.random() * 0.15,
       sigma: 60 + Math.random() * 40,
     });
@@ -314,22 +314,21 @@
       d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
       d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
 
-      // Rod shape driven by cursor only — clean, no pulse interference
+      // Rod shape: cursor drives tilt, pulse adds a gentle radial nudge
       const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);
-      const rodAngle = cursorMag > 0.01 ? Math.atan2(d.oy, d.ox) : 0;
-      const tiltFactor = Math.min(1, cursorMag / 8);
+      const totalOx = d.ox + pulsePushX * 0.4;
+      const totalOy = d.oy + pulsePushY * 0.4;
+      const totalMag = Math.sqrt(totalOx * totalOx + totalOy * totalOy);
+      const rodAngle = totalMag > 0.01 ? Math.atan2(totalOy, totalOx) : 0;
+      const tiltFactor = Math.min(1, totalMag / 8);
       const cf = d.cf || 0;
       const baseR = BASE_RADIUS;
-      const radiusX = baseR + cursorMag * 0.12;
+      const radiusX = baseR + totalMag * 0.12;
       const radiusY = Math.max(0.4, baseR * (1 - tiltFactor * 0.55));
-
-      // Position: cursor displacement only (pulse push removed from position)
-      const totalOx = d.ox;
-      const totalOy = d.oy;
 
       // Chrome from cursor cf; pulse adds brightness only
       const chromeFactor = Math.min(1, cf + tiltFactor * 0.7);
-      const angle = cursorMag > 0.1 ? Math.atan2(d.oy, d.ox) : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
+      const angle = totalMag > 0.1 ? rodAngle : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
         ? [
@@ -348,7 +347,7 @@
       const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();
-      ctx.ellipse(d.bx + totalOx, d.by + totalOy, radiusX, radiusY, rodAngle, 0, Math.PI * 2);
+      ctx.ellipse(d.bx + d.ox, d.by + d.oy, radiusX, radiusY, rodAngle, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${r},${g},${b},${finalAlpha})`;
       ctx.fill();
     }

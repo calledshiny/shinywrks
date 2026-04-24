@@ -17,7 +17,7 @@
     font-family: 'Space Grotesk', sans-serif;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
-    cursor: crosshair;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair;
   }
   #root { min-height: 100vh; }
 
@@ -107,7 +107,7 @@
     color: #3D3428;
     background: none;
     border: none;
-    cursor: crosshair;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair;
     padding: 0;
     transition: color 300ms;
     text-decoration: none;
@@ -124,7 +124,7 @@
     background: none;
     border: 1px solid #C4B8A4;
     padding: 4px 10px;
-    cursor: crosshair;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair;
     border-radius: 0;
     transition: all 300ms cubic-bezier(0.16,1,0.3,1);
     color: #3D3428;
@@ -156,7 +156,7 @@
   .next-project-btn {
     display: block; width: 100%;
     background: none; border: none;
-    text-align: left; cursor: crosshair;
+    text-align: left; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair;
     padding: 60px 48px;
     border-top: 1px solid #E8E2D6;
     transition: background 400ms;
@@ -500,6 +500,7 @@ const PROJECTS = [
 
 const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'Graphics', 'Video'];
 
+const CROSS_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair`;
 const STAR_CURSOR = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cline x1='5' y1='5' x2='19' y2='19'/%3E%3Cline x1='19' y1='5' x2='5' y2='19'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair`;
 
 // ─── NAV ──────────────────────────────────────────────────────────────────────
@@ -516,7 +517,7 @@ function Nav({ page, onNav }) {
     }}>
       <button onClick={() => onNav('home')} style={{
         display: 'flex', alignItems: 'center', gap: 10,
-        background: 'none', border: 'none', cursor: 'crosshair', padding: 0,
+        background: 'none', border: 'none', cursor: CROSS_CURSOR, padding: 0,
       }}>
         <StarSignet size={22}/>
       </button>
@@ -902,7 +903,7 @@ function Kontakt() {
             textDecoration: 'none',
             transition: 'color 300ms',
             marginBottom: 80,
-            cursor: 'crosshair',
+            cursor: CROSS_CURSOR,
           }}
         >hello@justinwiemann.com</a>
 
@@ -964,7 +965,7 @@ function Footer({ onNav }) {
     }}>
       <button onClick={() => onNav('home')} style={{
         display: 'flex', alignItems: 'center', gap: 6,
-        background: 'none', border: 'none', cursor: 'crosshair', padding: 0,
+        background: 'none', border: 'none', cursor: CROSS_CURSOR, padding: 0,
       }}>
         <StarSignet size={10}/>
         <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4B8A4' }}>shinywrks</span>

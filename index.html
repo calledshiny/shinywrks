@@ -309,13 +309,12 @@
         }
       }
 
-      // Adaptive lerp: fast attack, slow release
-      const attacking = dist < REPEL_RADIUS && dist > 0;
-      const posSpeed = attacking ? 0.42 : 0.14;
-      d.ox += (d.tx - d.ox) * posSpeed;
-      d.oy += (d.ty - d.oy) * posSpeed;
-      // Brightness: snappy on, very slow off (long glow trail)
-      const aSpeed = attacking ? 0.50 : 0.06;
+      // Spring physics: reactive but natural
+      d.vx = (d.vx + (d.tx - d.ox) * 0.22) * 0.74;
+      d.vy = (d.vy + (d.ty - d.oy) * 0.22) * 0.74;
+      d.ox += d.vx;
+      d.oy += d.vy;
+      const aSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.45 : 0.12;
       d.a  = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - d.a)  * aSpeed;
       d.cf = (d.cf || 0)          + ((d.tc || 0)          - d.cf) * aSpeed;
 

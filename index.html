@@ -169,6 +169,14 @@
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cline x1='5' y1='5' x2='19' y2='19'/%3E%3Cline x1='19' y1='5' x2='5' y2='19'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair !important;
   }
 
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,158,92,0.8); }
+    50% { opacity: 0.5; box-shadow: 0 0 6px 3px rgba(74,158,92,0.0); }
+  }
+  .availability-dot {
+    animation: pulse-glow 5s ease-in-out infinite;
+  }
+
   #dot-grid-canvas {
     position: fixed;
     inset: 0;
@@ -604,7 +612,7 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
             color: '#0D0B08', marginBottom: 16,
           }}>shinywrks</h1>
           <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: 12 }}>
-            visuals that make your brand shine different ✨
+            I make your brand shine different
           </div>
           <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, lineHeight: 1.6, color: '#1A1209', maxWidth: 380, marginBottom: 14 }}>
             Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
@@ -622,15 +630,15 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
         </div>
 
         {/* Portrait card — horizontal: text left, image right */}
-        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'row', alignItems: 'flex-start', gap: 16 }}>
+        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
           <div>
             <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em', color: '#0D0B08', marginBottom: 4 }}>Justin Wiemann</div>
             <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 10 }}>Kommunikationsdesigner</div>
             <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.04em', lineHeight: 1.9, color: '#3D3428', marginBottom: 12 }}>
-              Hof, DE<br/>Seit 2019
+              Hof, DE<br/>Freiberuflich
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
+              <div className="availability-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
             </div>
           </div>
@@ -971,16 +979,16 @@ function Footer({ onNav }) {
         <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#C4B8A4' }}>shinywrks</span>
       </button>
       <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.06em', display: 'flex', alignItems: 'center', gap: 24 }}>
-        <a href="mailto:hello@justinwiemann.com" style={{ color: '#1A1209', textDecoration: 'none', letterSpacing: '0.04em' }}>hello@justinwiemann.com</a>
+        <a href="mailto:justin@shinywrks.de" style={{ color: '#1A1209', textDecoration: 'none', letterSpacing: '0.04em' }}>justin@shinywrks.de</a>
         <span style={{ color: '#E8E2D6' }}>|</span>
-        <a href="https://instagram.com/justinwiemann" style={{
+        <a href="https://instagram.com/shinywrks" style={{
           textDecoration: 'none',
           background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-        }}>@justinwiemann</a>
+        }}>@shinywrks</a>
         <span style={{ color: '#E8E2D6' }}>|</span>
-        <span style={{ color: '#C4B8A4' }}>© 2026</span>
+        <span style={{ color: '#C4B8A4', fontSize: 9 }}>© 2026</span>
       </div>
     </footer>
   );

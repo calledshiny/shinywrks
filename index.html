@@ -266,9 +266,9 @@
       lastPulseTime = now;
       nextPulseIn = 400 + Math.random() * 500;
     }
-    // advance pulses
+    // advance pulses — accelerate so they reach the edge faster
     pulses = pulses.filter(p => p.radius < p.maxRadius);
-    for (const p of pulses) p.radius += p.speed;
+    for (const p of pulses) { p.speed += 0.5; p.radius += p.speed; }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -324,24 +324,11 @@
       const radiusX = baseR + totalMag * 0.12;
       const radiusY = Math.max(0.4, baseR * (1 - tiltFactor * 0.55));
 
-      // Chrome from cursor cf; pulse adds brightness only
-      const chromeFactor = Math.min(1, cf + tiltFactor * 0.7);
-      const angle = cursorMag > 0.1 ? rodAngle : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
-      const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
-      const cSrc = highlight < 0.5
-        ? [
-            CHROME_DARK[0] + (CHROME_MID[0] - CHROME_DARK[0]) * (highlight * 2),
-            CHROME_DARK[1] + (CHROME_MID[1] - CHROME_DARK[1]) * (highlight * 2),
-            CHROME_DARK[2] + (CHROME_MID[2] - CHROME_DARK[2]) * (highlight * 2),
-          ]
-        : [
-            CHROME_MID[0] + (CHROME_BRIGHT[0] - CHROME_MID[0]) * ((highlight - 0.5) * 2),
-            CHROME_MID[1] + (CHROME_BRIGHT[1] - CHROME_MID[1]) * ((highlight - 0.5) * 2),
-            CHROME_MID[2] + (CHROME_BRIGHT[2] - CHROME_MID[2]) * ((highlight - 0.5) * 2),
-          ];
-      const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * chromeFactor);
-      const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * chromeFactor);
-      const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * chromeFactor);
+      // Flat single color — slightly brighter under cursor
+      const boost = Math.round((d.cf || 0) * 55);
+      const r = Math.min(255, BASE_COLOR[0] + boost);
+      const g = Math.min(255, BASE_COLOR[1] + boost);
+      const b = Math.min(255, BASE_COLOR[2] + boost);
       const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();

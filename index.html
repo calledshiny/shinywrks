@@ -316,11 +316,14 @@
 
       // Rod shape: circle at rest, ellipse when tilted
       const cf = d.cf || 0;
-      const baseR = BASE_RADIUS + cf * 1.4;
-      const radiusX = baseR + offsetMag * 0.28;
-      const radiusY = Math.max(0.2, baseR / (1 + offsetMag * 0.18));
+      const tiltFactor = Math.min(1, offsetMag / 8); // 0→1 as rod tilts
+      const baseR = BASE_RADIUS;
+      const radiusX = baseR + offsetMag * 0.22;
+      const radiusY = Math.max(0.1, baseR * (1 - tiltFactor * 0.82));
 
-      const angle = Math.atan2(d.by - mouse.y, d.bx - mouse.x);
+      // Chrome applies to any displacement — cursor cf or pulse tilt
+      const chromeFactor = Math.min(1, cf + tiltFactor * 0.7);
+      const angle = offsetMag > 0.1 ? Math.atan2(totalOy, totalOx) : Math.atan2(d.by - mouse.y, d.bx - mouse.x);
       const highlight = (Math.cos(angle - (-Math.PI / 4)) + 1) / 2;
       const cSrc = highlight < 0.5
         ? [
@@ -333,9 +336,9 @@
             CHROME_MID[1] + (CHROME_BRIGHT[1] - CHROME_MID[1]) * ((highlight - 0.5) * 2),
             CHROME_MID[2] + (CHROME_BRIGHT[2] - CHROME_MID[2]) * ((highlight - 0.5) * 2),
           ];
-      const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * cf);
-      const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * cf);
-      const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * cf);
+      const r = Math.round(BASE_COLOR[0] + (cSrc[0] - BASE_COLOR[0]) * chromeFactor);
+      const g = Math.round(BASE_COLOR[1] + (cSrc[1] - BASE_COLOR[1]) * chromeFactor);
+      const b = Math.round(BASE_COLOR[2] + (cSrc[2] - BASE_COLOR[2]) * chromeFactor);
       const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();

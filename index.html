@@ -308,11 +308,11 @@
         }
       }
 
-      const speed = 0.28;
-      d.ox += (d.tx - d.ox) * speed;
-      d.oy += (d.ty - d.oy) * speed;
-      d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * speed;
-      d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * speed;
+      const lerpSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.55 : 0.28;
+      d.ox += (d.tx - d.ox) * lerpSpeed;
+      d.oy += (d.ty - d.oy) * lerpSpeed;
+      d.a   = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - (d.a  || BASE_ALPHA)) * lerpSpeed;
+      d.cf  = (d.cf || 0)          + ((d.tc || 0)          - (d.cf || 0))          * lerpSpeed;
 
       // Rod shape: cursor only
       const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);

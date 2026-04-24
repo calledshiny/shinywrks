@@ -238,17 +238,17 @@
   // ── Pulse wave system ──────────────────────────────────────────
   let pulses = [];
   let lastPulseTime = performance.now();
-  let nextPulseIn = 2000 + Math.random() * 2000;
+  let nextPulseIn = 1000 + Math.random() * 1500;
 
   function spawnPulse() {
     pulses.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       radius: 0,
-      maxRadius: 160 + Math.random() * 160,
-      speed: 0.8 + Math.random() * 0.5,
-      intensity: 0.7 + Math.random() * 0.3,
-      sigma: 50 + Math.random() * 30,
+      maxRadius: 60 + Math.random() * 80,
+      speed: 2.0 + Math.random() * 1.5,
+      intensity: 0.65 + Math.random() * 0.3,
+      sigma: 22 + Math.random() * 16,
     });
   }
 
@@ -258,7 +258,7 @@
       spawnPulse();
       if (Math.random() > 0.5) spawnPulse(); // sometimes two at once
       lastPulseTime = now;
-      nextPulseIn = 1200 + Math.random() * 2000;
+      nextPulseIn = 800 + Math.random() * 1400;
     }
     // advance pulses
     pulses = pulses.filter(p => p.radius < p.maxRadius);

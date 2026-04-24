@@ -257,7 +257,7 @@
     if (pulses.length === 0 && now - lastPulseTime > nextPulseIn) {
       spawnPulse();
       lastPulseTime = now;
-      nextPulseIn = 1500 + Math.random() * 2000;
+      nextPulseIn = 300 + Math.random() * 600;
     }
     // advance pulses
     pulses = pulses.filter(p => p.radius < p.maxRadius);

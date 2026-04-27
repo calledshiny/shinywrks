@@ -629,41 +629,61 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
           >Kontakt →</button>
         </div>
 
-        {/* Portrait card — horizontal: text left, image right */}
-        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 16 }}>
-          <div>
-            <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 15, letterSpacing: '-0.01em', color: '#0D0B08', marginBottom: 4 }}>Justin Wiemann</div>
-            <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 10 }}>Kommunikationsdesigner</div>
-            <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.04em', lineHeight: 1.9, color: '#3D3428', marginBottom: 12 }}>
-              Hof, DE
+        {/* Portrait card */}
+        <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'row', alignItems: 'stretch', gap: 20 }}>
+
+          {/* Info column — spans full image height */}
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: 120 }}>
+
+            {/* Top: name + role */}
+            <div>
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 14, letterSpacing: '-0.02em', color: '#0D0B08', lineHeight: 1.1, marginBottom: 6 }}>
+                Justin<br/>Wiemann
+              </div>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C4B8A4' }}>
+                Kommunikations­designer
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+
+            {/* Mid: location + availability */}
+            <div>
+              <div style={{ width: 24, height: 1, background: '#E8E2D6', marginBottom: 10 }}/>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
+                Hof, DE
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+                <div className="availability-dot" style={{ width: 5, height: 5, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
+                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
+              </div>
+            </div>
+
+            {/* Bottom: social icons */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               {[
                 { href: 'https://instagram.com/shinywrks', title: 'Instagram', d: 'M9 2H5C3.3 2 2 3.3 2 5v4c0 1.7 1.3 3 3 3h4c1.7 0 3-1.3 3-3V5c0-1.7-1.3-3-3-3zm2 7c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h4c1.1 0 2 .9 2 2v4zM7 4.8C5.8 4.8 4.8 5.8 4.8 7S5.8 9.2 7 9.2 9.2 8.2 9.2 7 8.2 4.8 7 4.8zm0 3.5C6.4 8.3 5.7 7.6 5.7 7S6.4 5.7 7 5.7 8.3 6.4 8.3 7 7.6 8.3 7 8.3zm2.3-3.7c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5z' },
                 { href: 'mailto:justin@shinywrks.de', title: 'Mail', d: 'M2 3.5h10c.3 0 .5.2.5.5v6c0 .3-.2.5-.5.5H2c-.3 0-.5-.2-.5-.5V4c0-.3.2-.5.5-.5zm.5 1.2V10h9V4.7L7 7.8 2.5 4.7zm0-.7L7 6.8l4.5-3.3h-9z' },
                 { href: 'https://behance.net/shinywrks', title: 'Behance', d: 'M8.8 5.3H5.5V6h3.3V5.3zM5 7.5c.2 0 .4 0 .5-.1.2-.1.3-.3.3-.6 0-.4-.2-.6-.7-.6H3.5v1.3H5zm.2 1c.3 0 .5-.1.6-.2.2-.1.2-.3.2-.6 0-.5-.3-.7-.8-.7H3.5V8.5H5.2zM2 4h3.3c.6 0 1.1.1 1.4.4.2.2.3.4.3.7 0 .3-.1.5-.2.7-.1.1-.3.3-.5.3.3.1.6.2.7.4.2.2.3.5.3.8 0 .3-.1.6-.2.8-.1.2-.3.4-.5.5-.2.1-.5.1-.7.2H2V4zm6.7 2.3c.6 0 1.1.1 1.5.5.3.3.5.8.5 1.4v.3H7.1c0 .4.2.7.4.8.1.1.3.1.5.1.2 0 .4-.1.6-.2l.1-.2h1.1c-.1.3-.3.6-.6.8-.3.2-.8.3-1.2.3-.5 0-.9-.1-1.2-.4-.4-.3-.5-.8-.5-1.5 0-.6.2-1.1.5-1.5.3-.3.8-.5 1.3-.5zm.6 1.4c0-.3-.1-.6-.3-.7-.1-.1-.3-.2-.5-.2-.2 0-.4.1-.5.2-.1.1-.2.4-.2.7h1.5z' },
                 { href: 'https://linkedin.com/in/shinywrks', title: 'LinkedIn', d: 'M3.5 4.5c0 .4-.3.7-.7.7s-.7-.3-.7-.7.3-.7.7-.7.7.3.7.7zM2.1 5.8h1.3V10H2.1V5.8zm2.1 0h1.2v.6c.2-.3.6-.7 1.2-.7.9 0 1.5.6 1.5 1.8V10H6.9V7.7c0-.5-.2-.9-.7-.9-.4 0-.7.3-.7.9V10H4.2V5.8z' },
               ].map(({ href, title, d }) => (
-                <a key={title} href={href} title={title} style={{ color: '#3D3428', display: 'flex', textDecoration: 'none', opacity: 0.7, transition: 'opacity 200ms' }}
-                  onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-                  onMouseLeave={e => e.currentTarget.style.opacity = '0.7'}>
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d={d}/></svg>
+                <a key={title} href={href} title={title} style={{ color: '#C4B8A4', display: 'flex', textDecoration: 'none', transition: 'color 200ms' }}
+                  onMouseEnter={e => e.currentTarget.style.color = '#3D3428'}
+                  onMouseLeave={e => e.currentTarget.style.color = '#C4B8A4'}>
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d={d}/></svg>
                 </a>
               ))}
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-              <div className="availability-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
-              <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
-            </div>
           </div>
+
+          {/* Portrait image */}
           <div style={{
-            width: 140, height: 185,
+            width: 120, height: 160,
             background: 'linear-gradient(160deg, #C4B8A4 0%, #E8E2D6 100%)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
             <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`, mixBlendMode: 'overlay' }}/>
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Space Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(26,18,9,0.3)' }}>Portrait</div>
+            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Space Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(26,18,9,0.25)' }}>Portrait</div>
           </div>
+
         </div>
       </section>
 

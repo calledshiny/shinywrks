@@ -633,27 +633,27 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
         <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'row', alignItems: 'stretch', gap: 20 }}>
 
           {/* Info column — spans full image height */}
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: 120 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', width: 160 }}>
 
             {/* Top: name + role */}
             <div>
-              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 14, letterSpacing: '-0.02em', color: '#0D0B08', lineHeight: 1.1, marginBottom: 6 }}>
-                Justin<br/>Wiemann
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 15, letterSpacing: '-0.02em', color: '#0D0B08', whiteSpace: 'nowrap', marginBottom: 6 }}>
+                Justin Wiemann
               </div>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C4B8A4' }}>
-                Kommunikations­designer
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
+                Kommunikationsdesigner
               </div>
             </div>
 
             {/* Mid: location + availability */}
             <div>
               <div style={{ width: 24, height: 1, background: '#E8E2D6', marginBottom: 10 }}/>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
                 Hof, DE
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-                <div className="availability-dot" style={{ width: 5, height: 5, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
-                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 8, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
+                <div className="availability-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
+                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
               </div>
             </div>
 
@@ -668,7 +668,7 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
                 <a key={title} href={href} title={title} style={{ color: '#C4B8A4', display: 'flex', textDecoration: 'none', transition: 'color 200ms' }}
                   onMouseEnter={e => e.currentTarget.style.color = '#3D3428'}
                   onMouseLeave={e => e.currentTarget.style.color = '#C4B8A4'}>
-                  <svg width="12" height="12" viewBox="0 0 14 14" fill="currentColor"><path d={d}/></svg>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><path d={d}/></svg>
                 </a>
               ))}
             </div>

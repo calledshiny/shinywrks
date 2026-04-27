@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="shinywrks — Justin Wiemann, Kommunikationsdesigner aus Hof. Visuelle Identitäten, Events, Graphics und Video.">
 <title>shinywrks — Justin Wiemann</title>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -177,6 +178,13 @@
     animation: pulse-glow 5s ease-in-out infinite;
   }
 
+  .noise {
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
   #dot-grid-canvas {
     position: fixed;
     inset: 0;
@@ -200,15 +208,11 @@
   const BASE_ALPHA = 0.15;
   const REPEL_RADIUS = 140;
   const MAX_REPEL = 6;
-  const LERP_SPEED = 0.04;
 
   let mouse = { x: -999, y: -999 };
   let dots = [];
 
-  const BASE_COLOR    = [100, 88, 72];
-  const CHROME_DARK   = [80,  74, 65];
-  const CHROME_MID    = [160, 155, 148];
-  const CHROME_BRIGHT = [255, 254, 252];
+  const BASE_COLOR = [100, 88, 72];
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -234,10 +238,16 @@
     }
   }
 
+  let _mouseOverInteractive = false;
+  let _lastElCheck = 0;
   window.addEventListener('mousemove', e => {
-    const el = document.elementFromPoint(e.clientX, e.clientY);
-    const interactive = el && el.closest('button, a, input, select, textarea, [role="button"]');
-    if (interactive) { mouse.x = -999; mouse.y = -999; }
+    const now = performance.now();
+    if (now - _lastElCheck > 50) {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      _mouseOverInteractive = !!(el && el.closest('button, a, input, select, textarea, [role="button"]'));
+      _lastElCheck = now;
+    }
+    if (_mouseOverInteractive) { mouse.x = -999; mouse.y = -999; }
     else { mouse.x = e.clientX; mouse.y = e.clientY; }
   });
 
@@ -285,13 +295,17 @@
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    for (const p of pulses) { p._fade = 1 - p.radius / p.maxRadius; }
+
     for (let i = 0; i < dots.length; i++) {
       const d = dots[i];
       const dx = d.bx - mouse.x;
       const dy = d.by - mouse.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
+      const distSq = dx * dx + dy * dy;
+      const inRepel = distSq < REPEL_RADIUS * REPEL_RADIUS && distSq > 0;
+      const dist = inRepel ? Math.sqrt(distSq) : 0;
 
-      if (dist < REPEL_RADIUS && dist > 0) {
+      if (inRepel) {
         const force = (1 - dist / REPEL_RADIUS);
         d.tx = (dx / dist) * force * MAX_REPEL;
         d.ty = (dy / dist) * force * MAX_REPEL;
@@ -303,22 +317,14 @@
         d.tc = 0;
       }
 
-      // Pulse contribution — alpha glow + subtle radial push
+      // Pulse contribution — alpha glow
       let pulseAlpha = 0;
-      let pulsePushX = 0, pulsePushY = 0;
       for (const p of pulses) {
         const pdx = d.bx - p.x;
         const pdy = d.by - p.y;
         const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
         const delta = pdist - p.radius;
-        const fade = Math.pow(1 - p.radius / p.maxRadius, 1.0);
-        const contribution = p.intensity * fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
-        pulseAlpha += contribution;
-        if (pdist > 0) {
-          const pushMag = contribution * 4;
-          pulsePushX += (pdx / pdist) * pushMag;
-          pulsePushY += (pdy / pdist) * pushMag;
-        }
+        pulseAlpha += p.intensity * p._fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
       }
 
       // Spring physics: reactive but natural
@@ -326,16 +332,14 @@
       d.vy = (d.vy + (d.ty - d.oy) * 0.26) * 0.58;
       d.ox += d.vx;
       d.oy += d.vy;
-      const aSpeed = (dist < REPEL_RADIUS && dist > 0) ? 0.45 : 0.12;
+      const aSpeed = inRepel ? 0.45 : 0.12;
       d.a  = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - d.a)  * aSpeed;
       d.cf = (d.cf || 0)          + ((d.tc || 0)          - d.cf) * aSpeed;
 
-      // Rod shape: cursor only
-      const cursorMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);
-      const totalMag = cursorMag;
-      const rodAngle = cursorMag > 0.01 ? Math.atan2(d.oy, d.ox) : 0;
+      // Rod shape
+      const totalMag = Math.sqrt(d.ox * d.ox + d.oy * d.oy);
+      const rodAngle = totalMag > 0.01 ? Math.atan2(d.oy, d.ox) : 0;
       const tiltFactor = Math.min(1, totalMag / 8);
-      const cf = d.cf || 0;
       const baseR = BASE_RADIUS;
       const radiusX = baseR + totalMag * 0.28;
       const radiusY = Math.max(0.4, baseR * (1 - tiltFactor * 0.55));
@@ -555,7 +559,7 @@ function ProjectCard({ p, hPct, onNav }) {
       style={{ flexShrink: 0, height: `${hPct * 100}%`, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
     >
       <div style={{ flex: 1, minHeight: 0, position: 'relative', overflow: 'hidden', background: p.bg }}>
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`, mixBlendMode: 'overlay', pointerEvents: 'none' }}/>
+        <div className="noise"/>
         <div style={{ position: 'absolute', inset: 0, background: 'rgba(245,243,239,0.28)', opacity: hovered ? 0 : 1, transition: 'opacity 450ms cubic-bezier(0.16,1,0.3,1)', pointerEvents: 'none' }}/>
         <div style={{ position: 'absolute', bottom: 10, left: 12, fontFamily: 'Space Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(26,18,9,0.35)', pointerEvents: 'none' }}>{p.tagLine}</div>
       </div>
@@ -680,7 +684,7 @@ function Landing({ onNav, activeFilter, setActiveFilter }) {
             background: 'linear-gradient(160deg, #C4B8A4 0%, #E8E2D6 100%)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`, mixBlendMode: 'overlay' }}/>
+            <div className="noise"/>
             <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Space Mono, monospace', fontSize: 7, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(26,18,9,0.25)' }}>Portrait</div>
           </div>
 
@@ -723,14 +727,6 @@ function ProjectDetail({ project, onNav }) {
   const p = project || PROJECTS[0];
   const nextIndex = (PROJECTS.findIndex(x => x.id === p.id) + 1) % PROJECTS.length;
   const next = PROJECTS[nextIndex];
-
-  // Gallery rows: large + small combos
-  const galleryRows = [
-    { type: 'large', height: 520 },
-    { type: 'three', heights: [280, 280, 280] },
-    { type: 'two', heights: [400, 400] },
-    { type: 'large', height: 460 },
-  ];
 
   const placeholderBg = (shade) => {
     const shades = [p.bg, 'linear-gradient(160deg, #E8E2D6 0%, #C4B8A4 100%)', 'linear-gradient(140deg, #F5F3EF 0%, #E8E2D6 100%)'];
@@ -805,11 +801,7 @@ function ProjectDetail({ project, onNav }) {
         position: 'relative',
         overflow: 'hidden',
       }}>
-        <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.14'/%3E%3C/svg%3E")`,
-          mixBlendMode: 'overlay', pointerEvents: 'none',
-        }}/>
+        <div className="noise"/>
         <div style={{
           position: 'absolute', inset: 0,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -831,11 +823,7 @@ function ProjectDetail({ project, onNav }) {
             position: 'relative',
             overflow: 'hidden',
           }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`,
-              mixBlendMode: 'overlay',
-            }}/>
+            <div className="noise"/>
             <div style={{
               position: 'absolute', bottom: 8, left: 10,
               fontFamily: 'Space Mono, monospace', fontSize: 8,
@@ -864,40 +852,24 @@ function ProjectDetail({ project, onNav }) {
         {/* Row 1: large single */}
         <div className="gallery-row">
           <div className="gallery-item" style={{ height: 520, background: p.bg }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`,
-              mixBlendMode: 'overlay',
-            }}/>
+            <div className="noise"/>
           </div>
         </div>
         {/* Row 2: three equal */}
         <div className="gallery-row">
           {[0,1,2].map(i => (
             <div key={i} className="gallery-item" style={{ height: 300, background: placeholderBg(i+1) }}>
-              <div style={{
-                position: 'absolute', inset: 0,
-                backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`,
-                mixBlendMode: 'overlay',
-              }}/>
+              <div className="noise"/>
             </div>
           ))}
         </div>
         {/* Row 3: two wide, unequal */}
         <div className="gallery-row">
           <div className="gallery-item" style={{ height: 440, flex: 1.6, background: placeholderBg(2) }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`,
-              mixBlendMode: 'overlay',
-            }}/>
+            <div className="noise"/>
           </div>
           <div className="gallery-item" style={{ height: 440, flex: 1, background: placeholderBg(0) }}>
-            <div style={{
-              position: 'absolute', inset: 0,
-              backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E")`,
-              mixBlendMode: 'overlay',
-            }}/>
+            <div className="noise"/>
           </div>
         </div>
       </div>

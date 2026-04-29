@@ -185,6 +185,22 @@
     pointer-events: none;
   }
 
+  @keyframes chrome-sweep {
+    0%   { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+  .email-shine {
+    background: linear-gradient(90deg, #1A1209 0%, #1A1209 20%, #A89E92 38%, #EDE8E2 50%, #A89E92 62%, #1A1209 80%, #1A1209 100%);
+    background-size: 300% 100%;
+    background-position: 100% center;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .email-shine:hover {
+    animation: chrome-sweep 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  }
+
   #dot-grid-canvas {
     position: fixed;
     inset: 0;
@@ -794,6 +810,7 @@ function Kontakt() {
         {/* Large email */}
         <a
           href="mailto:justin@shinywrks.de"
+          className="email-shine"
           style={{
             display: 'block',
             fontFamily: 'Space Grotesk, sans-serif',
@@ -801,16 +818,11 @@ function Kontakt() {
             fontSize: 'clamp(28px, 4.5vw, 72px)',
             letterSpacing: '-0.02em',
             lineHeight: 1.0,
-            color: '#1A1209',
             textDecoration: 'none',
-            borderBottom: '1px solid transparent',
-            transition: 'color 300ms, border-color 300ms',
             marginBottom: 64,
             cursor: STAR_CURSOR,
           }}
-          onMouseEnter={e => { e.currentTarget.style.color = '#0D0B08'; e.currentTarget.style.borderColor = '#0D0B08'; }}
-          onMouseLeave={e => { e.currentTarget.style.color = '#1A1209'; e.currentTarget.style.borderColor = 'transparent'; }}
-        >justin<span style={{fontFamily:'system-ui,sans-serif'}}>@</span>shinywrks.de</a>
+        >justin@shinywrks.de</a>
 
         {/* Social icons */}
         <div style={{ display: 'flex', gap: 16, marginBottom: 64 }}>

@@ -159,7 +159,6 @@
     background: none; border: none;
     text-align: left; cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg stroke='%231A1209' stroke-width='1.5' stroke-linecap='square'%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3C/g%3E%3C/svg%3E") 12 12, crosshair;
     padding: 60px 48px;
-    border-top: 1px solid #E8E2D6;
     transition: background 400ms;
   }
   .next-project-btn { background: #F5F3EF; }
@@ -621,8 +620,9 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
 // ─── PROJECT DETAIL ───────────────────────────────────────────────────────────
 function ProjectDetail({ project, projects, onNav }) {
   const p = project || projects[0];
-  const nextIndex = (projects.findIndex(x => x.id === p.id) + 1) % projects.length;
-  const next = projects[nextIndex];
+  const currentIndex = projects.findIndex(x => x.id === p.id);
+  const next = projects[(currentIndex + 1) % projects.length];
+  const prev = projects[(currentIndex - 1 + projects.length) % projects.length];
 
   const placeholderBg = (shade) => {
     const shades = [p.bg, 'linear-gradient(160deg, #E8E2D6 0%, #C4B8A4 100%)', 'linear-gradient(140deg, #F5F3EF 0%, #E8E2D6 100%)'];
@@ -770,21 +770,39 @@ function ProjectDetail({ project, projects, onNav }) {
         </div>
       </div>
 
-      {/* Next project */}
-      <button className="next-project-btn" onClick={() => onNav('project', next)}>
-        <div style={{
-          fontFamily: 'Space Mono, monospace', fontSize: 10,
-          letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 20,
-        }}>Nächstes Projekt →</div>
-        <div style={{
-          fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-          fontSize: 'clamp(40px, 6vw, 100px)', letterSpacing: '-0.03em',
-          lineHeight: 0.92, color: '#0D0B08',
-        }}>{next.title}</div>
-        <div style={{
-          fontFamily: 'Space Mono, monospace', fontSize: 10,
-          letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3428', marginTop: 16,
-        }}>{next.tagLine}</div>
+      {/* Prev / Next project */}
+      <div style={{ display: 'flex', borderTop: '1px solid #E8E2D6' }}>
+        <button className="next-project-btn" onClick={() => onNav('project', prev)} style={{ borderRight: '1px solid #E8E2D6', flex: 1 }}>
+          <div style={{
+            fontFamily: 'Space Mono, monospace', fontSize: 10,
+            letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 20,
+          }}>← Vorheriges</div>
+          <div style={{
+            fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
+            fontSize: 'clamp(28px, 4vw, 72px)', letterSpacing: '-0.03em',
+            lineHeight: 0.92, color: '#0D0B08',
+          }}>{prev.title}</div>
+          <div style={{
+            fontFamily: 'Space Mono, monospace', fontSize: 10,
+            letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3428', marginTop: 16,
+          }}>{prev.tagLine}</div>
+        </button>
+        <button className="next-project-btn" onClick={() => onNav('project', next)} style={{ flex: 1, textAlign: 'right' }}>
+          <div style={{
+            fontFamily: 'Space Mono, monospace', fontSize: 10,
+            letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 20,
+          }}>Nächstes →</div>
+          <div style={{
+            fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
+            fontSize: 'clamp(28px, 4vw, 72px)', letterSpacing: '-0.03em',
+            lineHeight: 0.92, color: '#0D0B08',
+          }}>{next.title}</div>
+          <div style={{
+            fontFamily: 'Space Mono, monospace', fontSize: 10,
+            letterSpacing: '0.1em', textTransform: 'uppercase', color: '#3D3428', marginTop: 16,
+          }}>{next.tagLine}</div>
+        </button>
+      </div>
       </button>
     </div>
   );

@@ -114,7 +114,7 @@
     text-decoration: none;
   }
   .nav-link:hover { color: #0D0B08; }
-  .nav-link.active { color: #0D0B08; }
+  .nav-link.active { color: #0D0B08; border-bottom: 1px solid #0D0B08; padding-bottom: 1px; }
 
   /* Filter tags */
   .filter-tag {
@@ -517,7 +517,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
         <div>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: 'clamp(32px, 4vw, 64px)',
+            fontSize: 'clamp(36px, 4.5vw, 72px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
             color: '#0D0B08', marginBottom: 16,
           }}>shinywrks</h1>
@@ -586,7 +586,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
 
           {/* Portrait image */}
           <div style={{
-            width: 120, height: 160,
+            width: 140, height: 186,
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
             <img src="portrait.jpeg" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>

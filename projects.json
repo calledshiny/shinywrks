@@ -1,20 +1,152 @@
 [
   {
     "id": 1,
-    "slug": "pure-friction",
-    "title": "Pure Friction",
+    "slug": "tapestop",
+    "title": "TAPESTOP",
     "tag": "Visual Identity",
-    "year": "2024",
-    "tagLine": "IDENTITY / MUSIC / 2024",
-    "desc": "Visual identity for an independent electronic label out of Hannover. Logo, type system, campaign imagery and social templates. Shot on 35mm Kodak Portra.",
-    "camera": "NIKON F3 HP",
-    "lens": "NIKKOR 35MM F/2",
-    "film": "KODAK PORTRA 400",
-    "location": "HANNOVER, DE",
-    "date": "MARCH 2024",
-    "bg": "linear-gradient(160deg, #2a1e0e 0%, #E8E2D6 60%, #F5F3EF 100%)",
+    "year": "2025",
+    "tagLine": "IDENTITY / BRAND / 2025",
+    "desc": "Vollständige Markenidentität für ein unabhängiges DJ-Kollektiv, das authentische Techno/House/Trance-Partys veranstaltet — ohne feste Location, ohne Kommerz. Von Konzept und Logo über Corporate Design bis zu Plakaten, Print, Event Experience und einer Landing Page. Alles analog gedacht, konsequent umgesetzt. Claim: no second take.",
+    "camera": "BRAND IDENTITY",
+    "lens": "CORPORATE DESIGN",
+    "film": "EVENT EXPERIENCE",
+    "location": "",
+    "date": "AUG 2025",
+    "bg": "linear-gradient(160deg, #0D0B08 0%, #1a1209 100%)",
+    "heroImg": "tapestop/logo.svg",
     "width": 320,
-    "height": 420
+    "height": 420,
+    "sections": [
+      {
+        "label": "Corporate Design",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "tapestop/colors.svg", "aspectRatio": "1311/503" }
+            ]
+          },
+          {
+            "cols": 2,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "tapestop/logo.svg", "aspectRatio": "2.5/1", "bg": "#F5F3EF", "fit": "contain", "padding": "7% 8%", "caption": "Wortmarke" },
+              { "type": "img", "src": "tapestop/rad.svg", "aspectRatio": "2.5/1", "bg": "#F5F3EF", "fit": "contain", "padding": "7% 22%", "caption": "Signet", "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas." }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Campaign",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "tapestop/m-poster-triple.jpg" }
+            ]
+          },
+          {
+            "cols": 3,
+            "gap": 10,
+            "marginTop": 48,
+            "items": [
+              { "type": "img", "src": "tapestop/poster-tapeit-1.png" },
+              { "type": "img", "src": "tapestop/poster-tapeit-2.png" },
+              { "type": "img", "src": "tapestop/poster-tapeit-3.png" },
+              { "type": "img", "src": "tapestop/poster-eject-1.png" },
+              { "type": "img", "src": "tapestop/poster-eject-2.png" },
+              { "type": "img", "src": "tapestop/poster-eject-3.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-1.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-2.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-3.png" }
+            ]
+          },
+          {
+            "cols": 1,
+            "marginTop": 48,
+            "items": [
+              { "type": "img", "src": "tapestop/flyer-front.png" }
+            ]
+          },
+          {
+            "cols": 1,
+            "gap": 0,
+            "items": [
+              { "type": "img", "src": "tapestop/flyer-back.png" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Event Experience",
+        "rows": [
+          { "type": "sublabel", "text": "Tickets" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "tapestop/tickets-scene6.png" }
+            ]
+          },
+          { "type": "sublabel", "text": "Entry" },
+          {
+            "cols": 5,
+            "gap": 10,
+            "gridTemplateColumns": "1fr 0.75fr 0.135fr 0.135fr 0.135fr",
+            "items": [
+              { "type": "img", "src": "tapestop/sticker-iphone.png", "aspectRatio": "1/1.81", "fit": "contain" },
+              { "type": "img", "src": "tapestop/baendchen-hand.png", "aspectRatio": "1/2.41", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-1.png", "aspectRatio": "225/3012", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-2.png", "aspectRatio": "225/3012", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-3.png", "aspectRatio": "225/3012", "fit": "contain" }
+            ]
+          },
+          { "type": "sublabel", "text": "Disposable" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "tapestop/banderole-3.png", "fit": "contain" }
+            ]
+          },
+          { "type": "sublabel", "text": "Shirts" },
+          {
+            "cols": 3,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "tapestop/tee-bar-front.png" },
+              { "type": "img", "src": "tapestop/tee-crew-front.png" },
+              { "type": "img", "src": "tapestop/tee-safety-front.png" },
+              { "type": "img", "src": "tapestop/tee-bar-back.png" },
+              { "type": "img", "src": "tapestop/tee-crew-back.png" },
+              { "type": "img", "src": "tapestop/tee-safety-back.png" }
+            ]
+          },
+          { "type": "sublabel", "text": "Recovery Kit" },
+          {
+            "cols": 2,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "tapestop/bag-front.png" },
+              { "type": "img", "src": "tapestop/bag-back2.png" }
+            ]
+          },
+          {
+            "cols": 1,
+            "padding": "0 25%",
+            "items": [
+              { "type": "img", "src": "tapestop/drink-card.png" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Landing Page",
+        "cols": 2,
+        "items": [
+          { "type": "video", "src": "tapestop/landing-idle.mp4" },
+          { "type": "video", "src": "tapestop/mobile.mp4" }
+        ]
+      }
+    ]
   },
   {
     "id": 2,

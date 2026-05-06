@@ -214,6 +214,12 @@
   .fu4 { animation: fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.28s both; }
   .fu5 { animation: fadeUp 0.4s cubic-bezier(0.16,1,0.3,1) 0.35s both; }
 
+  @keyframes fadeLeft {
+    from { opacity: 0; transform: translateX(-24px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  .fl { animation: fadeLeft 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s both; }
+
   #dot-grid-canvas {
     position: fixed;
     inset: 0;
@@ -607,6 +613,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
         {/* Project strip */}
         <div
           ref={stripRef}
+          className="fl"
           style={{
             flex: 1, minHeight: 0,
             display: 'flex', alignItems: 'flex-end', gap: 3,

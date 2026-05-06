@@ -403,19 +403,10 @@
 
 // ─── STAR SIGNET ─────────────────────────────────────────────────────────────
 const StarSignet = ({ size = 22 }) => (
-  <svg width={size} height={size} viewBox="0 0 48 48" style={{ flexShrink: 0 }}>
-    <defs>
-      <linearGradient id="chrome" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stopColor="#E8E4E0"/>
-        <stop offset="30%" stopColor="#D4D0CC"/>
-        <stop offset="50%" stopColor="#0D0B08"/>
-        <stop offset="70%" stopColor="#C0BCBA"/>
-        <stop offset="100%" stopColor="#D4D0CC"/>
-      </linearGradient>
-    </defs>
+  <svg width={size} height={size * (347/376)} viewBox="0 0 376 347" style={{ flexShrink: 0 }}>
     <polygon
-      points="24,2 28.9,16.4 44,16.4 31.6,25.2 36.5,39.6 24,30.8 11.5,39.6 16.4,25.2 4,16.4 19.1,16.4"
-      fill="url(#chrome)"
+      points="253.5 208.7 360.6 347 215.4 233.3 147.3 277.4 155.6 237.2 15.4 347 128.1 201.5 0 217.6 122.5 138.3 15.4 0 160.6 113.7 228.7 69.6 220.3 109.8 360.6 0 247.9 145.4 376 129.4 253.5 208.7"
+      fill="#0D0B08"
     />
   </svg>
 );

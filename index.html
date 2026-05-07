@@ -579,25 +579,25 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
         <div>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: 'clamp(36px, 4.5vw, 72px)',
+            fontSize: 'clamp(48px, 6vw, 96px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
-            color: '#0D0B08', marginBottom: 16,
+            color: '#0D0B08', marginBottom: 20,
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: 12 }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: 12, letterSpacing: '0.06em', color: '#3D3428', marginBottom: 14 }}>
             I make your brand shine different
           </div>
-          <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 12, lineHeight: 1.6, color: '#1A1209', maxWidth: 380, marginBottom: 14 }}>
+          <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 14, lineHeight: 1.6, color: '#1A1209', maxWidth: 420, marginBottom: 20 }}>
             Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
           </p>
           <button className="fu3" onClick={() => onNav('contact')} style={{
             fontFamily: 'Space Mono, monospace', fontSize: 10,
-            letterSpacing: '0.12em', textTransform: 'uppercase',
-            color: '#1A1209', background: 'none', border: '1px solid #C4B8A4',
-            padding: '8px 18px', cursor: STAR_CURSOR,
-            transition: 'border-color 300ms, color 300ms',
+            letterSpacing: '0.14em', textTransform: 'uppercase',
+            color: '#F5F3EF', background: '#0D0B08', border: '1px solid #0D0B08',
+            padding: '11px 24px', cursor: STAR_CURSOR,
+            transition: 'background 300ms, border-color 300ms',
           }}
-          onMouseEnter={e => { e.target.style.borderColor='#0D0B08'; e.target.style.color='#0D0B08'; }}
-          onMouseLeave={e => { e.target.style.borderColor='#C4B8A4'; e.target.style.color='#1A1209'; }}
+          onMouseEnter={e => { e.target.style.background='#3D3428'; e.target.style.borderColor='#3D3428'; }}
+          onMouseLeave={e => { e.target.style.background='#0D0B08'; e.target.style.borderColor='#0D0B08'; }}
           >Kontakt →</button>
         </div>
 

@@ -516,14 +516,17 @@ function Nav({ page, onNav }) {
 function ProjectCard({ p, hPct, onNav }) {
   const [hovered, setHovered] = React.useState(false);
   const aspect = (p.thumbW && p.thumbH) ? p.thumbW / p.thumbH : p.width / p.height;
-  const maxH = aspect > 1.8 ? '60%' : aspect > 1.2 ? '75%' : aspect < 0.65 ? '95%' : '82%';
+  const BASE_VH = 44;
+  const cardH = `clamp(${Math.round(hPct*260)}px, ${(hPct*BASE_VH).toFixed(1)}vh, ${Math.round(hPct*520)}px)`;
+  const maxHFrac = aspect > 1.8 ? 0.60 : aspect > 1.2 ? 0.75 : aspect < 0.65 ? 0.95 : 0.82;
+  const maxH = `clamp(${Math.round(hPct*maxHFrac*260)}px, ${(hPct*maxHFrac*BASE_VH).toFixed(1)}vh, ${Math.round(hPct*maxHFrac*520)}px)`;
   const maxW = aspect > 1.2 ? '44vw' : undefined;
   return (
     <div
       onClick={() => onNav('project', p)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ flexShrink: 0, height: `${hPct * 100}%`, maxHeight: maxH, maxWidth: maxW, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
+      style={{ flexShrink: 0, height: cardH, maxHeight: maxH, maxWidth: maxW, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
     >
       <div style={{ flex: 1, minHeight: 0, position: 'relative', overflow: 'hidden', background: p.bg }}>
         {p.thumb && <img src={p.thumb} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/>}
@@ -659,7 +662,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
       </section>
 
       {/* Project section: filter + strip grouped together */}
-      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: 32 }}>
+      <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', marginTop: 32 }}>
         {/* Filter row */}
         <div className="fu4" style={{ padding: '8px 48px', display: 'flex', gap: 4, flexShrink: 0 }}>
           {FILTER_TAGS.map(t => (
@@ -671,7 +674,6 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
           ref={stripRef}
           className="fl"
           style={{
-            flex: 1, minHeight: 0,
             display: 'flex', alignItems: 'flex-end', gap: 3,
             overflowX: 'auto', overflowY: 'hidden',
             padding: '4px 48px 40px',

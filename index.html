@@ -515,13 +515,15 @@ function Nav({ page, onNav }) {
 // ─── PROJECT CARD ────────────────────────────────────────────────────────────
 function ProjectCard({ p, hPct, onNav }) {
   const [hovered, setHovered] = React.useState(false);
-  const aspect = p.width / p.height;
+  const aspect = (p.thumbW && p.thumbH) ? p.thumbW / p.thumbH : p.width / p.height;
+  const maxH = aspect > 1.8 ? '45%' : aspect > 1.2 ? '58%' : aspect < 0.65 ? '95%' : '82%';
+  const maxW = aspect > 1.2 ? '44vw' : undefined;
   return (
     <div
       onClick={() => onNav('project', p)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ flexShrink: 0, height: `${hPct * 100}%`, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
+      style={{ flexShrink: 0, height: `${hPct * 100}%`, maxHeight: maxH, maxWidth: maxW, aspectRatio: `${aspect}`, display: 'flex', flexDirection: 'column', cursor: STAR_CURSOR }}
     >
       <div style={{ flex: 1, minHeight: 0, position: 'relative', overflow: 'hidden', background: p.bg }}>
         {p.thumb && <img src={p.thumb} alt="" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/>}

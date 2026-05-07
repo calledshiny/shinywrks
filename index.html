@@ -516,7 +516,7 @@ function Nav({ page, onNav }) {
 function ProjectCard({ p, hPct, onNav }) {
   const [hovered, setHovered] = React.useState(false);
   const aspect = (p.thumbW && p.thumbH) ? p.thumbW / p.thumbH : p.width / p.height;
-  const maxH = aspect > 1.8 ? '45%' : aspect > 1.2 ? '58%' : aspect < 0.65 ? '95%' : '82%';
+  const maxH = aspect > 1.8 ? '60%' : aspect > 1.2 ? '75%' : aspect < 0.65 ? '95%' : '82%';
   const maxW = aspect > 1.2 ? '44vw' : undefined;
   return (
     <div

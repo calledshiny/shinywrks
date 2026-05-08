@@ -207,16 +207,24 @@
   }
 
   @keyframes thumb-shine {
-    from { transform: translateX(-110%) skewX(-12deg); }
-    to   { transform: translateX(110%)  skewX(-12deg); }
+    from { transform: translateX(-130%) skewX(-8deg); }
+    to   { transform: translateX(130%)  skewX(-8deg); }
   }
   .thumb-shine {
-    position: absolute; inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 45%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.35) 55%, transparent 100%);
-    mix-blend-mode: overlay;
+    position: absolute; top: 0; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.04) 25%,
+      rgba(255,255,255,0.14) 40%,
+      rgba(255,255,255,0.22) 50%,
+      rgba(255,255,255,0.14) 60%,
+      rgba(255,255,255,0.04) 75%,
+      transparent 100%);
+    mix-blend-mode: screen;
     pointer-events: none;
     z-index: 2;
-    animation: thumb-shine 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation: thumb-shine 0.85s cubic-bezier(0.22,1,0.36,1) both;
+    filter: blur(6px);
   }
 
   @keyframes fadeUp {

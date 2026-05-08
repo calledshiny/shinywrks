@@ -622,7 +622,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
 
       {/* Top band: hero left, portrait right */}
       <section style={{
-        padding: mobile ? '20px 20px 0' : '16px 48px 0',
+        padding: mobile ? '20px 20px 0' : 'clamp(8px, 1.6vh, 18px) 48px 0',
         display: 'flex',
         flexDirection: mobile ? 'column' : 'row',
         alignItems: mobile ? 'stretch' : 'flex-start',
@@ -635,9 +635,9 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
             fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, 5.2vw, 84px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
-            color: '#0D0B08', marginBottom: mobile ? 12 : 18,
+            color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 1.8vh, 18px)',
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 13 }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.4vh, 13px)' }}>
             I make your brand shine different
           </div>
           {mobile ? (
@@ -657,7 +657,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginBottom: 18 }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.55, color: '#1A1209', maxWidth: 400, marginBottom: 'clamp(10px, 1.8vh, 18px)' }}>
               Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
             </p>
           )}
@@ -728,7 +728,8 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
 
           {/* Portrait image */}
           <div style={{
-            width: mobile ? 130 : 170, height: mobile ? 174 : 226,
+            width: mobile ? 130 : 'clamp(130px, 19.5vh, 170px)',
+            height: mobile ? 174 : 'clamp(173px, 26vh, 226px)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
             <img src="portrait.jpeg" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
@@ -739,7 +740,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
       </section>
 
       {/* Project section: filter + strip grouped together */}
-      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 32 }}>
+      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(14px, 3vh, 32px)' }}>
         {/* Section label */}
         <div className="fu4" style={{
           padding: mobile ? '0 20px 6px' : '0 48px 6px',

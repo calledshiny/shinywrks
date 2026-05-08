@@ -601,6 +601,8 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
     };
   }, [mobile]);
 
+  const [textOpen, setTextOpen] = React.useState(false);
+
   // Varied heights as % of strip height — creates the editorial rhythm
 
   const heightPcts = [0.94, 0.72, 0.60, 1.0, 0.80, 0.66];
@@ -638,9 +640,27 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
           <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 13 }}>
             I make your brand shine different
           </div>
-          <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: mobile ? 13 : 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginBottom: mobile ? 14 : 18 }}>
-            Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
-          </p>
+          {mobile ? (
+            <div style={{ marginBottom: 14 }}>
+              <button onClick={() => setTextOpen(o => !o)} style={{
+                fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.1em',
+                textTransform: 'uppercase', color: '#C4B8A4', background: 'none', border: 'none',
+                cursor: STAR_CURSOR, padding: 0, display: 'flex', alignItems: 'center', gap: 5, margin: '0 auto',
+              }}>
+                <span>{textOpen ? 'weniger' : 'mehr'}</span>
+                <span style={{ display: 'inline-block', transition: 'transform 300ms', transform: textOpen ? 'rotate(180deg)' : 'none' }}>↓</span>
+              </button>
+              {textOpen && (
+                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginTop: 10 }}>
+                  Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
+                </p>
+              )}
+            </div>
+          ) : (
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginBottom: 18 }}>
+              Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
+            </p>
+          )}
           <button className="fu3" onClick={() => onNav('contact')} style={{
             fontFamily: 'Space Mono, monospace', fontSize: 10,
             letterSpacing: '0.14em', textTransform: 'uppercase',

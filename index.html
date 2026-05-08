@@ -628,17 +628,17 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
         gap: mobile ? 32 : 48,
         flexShrink: 0, position: 'relative', zIndex: 1,
       }}>
-        <div>
+        <div style={mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : undefined}>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: mobile ? 'clamp(40px, 13vw, 64px)' : 'clamp(42px, 5.2vw, 84px)',
+            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, 5.2vw, 84px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
-            color: '#0D0B08', marginBottom: 18,
+            color: '#0D0B08', marginBottom: mobile ? 12 : 18,
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: 13 }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 13 }}>
             I make your brand shine different
           </div>
-          <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: mobile ? 14 : 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginBottom: 18 }}>
+          <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: mobile ? 13 : 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginBottom: mobile ? 14 : 18 }}>
             Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
           </p>
           <button className="fu3" onClick={() => onNav('contact')} style={{
@@ -647,6 +647,7 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
             color: '#F5F3EF', background: '#0D0B08', border: '1px solid #0D0B08',
             padding: '11px 24px', cursor: STAR_CURSOR,
             transition: 'background 300ms, border-color 300ms',
+            alignSelf: mobile ? 'center' : undefined,
           }}
           onMouseEnter={e => { e.target.style.background='#3D3428'; e.target.style.borderColor='#3D3428'; }}
           onMouseLeave={e => { e.target.style.background='#0D0B08'; e.target.style.borderColor='#0D0B08'; }}

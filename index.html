@@ -549,8 +549,8 @@ function Nav({ page, onNav }) {
 function ProjectCard({ p, hPct, onNav }) {
   const [hovered, setHovered] = React.useState(false);
   const aspect = (p.thumbW && p.thumbH) ? p.thumbW / p.thumbH : p.width / p.height;
-  const maxH = aspect > 1.8 ? '60%' : aspect > 1.2 ? '75%' : aspect < 0.65 ? '95%' : '82%';
-  const maxW = aspect > 1.2 ? '44vw' : undefined;
+  const maxH = aspect > 1.8 ? '75%' : aspect > 1.2 ? '90%' : aspect < 0.65 ? '100%' : '95%';
+  const maxW = aspect > 1.2 ? '50vw' : undefined;
   return (
     <div
       onClick={() => onNav('project', p)}
@@ -739,16 +739,16 @@ function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
       </section>
 
       {/* Project section: filter + strip grouped together */}
-      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 16 }}>
+      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 32 }}>
         {/* Section label */}
         <div className="fu4" style={{
-          padding: mobile ? '0 20px 6px' : '0 48px 4px',
+          padding: mobile ? '0 20px 6px' : '0 48px 6px',
           fontFamily: 'Space Mono, monospace', fontSize: 10,
           letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428',
         }}>Meine Projekte</div>
         {/* Filter row */}
         <div className="fu4" style={{
-          padding: mobile ? '8px 20px' : '4px 48px 6px',
+          padding: mobile ? '8px 20px' : '8px 48px',
           display: 'flex', gap: 4, flexShrink: 0,
           overflowX: mobile ? 'auto' : 'visible',
           scrollbarWidth: 'none',

@@ -164,10 +164,10 @@ export default function ProjectDetail({ project, projects, onNav }) {
           {p.claim && (
             <p style={{
               fontFamily: 'Space Grotesk, sans-serif',
-              fontWeight: 700, fontSize: 19, lineHeight: 1.4,
+              fontWeight: 400, fontSize: 19, lineHeight: 1.4,
               letterSpacing: '-0.01em',
               color: '#0D0B08', margin: '28px 0 0',
-            }}>{p.claim}</p>
+            }}>Claim: <span style={{ fontWeight: 700 }}>{p.claim}</span></p>
           )}
           {p.disclaimer && (
             <p style={{

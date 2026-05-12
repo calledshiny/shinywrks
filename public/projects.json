@@ -42,47 +42,6 @@
         ]
       },
       {
-        "label": "Campaign",
-        "rows": [
-          {
-            "cols": 1,
-            "items": [
-              { "type": "img", "src": "tapestop/m-poster-triple.jpg" }
-            ]
-          },
-          {
-            "cols": 3,
-            "gap": 10,
-            "marginTop": 48,
-            "items": [
-              { "type": "img", "src": "tapestop/poster-tapeit-1.png" },
-              { "type": "img", "src": "tapestop/poster-tapeit-2.png" },
-              { "type": "img", "src": "tapestop/poster-tapeit-3.png" },
-              { "type": "img", "src": "tapestop/poster-eject-1.png" },
-              { "type": "img", "src": "tapestop/poster-eject-2.png" },
-              { "type": "img", "src": "tapestop/poster-eject-3.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-1.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-2.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-3.png" }
-            ]
-          },
-          {
-            "cols": 1,
-            "marginTop": 48,
-            "items": [
-              { "type": "img", "src": "tapestop/flyer-front.png" }
-            ]
-          },
-          {
-            "cols": 1,
-            "gap": 0,
-            "items": [
-              { "type": "img", "src": "tapestop/flyer-back.png" }
-            ]
-          }
-        ]
-      },
-      {
         "label": "Event Experience",
         "rows": [
           { "type": "sublabel", "text": "Tickets" },
@@ -139,6 +98,47 @@
             "padding": "0 25%",
             "items": [
               { "type": "img", "src": "tapestop/drink-card.png" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Campaign",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "tapestop/m-poster-triple.jpg" }
+            ]
+          },
+          {
+            "cols": 3,
+            "gap": 10,
+            "marginTop": 48,
+            "items": [
+              { "type": "img", "src": "tapestop/poster-tapeit-1.png" },
+              { "type": "img", "src": "tapestop/poster-tapeit-2.png" },
+              { "type": "img", "src": "tapestop/poster-tapeit-3.png" },
+              { "type": "img", "src": "tapestop/poster-eject-1.png" },
+              { "type": "img", "src": "tapestop/poster-eject-2.png" },
+              { "type": "img", "src": "tapestop/poster-eject-3.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-1.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-2.png" },
+              { "type": "img", "src": "tapestop/poster-offtrack-3.png" }
+            ]
+          },
+          {
+            "cols": 1,
+            "marginTop": 48,
+            "items": [
+              { "type": "img", "src": "tapestop/flyer-front.png" }
+            ]
+          },
+          {
+            "cols": 1,
+            "gap": 0,
+            "items": [
+              { "type": "img", "src": "tapestop/flyer-back.png" }
             ]
           }
         ]

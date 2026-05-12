@@ -49,7 +49,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
     }}>
 
       <section style={{
-        padding: mobile ? '20px 20px 0' : 'clamp(8px, 1.6vh, 18px) 48px 0',
+        padding: mobile ? '20px 20px 0' : 'clamp(8px, 2vh, 32px) 48px 0',
         display: 'flex',
         flexDirection: mobile ? 'column' : 'row',
         alignItems: mobile ? 'stretch' : 'flex-start',
@@ -60,11 +60,11 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         <div style={mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : undefined}>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, 5.2vw, 84px)',
+            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, 5vw, 120px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
-            color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 1.8vh, 18px)',
+            color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 2vh, 28px)',
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 11, letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.4vh, 13px)' }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(11px, 0.85vw, 14px)', letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.6vh, 22px)' }}>
             I make your brand shine different
           </div>
           {mobile ? (
@@ -84,15 +84,15 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.55, color: '#1A1209', maxWidth: 400, marginBottom: 'clamp(10px, 1.8vh, 18px)' }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 17px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 560px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
               Manchmal ruhig, manchmal laut — immer authentisch. Ich entwickle visuelle Identitäten die über alle Medien und Kanäle hinweg wirken. Vom ersten Gespräch bis zum fertigen Ergebnis denke ich mit, fühle mit und liefere.
             </p>
           )}
           <button className="fu3" onClick={() => onNav('contact')} style={{
-            fontFamily: 'Space Mono, monospace', fontSize: 10,
+            fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.78vw, 13px)',
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: '#F5F3EF', background: '#0D0B08', border: '1px solid #0D0B08',
-            padding: '11px 24px', cursor: STAR_CURSOR,
+            padding: mobile ? '11px 24px' : 'clamp(11px, 1.2vh, 16px) clamp(24px, 1.8vw, 36px)', cursor: STAR_CURSOR,
             transition: 'background 300ms, border-color 300ms',
             alignSelf: mobile ? 'center' : undefined,
           }}
@@ -110,7 +110,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           width: mobile ? '100%' : undefined,
         }}>
 
-          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20, width: mobile ? undefined : 175, flex: mobile ? 1 : undefined }}>
+          <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'clamp(20px, 2vh, 28px)', width: mobile ? undefined : 'clamp(175px, 14vw, 230px)', flex: mobile ? 1 : undefined }}>
 
             <div>
               <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 15, letterSpacing: '-0.02em', color: '#0D0B08', whiteSpace: 'nowrap', marginBottom: 6 }}>
@@ -149,8 +149,8 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           </div>
 
           <div style={{
-            width: mobile ? 130 : 'clamp(130px, 19.5vh, 170px)',
-            height: mobile ? 174 : 'clamp(173px, 26vh, 226px)',
+            width: mobile ? 130 : 'clamp(130px, 22vh, 240px)',
+            height: mobile ? 174 : 'clamp(173px, 29vh, 320px)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
             <img src="portrait.jpeg" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
@@ -160,7 +160,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         </div>
       </section>
 
-      <div style={{ flex: 1, minHeight: 0, display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(14px, 3vh, 32px)' }}>
+      <div style={{ flex: 1, minHeight: 0, maxHeight: mobile ? 'none' : 'clamp(440px, 65vh, 920px)', display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(14px, 3.5vh, 56px)' }}>
         <div className="fu4" style={{
           padding: mobile ? '0 20px 6px' : '0 48px 6px',
           fontFamily: 'Space Mono, monospace', fontSize: 10,

@@ -19,7 +19,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
   };
 
   const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
-    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) || 0 }}>
+    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) ?? `0 ${sidePad}px` }}>
       {items.map((item, ii) => {
         let inner;
         if (item.type === 'video') {

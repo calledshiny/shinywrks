@@ -11,7 +11,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
   const adaptPad = (s) => {
     if (!s) return s;
     if (!m) return s;
-    return s.replace(/48px/g, '20px').replace(/0 25%/g, '0');
+    return s.replace(/48px/g, '20px').replace(/0 25%/g, '0 20px');
   };
   const placeholderBg = (shade) => {
     const shades = [p.bg, 'linear-gradient(160deg, #E8E2D6 0%, #C4B8A4 100%)', 'linear-gradient(140deg, #F5F3EF 0%, #E8E2D6 100%)'];

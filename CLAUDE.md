@@ -68,7 +68,8 @@ Build-Preview: `npm run preview`
   "tagLine": "VISUAL IDENTITY / EVENT / 2025",  // Header Mitte: tags + year, slash-separated, UPPERCASE
   "blurb": "Techno / Trance Event Kollektiv",   // Subtitle auf Landing-Karte
   "desc": "Vollständiger Beschreibungstext …",  // Beschreibungs-Block auf Detail-Page
-  "claim": "no second take.",                   // optional, fett unter desc
+  "liveUrl": "https://spotright.de",            // optional, "Live unter <url> ↗" Mono-Zeile unter desc
+  "claim": "no second take.",                   // optional, fett unter desc/liveUrl
   "disclaimer": "Fiktives Projekt …",           // optional, Mono-Hinweis unter claim
 
   // Header oben links (3 Zeilen mono) — section-namen oder slash-getrennt

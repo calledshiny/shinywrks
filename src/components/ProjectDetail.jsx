@@ -172,6 +172,18 @@ export default function ProjectDetail({ project, projects, onNav }) {
             fontWeight: 400, fontSize: 17, lineHeight: 1.65,
             color: '#1A1209', margin: 0,
           }}>{p.desc}</p>
+          {p.liveUrl && (
+            <p style={{
+              fontFamily: 'Space Mono, monospace', fontSize: 11,
+              color: '#3D3428', margin: '24px 0 0',
+              display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap',
+            }}>
+              <span style={{ letterSpacing: '0.14em', textTransform: 'uppercase' }}>Live unter</span>
+              <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" style={{
+                color: '#0D0B08', textDecoration: 'underline', textUnderlineOffset: 3, letterSpacing: '0.04em',
+              }}>{p.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗</a>
+            </p>
+          )}
           {p.claim && (
             <p style={{
               fontFamily: 'Space Grotesk, sans-serif',

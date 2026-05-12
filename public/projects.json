@@ -167,5 +167,138 @@
         ]
       }
     ]
+  },
+  {
+    "id": 2,
+    "slug": "spotright",
+    "title": "SPOTRIGHT",
+    "tag": "UI/UX Design",
+    "tags": ["UI/UX Design", "AI"],
+    "year": "2025",
+    "tagLine": "UI/UX DESIGN / AI / 2025",
+    "blurb": "Event-Discovery-App mit Liquid-Glass-UI",
+    "desc": "Konzept und UI/UX einer deutschen Event-Discovery-App für junge Stadtbewohner. Liquid-Glass-Ästhetik im Stil von Apple iOS 26 — frosted Surfaces auf bildschirmfüllendem Nachtstadtfoto, warme Terra-Akzente, serifige Lora-Headlines auf DM-Sans-UI. Vom Brand-Konzept über Design-System (drei Glass-Stile, Farbtokens, Typografie) bis zu Screens für Discovery, Event-Detail, Search-Funnel, Login-Wall und Drawer.",
+    "claim": "Die Stadt. Jetzt.",
+    "disclaimer": "End-to-End mit AI umgesetzt. Konzept, Direction und Iteration durch mich, UI und Code via Figma Make und Claude.",
+    "camera": "CONCEPT / DIRECTION /",
+    "lens": "UI / UX /",
+    "film": "DESIGN SYSTEM / SCREENS",
+    "studio": "SHINYWRKS",
+    "location": "FREIES PROJEKT",
+    "date": "OKT 2025",
+    "bg": "radial-gradient(ellipse at 30% 40%, #3a1f14 0%, #1a0f0a 55%, #0a0a0d 100%)",
+    "thumb": "spotright/placeholder.webp",
+    "thumbW": 1600,
+    "thumbH": 1067,
+    "width": 320,
+    "height": 420,
+    "sections": [
+      {
+        "label": "Concept & Brand",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Moodboard / Brand-Direction" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Design System",
+        "rows": [
+          { "type": "sublabel", "text": "Glass Styles" },
+          {
+            "cols": 3,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Light Glass", "captionSub": "rgba(255,255,255,0.12) · blur 20" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Warm Glass", "captionSub": "Terra-Tint für Active States" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Dark Glass", "captionSub": "rgba(0,0,0,0.35) · blur 24" }
+            ]
+          },
+          { "type": "sublabel", "text": "Colors" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1311/503", "caption": "Token-Set" }
+            ]
+          },
+          { "type": "sublabel", "text": "Typography" },
+          {
+            "cols": 2,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "4/3", "caption": "Lora", "captionSub": "Headlines, Logo" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "4/3", "caption": "DM Sans", "captionSub": "UI, Body" }
+            ]
+          },
+          { "type": "sublabel", "text": "Logo" },
+          {
+            "cols": 1,
+            "marginTop": 16,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "2.5/1", "caption": "Wordmark", "captionSub": "spot (weiß) + right (Terra) mit Terra-Dot" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Screens",
+        "rows": [
+          { "type": "sublabel", "text": "Landing" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Hero — Stadt, Tagline, CTA" }
+            ]
+          },
+          { "type": "sublabel", "text": "Event Discovery" },
+          {
+            "cols": 2,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Feed", "captionSub": "Event Cards in Glass" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Empty / Skeleton" }
+            ]
+          },
+          { "type": "sublabel", "text": "Event Detail" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Modal Sheet" }
+            ]
+          },
+          { "type": "sublabel", "text": "Search Funnel" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Stepwise Filter" }
+            ]
+          },
+          { "type": "sublabel", "text": "Login Wall & Drawer" },
+          {
+            "cols": 2,
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Login Wall" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Menu Drawer" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Interactions",
+        "rows": [
+          { "type": "sublabel", "text": "Glass Transitions & Sheets" },
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Video folgt", "captionSub": "Glass-Transitions, Sheet-Animations" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

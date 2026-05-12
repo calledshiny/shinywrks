@@ -40,8 +40,8 @@
             "padding": "0 48px",
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "tapestop/logo.svg", "aspectRatio": "2.5/1", "bg": "#F5F3EF", "fit": "contain", "padding": "7% 8%", "caption": "Wortmarke" },
-              { "type": "img", "src": "tapestop/rad.svg", "aspectRatio": "2.5/1", "bg": "#F5F3EF", "fit": "contain", "padding": "7% 22%", "caption": "Signet", "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas." }
+              { "type": "img", "src": "tapestop/logo.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "7% 8%", "caption": "Wortmarke" },
+              { "type": "img", "src": "tapestop/rad.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "7% 22%", "caption": "Signet", "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas." }
             ]
           }
         ]

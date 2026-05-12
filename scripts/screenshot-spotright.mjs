@@ -1,56 +1,55 @@
 // One-off: regenerate spotright UI screenshots into public/spotright/.
-// Prereq: clone spotright repo, `npm install --no-save puppeteer` here,
-// and run the spotright vite dev server at http://127.0.0.1:5173 with
-// VITE_SITE_PASSWORD=TimJustin plus dummy Supabase env vars.
+// Targets the spotright_dummy variant (no backend, mock event data).
+// Navigation is via in-page view state. We click a category pill, fire
+// the landing CTA, then tab the bottom nav through the remaining views.
+// Prereqs: clone spotright_dummy, npm install there, run vite at
+// http://127.0.0.1:5174, and `npm install --no-save puppeteer` here.
 import puppeteer from 'puppeteer';
 import sharp from 'sharp';
-import fs from 'fs/promises';
 
-const BASE = 'http://127.0.0.1:5173';
-const PASSWORD = 'TimJustin';
+const BASE = 'http://127.0.0.1:5174';
 const OUT = '/home/user/shinywrks/public/spotright';
 const VIEWPORT = { width: 390, height: 844, deviceScaleFactor: 2, isMobile: true, hasTouch: true };
 
-const shots = [
-  { path: '/', file: 'screen-landing.webp', wait: 1200 },
-  { path: '/events', file: 'screen-discovery.webp', wait: 2000 },
-  { path: '/for-you', file: 'screen-search.webp', wait: 1500 },
-  { path: '/saved', file: 'screen-saved.webp', wait: 1500 },
-];
-
-const browser = await puppeteer.launch({
-  headless: 'new',
-  args: ['--no-sandbox', '--disable-dev-shm-usage'],
-});
-
+const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox', '--disable-dev-shm-usage'] });
 const page = await browser.newPage();
 await page.setViewport(VIEWPORT);
 page.on('pageerror', e => console.log('pageerror:', e.message));
-page.on('requestfailed', r => {
-  const u = r.url();
-  if (!u.includes('supabase') && !u.includes('localhost:8000') && !u.startsWith('chrome-extension')) {
-    console.log('reqfail:', u, r.failure()?.errorText);
-  }
-});
 
-await page.goto(BASE, { waitUntil: 'domcontentloaded' });
-await new Promise(r => setTimeout(r, 600));
-
-// Fill password gate
-await page.waitForSelector('input[type="password"]', { timeout: 5000 });
-await page.type('input[type="password"]', PASSWORD);
-await page.click('button[type="submit"]');
-await new Promise(r => setTimeout(r, 1200));
-
-for (const s of shots) {
-  await page.goto(BASE + s.path, { waitUntil: 'domcontentloaded' });
-  await new Promise(r => setTimeout(r, s.wait));
-  const buf = await page.screenshot({ type: 'png', fullPage: false });
-  const tmpFile = `/tmp/spotright-${s.file.replace('.webp', '.png')}`;
-  await fs.writeFile(tmpFile, buf);
-  await sharp(buf).webp({ quality: 88 }).toFile(`${OUT}/${s.file}`);
-  console.log(`saved ${s.file}`);
+async function clickButtonContaining(text) {
+  return await page.evaluate((t) => {
+    const buttons = Array.from(document.querySelectorAll('button'));
+    const btn = buttons.find(b => (b.textContent || '').includes(t));
+    if (btn) { btn.click(); return true; }
+    return false;
+  }, text);
 }
+
+async function shot(name, wait = 1200) {
+  await new Promise(r => setTimeout(r, wait));
+  const buf = await page.screenshot({ type: 'png', fullPage: false });
+  await sharp(buf).webp({ quality: 88 }).toFile(`${OUT}/${name}.webp`);
+  console.log(`saved ${name}`);
+}
+
+await page.goto(BASE, { waitUntil: 'networkidle2', timeout: 30000 });
+await new Promise(r => setTimeout(r, 1500));
+
+await shot('screen-landing', 400);
+
+await clickButtonContaining('Bar Events');
+await new Promise(r => setTimeout(r, 500));
+const ctaClicked = await clickButtonContaining('Was geht heute');
+console.log('cta click:', ctaClicked);
+await new Promise(r => setTimeout(r, 2000));
+
+await shot('screen-discovery', 500);
+
+console.log('für dich click:', await clickButtonContaining('Für dich'));
+await shot('screen-search', 1500);
+
+console.log('meine spots click:', await clickButtonContaining('Meine Spots'));
+await shot('screen-saved', 1500);
 
 await browser.close();
 console.log('done');

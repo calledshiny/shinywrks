@@ -115,6 +115,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           color: '#3D3428',
           textAlign: 'right',
         }}>
+          {p.studio && <div>{p.studio}</div>}
           <div>{p.location}</div>
           <div>{p.date}</div>
         </div>

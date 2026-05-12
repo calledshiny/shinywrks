@@ -37,22 +37,25 @@ export function initDotGrid() {
     }
   }
 
-  let _mouseOverInteractive = false;
-  let _lastElCheck = 0;
-  window.addEventListener('mousemove', e => {
-    const now = performance.now();
-    if (now - _lastElCheck > 50) {
-      const el = document.elementFromPoint(e.clientX, e.clientY);
-      _mouseOverInteractive = !!(el && el.closest('button:not(.next-project-btn), a, input, select, textarea, [role="button"]'));
-      _lastElCheck = now;
-    }
-    if (_mouseOverInteractive) { mouse.x = -999; mouse.y = -999; }
-    else { mouse.x = e.clientX; mouse.y = e.clientY; }
-  });
+  const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+  if (!isTouch) {
+    let _mouseOverInteractive = false;
+    let _lastElCheck = 0;
+    window.addEventListener('mousemove', e => {
+      const now = performance.now();
+      if (now - _lastElCheck > 50) {
+        const el = document.elementFromPoint(e.clientX, e.clientY);
+        _mouseOverInteractive = !!(el && el.closest('button:not(.next-project-btn), a, input, select, textarea, [role="button"]'));
+        _lastElCheck = now;
+      }
+      if (_mouseOverInteractive) { mouse.x = -999; mouse.y = -999; }
+      else { mouse.x = e.clientX; mouse.y = e.clientY; }
+    });
 
-  window.addEventListener('mouseleave', () => {
-    mouse.x = -999; mouse.y = -999;
-  });
+    window.addEventListener('mouseleave', () => {
+      mouse.x = -999; mouse.y = -999;
+    });
+  }
 
   window.addEventListener('resize', resize);
   resize();

@@ -6,10 +6,8 @@ import { initDotGrid } from './lib/dotGrid';
 import './styles.css';
 
 const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-if (!isTouch) {
-  initCustomCursor();
-  initDotGrid();
-}
+if (!isTouch) initCustomCursor();
+initDotGrid();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

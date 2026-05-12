@@ -220,21 +220,13 @@
         "label": "Screens",
         "rows": [
           {
-            "cols": 3,
+            "cols": 4,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Landing" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Discovery" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Event Detail" }
-            ]
-          },
-          {
-            "cols": 3,
-            "gap": 10,
-            "marginTop": 10,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Search" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" }
+              { "type": "img", "src": "spotright/screen-landing.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Landing" },
+              { "type": "img", "src": "spotright/screen-discovery.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Entdecken" },
+              { "type": "img", "src": "spotright/screen-search.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Für dich" },
+              { "type": "img", "src": "spotright/screen-saved.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Meine Spots" }
             ]
           }
         ]

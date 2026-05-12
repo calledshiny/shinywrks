@@ -207,7 +207,8 @@ export default function ProjectDetail({ project, projects, onNav }) {
                     );
                   }
                   const gridCols = m && row.mobileGridTemplateColumns !== undefined ? row.mobileGridTemplateColumns : row.gridTemplateColumns;
-                  const el = renderRow(row.items, row.cols, ri, row.padding, row.gap, gridCols);
+                  const padding = m && row.mobilePadding !== undefined ? row.mobilePadding : row.padding;
+                  const el = renderRow(row.items, row.cols, ri, padding, row.gap, gridCols);
                   return row.marginTop ? <div key={ri} style={{ marginTop: m ? Math.round(row.marginTop * 0.6) : row.marginTop }}>{el}</div> : el;
                 })
               : renderRow(sec.items, sec.cols, 0)

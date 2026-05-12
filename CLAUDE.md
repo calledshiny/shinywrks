@@ -123,7 +123,7 @@ Build-Preview: `npm run preview`
   }
 ]
 ```
-Row-Felder: `cols`, `gap`, `padding`, `gridTemplateColumns`, `mobileGridTemplateColumns` (optional, überschreibt `gridTemplateColumns` < 720px), `marginTop`.
+Row-Felder: `cols`, `gap`, `padding`, `mobilePadding` (optional, überschreibt `padding` < 720px), `gridTemplateColumns`, `mobileGridTemplateColumns` (optional, überschreibt `gridTemplateColumns` < 720px), `marginTop`.
 Item-Felder: `src`, `type` (`video` optional), `aspectRatio`, `fit` (`cover`|`contain`), `bg`, `padding`, `filter`, `caption`, `captionSub`, `labelAbove`.
 
 ### Typografie-Regeln (vereinheitlicht)

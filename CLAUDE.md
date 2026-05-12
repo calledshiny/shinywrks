@@ -12,7 +12,8 @@ Portfolio-Website für Justin Wiemann / shinywrks. React-SPA mit Vite, Hash-Rout
 - `src/lib/dotGrid.js`, `src/lib/customCursor.js` — Vanilla-JS-Animationen
 - `src/styles.css` — globale Styles + Animationen
 - `public/projects.json` — Projektdaten, hier bearbeiten (kein Programmierwissen nötig)
-- `public/portrait.jpeg`, `public/shinywrks-logo.svg`, `public/tapestop/`, `public/project/` — statische Assets
+- `public/portrait.webp`, `public/shinywrks-logo.svg`, `public/tapestop/`, `public/project/` — statische Assets
+- `scripts/optimize-images.js` — Sharp-Skript, konvertiert alle PNG/JPG in `public/` zu WebP (max. 2400px Längsseite, Quality 92). Aufruf: `npm run optimize:images`
 - `dev.sh` — startet `npm run dev`
 - `vite.config.js` — Vite-Konfig
 

@@ -153,7 +153,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
             height: mobile ? 174 : 'clamp(173px, 29vh, 320px)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
-            <img src="portrait.jpeg" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
+            <img src="portrait.webp" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
             <div className="noise"/>
           </div>
 

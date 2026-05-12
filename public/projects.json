@@ -18,7 +18,7 @@
     "location": "FREIES PROJEKT",
     "date": "AUG 2025",
     "bg": "linear-gradient(160deg, #0D0B08 0%, #1a1209 100%)",
-    "thumb": "tapestop/m-poster-triple.jpg",
+    "thumb": "tapestop/m-poster-triple.webp",
     "thumbW": 1600,
     "thumbH": 1067,
     "heroImg": "tapestop/logo.svg",
@@ -51,7 +51,7 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/tickets-scene6.png" }
+              { "type": "img", "src": "tapestop/tickets-scene6.webp" }
             ]
           },
           { "type": "sublabel", "text": "Entry" },
@@ -60,18 +60,18 @@
             "gap": 10,
             "gridTemplateColumns": "1fr 0.75fr 0.135fr 0.135fr 0.135fr",
             "items": [
-              { "type": "img", "src": "tapestop/sticker-iphone.png", "aspectRatio": "1/1.81", "fit": "contain" },
-              { "type": "img", "src": "tapestop/baendchen-hand.png", "aspectRatio": "1/2.41", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-1.png", "aspectRatio": "225/3012", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-2.png", "aspectRatio": "225/3012", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-3.png", "aspectRatio": "225/3012", "fit": "contain" }
+              { "type": "img", "src": "tapestop/sticker-iphone.webp", "aspectRatio": "1/1.81", "fit": "contain" },
+              { "type": "img", "src": "tapestop/baendchen-hand.webp", "aspectRatio": "1/2.41", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-1.webp", "aspectRatio": "225/3012", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-2.webp", "aspectRatio": "225/3012", "fit": "contain" },
+              { "type": "img", "src": "tapestop/tyvek-3.webp", "aspectRatio": "225/3012", "fit": "contain" }
             ]
           },
           { "type": "sublabel", "text": "Disposable" },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/banderole-3.png", "fit": "contain" }
+              { "type": "img", "src": "tapestop/banderole-3.webp", "fit": "contain" }
             ]
           },
           { "type": "sublabel", "text": "Shirts" },
@@ -79,12 +79,12 @@
             "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "tapestop/tee-bar-front.png" },
-              { "type": "img", "src": "tapestop/tee-crew-front.png" },
-              { "type": "img", "src": "tapestop/tee-safety-front.png" },
-              { "type": "img", "src": "tapestop/tee-bar-back.png" },
-              { "type": "img", "src": "tapestop/tee-crew-back.png" },
-              { "type": "img", "src": "tapestop/tee-safety-back.png" }
+              { "type": "img", "src": "tapestop/tee-bar-front.webp" },
+              { "type": "img", "src": "tapestop/tee-crew-front.webp" },
+              { "type": "img", "src": "tapestop/tee-safety-front.webp" },
+              { "type": "img", "src": "tapestop/tee-bar-back.webp" },
+              { "type": "img", "src": "tapestop/tee-crew-back.webp" },
+              { "type": "img", "src": "tapestop/tee-safety-back.webp" }
             ]
           },
           { "type": "sublabel", "text": "Recovery Kit" },
@@ -92,8 +92,8 @@
             "cols": 2,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "tapestop/bag-front.png" },
-              { "type": "img", "src": "tapestop/bag-back2.png" }
+              { "type": "img", "src": "tapestop/bag-front.webp" },
+              { "type": "img", "src": "tapestop/bag-back2.webp" }
             ]
           },
           { "type": "sublabel", "text": "Drinks" },
@@ -101,7 +101,7 @@
             "cols": 1,
             "padding": "0 25%",
             "items": [
-              { "type": "img", "src": "tapestop/drink-card.png" }
+              { "type": "img", "src": "tapestop/drink-card.webp" }
             ]
           }
         ]
@@ -113,7 +113,7 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/m-poster-triple.jpg" }
+              { "type": "img", "src": "tapestop/m-poster-triple.webp" }
             ]
           },
           {
@@ -121,15 +121,15 @@
             "gap": 10,
             "marginTop": 48,
             "items": [
-              { "type": "img", "src": "tapestop/poster-tapeit-1.png" },
-              { "type": "img", "src": "tapestop/poster-tapeit-2.png" },
-              { "type": "img", "src": "tapestop/poster-tapeit-3.png" },
-              { "type": "img", "src": "tapestop/poster-eject-1.png" },
-              { "type": "img", "src": "tapestop/poster-eject-2.png" },
-              { "type": "img", "src": "tapestop/poster-eject-3.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-1.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-2.png" },
-              { "type": "img", "src": "tapestop/poster-offtrack-3.png" }
+              { "type": "img", "src": "tapestop/poster-tapeit-1.webp" },
+              { "type": "img", "src": "tapestop/poster-tapeit-2.webp" },
+              { "type": "img", "src": "tapestop/poster-tapeit-3.webp" },
+              { "type": "img", "src": "tapestop/poster-eject-1.webp" },
+              { "type": "img", "src": "tapestop/poster-eject-2.webp" },
+              { "type": "img", "src": "tapestop/poster-eject-3.webp" },
+              { "type": "img", "src": "tapestop/poster-offtrack-1.webp" },
+              { "type": "img", "src": "tapestop/poster-offtrack-2.webp" },
+              { "type": "img", "src": "tapestop/poster-offtrack-3.webp" }
             ]
           },
           { "type": "sublabel", "text": "Flyer" },
@@ -137,14 +137,14 @@
             "cols": 1,
             "marginTop": 48,
             "items": [
-              { "type": "img", "src": "tapestop/flyer-front.png" }
+              { "type": "img", "src": "tapestop/flyer-front.webp" }
             ]
           },
           {
             "cols": 1,
             "gap": 0,
             "items": [
-              { "type": "img", "src": "tapestop/flyer-back.png" }
+              { "type": "img", "src": "tapestop/flyer-back.webp" }
             ]
           }
         ]

@@ -145,7 +145,6 @@ nav { background: rgba(245,243,239,0.94) !important; }
   padding: 60px 48px;
   transition: background 400ms;
 }
-.next-project-btn { background: #F5F3EF; }
 .next-project-btn:hover { background: #E8E2D6; }
 
 

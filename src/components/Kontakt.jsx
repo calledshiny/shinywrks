@@ -33,13 +33,18 @@ export default function Kontakt() {
         >justin@shinywrks.de</a>
 
         <div className="fu3" style={{ display: 'flex', gap: 20, marginBottom: 64 }}>
-          {SOCIAL_ICONS.map(({ href, title, d }) => (
-            <a key={title} href={href} title={title} style={{ color: '#C4B8A4', display: 'flex', textDecoration: 'none', transition: 'color 200ms' }}
-              onMouseEnter={e => e.currentTarget.style.color = '#1A1209'}
-              onMouseLeave={e => e.currentTarget.style.color = '#C4B8A4'}>
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d={d}/></svg>
-            </a>
-          ))}
+          {SOCIAL_ICONS.map(({ href, title, d }) => {
+            const isExternal = !href.startsWith('mailto:');
+            return (
+              <a key={title} href={href} title={title}
+                {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                style={{ color: '#C4B8A4', display: 'flex', textDecoration: 'none', transition: 'color 200ms' }}
+                onMouseEnter={e => e.currentTarget.style.color = '#1A1209'}
+                onMouseLeave={e => e.currentTarget.style.color = '#C4B8A4'}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d={d}/></svg>
+              </a>
+            );
+          })}
         </div>
 
         <div className="fu4">

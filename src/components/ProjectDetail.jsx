@@ -53,7 +53,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
               {item.caption && (
                 <div style={{ padding: '10px 4px 6px', display: 'flex', flexDirection: 'column', gap: 3 }}>
                   <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.caption}</span>
-                  {item.captionSub && <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.08em', color: '#C4B8A4', lineHeight: 1.5 }}>{item.captionSub}</span>}
+                  {item.captionSub && <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.08em', color: '#3D3428', lineHeight: 1.5 }}>{item.captionSub}</span>}
                 </div>
               )}
             </div>
@@ -166,7 +166,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
         p.sections.map((sec, si) => (
           <div key={si} style={{ borderTop: si === 0 ? 'none' : '1px solid #1A1209', marginTop: si === 0 ? 0 : 48 }}>
             <div style={{ padding: '28px 48px 20px', display: 'flex', alignItems: 'baseline', gap: 20 }}>
-              <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', color: '#C4B8A4' }}>{String(si + 1).padStart(2, '0')}</span>
+              <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', color: '#3D3428' }}>{String(si + 1).padStart(2, '0')}</span>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#1A1209' }}>{sec.label}</span>
             </div>
             {sec.rows
@@ -174,7 +174,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
                   if (row.type === 'sublabel') {
                     return (
                       <div key={ri} style={{ padding: '48px 48px 16px' }}>
-                        <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#C4B8A4' }}>{row.text}</span>
+                        <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{row.text}</span>
                       </div>
                     );
                   }

@@ -44,7 +44,7 @@ Build-Preview: `npm run preview`
 ## Design-Konventionen
 - Animationen: `fadeUp` (0.4s, cubic-bezier 0.16,1,0.3,1) für Content, `fadeLeft` (0.5s, 0.25s delay) für Projekt-Strip
 - Nav active state: `border-bottom: 1px solid #0D0B08`
-- Chrome shimmer auf Email-Link: `chrome-sweep` 0.8s linear, -0.08s delay, `fill-mode: both`
+- Chrome shimmer auf Email-Link: `background-position` Transition (0.8s linear), kein keyframes — sonst kollidiert es mit der fadeUp-Animation
 - Keine Kommentare im Code außer wo wirklich nötig
 - Kein TypeScript
 

@@ -170,10 +170,6 @@ a, button, .strip-item, [role="button"] {
   pointer-events: none;
 }
 
-@keyframes chrome-sweep {
-  0%   { background-position: 0% center; }
-  100% { background-position: 100% center; }
-}
 .email-shine {
   background: linear-gradient(90deg, #1A1209 0%, #1A1209 33%, #6B6158 34%, #A89E95 36%, #6B6158 38%, #1A1209 39%, #1A1209 100%);
   background-size: 300% 100%;
@@ -182,11 +178,11 @@ a, button, .strip-item, [role="button"] {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   opacity: 1;
-  transition: opacity 80ms ease;
+  transition: opacity 80ms ease, background-position 0.8s linear;
 }
 .email-shine:hover {
   opacity: 0.72;
-  animation: chrome-sweep 0.8s linear -0.08s both;
+  background-position: 100% center;
 }
 
 @keyframes thumb-shine {

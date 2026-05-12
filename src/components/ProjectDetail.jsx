@@ -21,6 +21,21 @@ export default function ProjectDetail({ project, projects, onNav }) {
   const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
     <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) ?? `0 ${sidePad}px` }}>
       {items.map((item, ii) => {
+        if (item.type === 'text') {
+          return (
+            <div key={ii} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: m ? '8px 4px' : '12px 8px', gap: 12 }}>
+              {item.labelAbove && (
+                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.labelAbove}</span>
+              )}
+              {item.title && (
+                <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: m ? 22 : 26, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#0D0B08', margin: 0 }}>{item.title}</h3>
+              )}
+              {item.body && (
+                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 400, fontSize: 15, lineHeight: 1.6, color: '#1A1209', margin: 0, maxWidth: 460 }}>{item.body}</p>
+              )}
+            </div>
+          );
+        }
         let inner;
         if (item.type === 'video') {
           inner = item.aspectRatio ? (

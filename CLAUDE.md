@@ -125,7 +125,8 @@ Build-Preview: `npm run preview`
 ]
 ```
 Row-Felder: `cols`, `gap`, `padding`, `mobilePadding` (optional, überschreibt `padding` < 720px), `gridTemplateColumns`, `mobileGridTemplateColumns` (optional, überschreibt `gridTemplateColumns` < 720px), `marginTop`.
-Item-Felder: `src`, `type` (`video` optional), `aspectRatio`, `fit` (`cover`|`contain`), `bg`, `padding`, `filter`, `caption`, `captionSub`, `labelAbove`.
+Item-Felder: `src`, `type` (`video` / `text` / default `img`), `aspectRatio`, `fit` (`cover`|`contain`), `bg`, `padding`, `filter`, `caption`, `captionSub`, `labelAbove`.
+- `type: "text"` rendert eine Text-Zelle (vertikal zentriert) mit Feldern `labelAbove` (kleines Mono-Label), `title` (Space Grotesk 500, ~26px) und `body` (Space Grotesk 15px, lineHeight 1.6). Wird typischerweise in einer 2-spaltigen Row neben einem Bild/Video genutzt — links Text-Erklärung, rechts Media. Auf Mobile mit `mobileGridTemplateColumns: "1fr"` stapelbar.
 
 ### Typografie-Regeln (vereinheitlicht)
 - **Body** (Beschreibung, Fliesstext): Space Grotesk 17px, `lineHeight 1.65`, color `#1A1209`

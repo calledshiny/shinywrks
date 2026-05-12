@@ -217,29 +217,83 @@
         ]
       },
       {
-        "label": "Screens",
+        "label": "UX Flow",
         "rows": [
           {
-            "cols": 4,
-            "gap": 10,
+            "gridTemplateColumns": "1fr 1.6fr",
+            "mobileGridTemplateColumns": "1fr",
+            "gap": 32,
             "items": [
-              { "type": "img", "src": "spotright/screen-landing.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Landing" },
-              { "type": "img", "src": "spotright/screen-discovery.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Entdecken" },
-              { "type": "img", "src": "spotright/screen-search.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Für dich" },
-              { "type": "img", "src": "spotright/screen-saved.webp", "aspectRatio": "390/844", "fit": "contain", "caption": "Meine Spots" }
+              {
+                "type": "text",
+                "title": "Vom Hero zur Auswahl.",
+                "body": "Die App führt in drei Schritten zur Auswahl: Stadt wählen, Kategorie filtern, Event antippen. Wer's persönlicher will, wechselt in den „Für dich“-Funnel — Wann? Was? Wer? — und bekommt kuratierte Ergebnisse statt einer endlosen Liste."
+              },
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "cover" }
             ]
           }
         ]
       },
       {
-        "label": "Interactions",
+        "label": "Screens",
         "rows": [
           {
-            "cols": 1,
-            "padding": "0 38%",
-            "mobilePadding": "0 25%",
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "gap": 48,
             "items": [
-              { "type": "video", "src": "spotright/interactions.mp4", "aspectRatio": "390/844", "fit": "cover", "bg": "transparent", "caption": "Landing → Discovery → Für dich" }
+              {
+                "type": "text",
+                "labelAbove": "Screen 01",
+                "title": "Landing",
+                "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt."
+              },
+              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+            ]
+          },
+          {
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "gap": 48,
+            "marginTop": 64,
+            "items": [
+              {
+                "type": "text",
+                "labelAbove": "Screen 02",
+                "title": "Entdecken",
+                "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs."
+              },
+              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+            ]
+          },
+          {
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "gap": 48,
+            "marginTop": 64,
+            "items": [
+              {
+                "type": "text",
+                "labelAbove": "Screen 03",
+                "title": "Für dich",
+                "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste."
+              },
+              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+            ]
+          },
+          {
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "gap": 48,
+            "marginTop": 64,
+            "items": [
+              {
+                "type": "text",
+                "labelAbove": "Screen 04",
+                "title": "Meine Spots",
+                "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest."
+              },
+              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
             ]
           }
         ]

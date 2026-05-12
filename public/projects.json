@@ -239,7 +239,7 @@
             "padding": "0 38%",
             "mobilePadding": "0 25%",
             "items": [
-              { "type": "video", "src": "spotright/interactions.mp4", "aspectRatio": "390/844", "fit": "contain", "caption": "Landing → Discovery → Für dich" }
+              { "type": "video", "src": "spotright/interactions.mp4", "aspectRatio": "390/844", "fit": "cover", "bg": "transparent", "caption": "Landing → Discovery → Für dich" }
             ]
           }
         ]

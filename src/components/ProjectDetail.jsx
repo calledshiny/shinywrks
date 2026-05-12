@@ -14,12 +14,16 @@ export default function ProjectDetail({ project, projects, onNav }) {
       {items.map((item, ii) => {
         let inner;
         if (item.type === 'video') {
-          inner = (
-            <div style={{ aspectRatio: item.aspectRatio || '16/9', background: '#0D0B08', overflow: 'hidden' }}>
-              <video autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: 'contain', position: 'relative', zIndex: 1 }}>
+          inner = item.aspectRatio ? (
+            <div style={{ aspectRatio: item.aspectRatio, background: item.bg || '#0D0B08', overflow: 'hidden' }}>
+              <video autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: item.fit || 'cover', display: 'block', position: 'relative', zIndex: 1 }}>
                 <source src={item.src} type="video/mp4"/>
               </video>
             </div>
+          ) : (
+            <video autoPlay muted loop playsInline style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}>
+              <source src={item.src} type="video/mp4"/>
+            </video>
           );
         } else if (item.aspectRatio) {
           inner = (

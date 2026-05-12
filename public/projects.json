@@ -145,10 +145,16 @@
       },
       {
         "label": "Landing Page",
-        "cols": 2,
-        "items": [
-          { "type": "video", "src": "tapestop/landing-idle.mp4" },
-          { "type": "video", "src": "tapestop/mobile.mp4" }
+        "rows": [
+          {
+            "gridTemplateColumns": "3.937fr 1fr",
+            "padding": "0 48px",
+            "gap": 10,
+            "items": [
+              { "type": "video", "src": "tapestop/landing-idle.mp4", "aspectRatio": "1440/1020", "fit": "cover" },
+              { "type": "video", "src": "tapestop/mobile.mp4", "aspectRatio": "388/1082", "fit": "cover" }
+            ]
+          }
         ]
       }
     ]

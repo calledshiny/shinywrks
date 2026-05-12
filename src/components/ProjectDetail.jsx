@@ -1,4 +1,9 @@
 import { useMobile } from '../hooks/useMobile';
+import SpotrightUxFlow from './SpotrightUxFlow';
+
+const COMPONENT_REGISTRY = {
+  SpotrightUxFlow,
+};
 
 export default function ProjectDetail({ project, projects, onNav }) {
   const m = useMobile();
@@ -21,6 +26,11 @@ export default function ProjectDetail({ project, projects, onNav }) {
   const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
     <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) ?? `0 ${sidePad}px` }}>
       {items.map((item, ii) => {
+        if (item.type === 'component') {
+          const Cmp = COMPONENT_REGISTRY[item.name];
+          if (!Cmp) return null;
+          return <Cmp key={ii} />;
+        }
         if (item.type === 'text') {
           return (
             <div key={ii} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: m ? '8px 4px' : '12px 8px', gap: 12 }}>

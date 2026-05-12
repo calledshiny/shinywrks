@@ -221,8 +221,9 @@
         "rows": [
           {
             "cols": 1,
+            "padding": "0",
             "items": [
-              { "type": "img", "src": "spotright/ux-flow.svg", "aspectRatio": "16/9", "fit": "contain", "bg": "transparent" }
+              { "type": "component", "name": "SpotrightUxFlow" }
             ]
           }
         ]

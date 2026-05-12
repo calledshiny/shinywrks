@@ -194,51 +194,23 @@
     "height": 420,
     "sections": [
       {
-        "label": "Concept & Brand",
+        "label": "Design System",
         "rows": [
+          { "type": "sublabel", "text": "Foundations" },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Moodboard / Brand-Direction" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Colors, Typography, Logo" }
             ]
-          }
-        ]
-      },
-      {
-        "label": "Design System",
-        "rows": [
-          { "type": "sublabel", "text": "Glass Styles" },
+          },
+          { "type": "sublabel", "text": "Glass Material" },
           {
             "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Light Glass", "captionSub": "rgba(255,255,255,0.12) · blur 20" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Warm Glass", "captionSub": "Terra-Tint für Active States" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Dark Glass", "captionSub": "rgba(0,0,0,0.35) · blur 24" }
-            ]
-          },
-          { "type": "sublabel", "text": "Colors" },
-          {
-            "cols": 1,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1311/503", "caption": "Token-Set" }
-            ]
-          },
-          { "type": "sublabel", "text": "Typography" },
-          {
-            "cols": 2,
-            "gap": 10,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "4/3", "caption": "Lora", "captionSub": "Headlines, Logo" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "4/3", "caption": "DM Sans", "captionSub": "UI, Body" }
-            ]
-          },
-          { "type": "sublabel", "text": "Logo" },
-          {
-            "cols": 1,
-            "marginTop": 16,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "2.5/1", "caption": "Wordmark", "captionSub": "spot (weiß) + right (Terra) mit Terra-Dot" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Light" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Warm" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Dark" }
             ]
           }
         ]
@@ -246,43 +218,23 @@
       {
         "label": "Screens",
         "rows": [
-          { "type": "sublabel", "text": "Landing" },
           {
-            "cols": 1,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Hero — Stadt, Tagline, CTA" }
-            ]
-          },
-          { "type": "sublabel", "text": "Event Discovery" },
-          {
-            "cols": 2,
+            "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Feed", "captionSub": "Event Cards in Glass" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Empty / Skeleton" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Landing" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Discovery" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Event Detail" }
             ]
           },
-          { "type": "sublabel", "text": "Event Detail" },
           {
-            "cols": 1,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Modal Sheet" }
-            ]
-          },
-          { "type": "sublabel", "text": "Search Funnel" },
-          {
-            "cols": 1,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Stepwise Filter" }
-            ]
-          },
-          { "type": "sublabel", "text": "Login Wall & Drawer" },
-          {
-            "cols": 2,
+            "cols": 3,
             "gap": 10,
+            "marginTop": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Login Wall" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "388/1082", "fit": "contain", "caption": "Menu Drawer" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Search" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" },
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Drawer" }
             ]
           }
         ]
@@ -290,11 +242,10 @@
       {
         "label": "Interactions",
         "rows": [
-          { "type": "sublabel", "text": "Glass Transitions & Sheets" },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Video folgt", "captionSub": "Glass-Transitions, Sheet-Animations" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Video folgt", "captionSub": "Glass-Transitions & Sheet-Animations" }
             ]
           }
         ]

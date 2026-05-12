@@ -43,7 +43,7 @@ export function initDotGrid() {
     const now = performance.now();
     if (now - _lastElCheck > 50) {
       const el = document.elementFromPoint(e.clientX, e.clientY);
-      _mouseOverInteractive = !!(el && el.closest('button, a, input, select, textarea, [role="button"]'));
+      _mouseOverInteractive = !!(el && el.closest('button:not(.next-project-btn), a, input, select, textarea, [role="button"]'));
       _lastElCheck = now;
     }
     if (_mouseOverInteractive) { mouse.x = -999; mouse.y = -999; }

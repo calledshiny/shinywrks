@@ -49,7 +49,7 @@ Build-Preview: `npm run preview`
 - Kein TypeScript
 
 ## Wichtige Komponenten
-- `StarSignet` — Logo-SVG, size prop (22px Nav, 10px Footer)
+- `StarSignet` — Logo-SVG, size prop (28px Desktop / 22px Mobile in Nav, 10px Footer)
 - `ProjectCard` — Karte mit Hover-Effekt und custom cursor
 - `ProjectDetail` — Detailansicht mit prev/next Navigation
 - `Kontakt` — Contact-Page: "Time to shine." → "Kontakt" label → Email → Social Icons → Standort

@@ -4,7 +4,7 @@ import ProjectCard from './ProjectCard';
 import MobileProjectCard from './MobileProjectCard';
 import { SOCIAL_ICONS } from './SocialIcons';
 
-const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'Graphics', 'Video'];
+const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'UI/UX Design', 'Graphics', 'Video', 'AI'];
 const STAR_CURSOR = 'none';
 
 export default function Landing({ onNav, projects, activeFilter, setActiveFilter }) {

@@ -40,14 +40,22 @@ export default function ProjectDetail({ project, projects, onNav }) {
         } else {
           inner = <img src={item.src} alt="" style={{ width: '100%', height: 'auto', display: 'block', filter: item.filter || 'none', position: 'relative', zIndex: 1 }}/>;
         }
-        if (item.caption) {
+        const aboveEl = item.labelAbove ? (
+          <div style={{ padding: '0 4px 10px' }}>
+            <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.labelAbove}</span>
+          </div>
+        ) : null;
+        if (item.caption || aboveEl) {
           return (
             <div key={ii}>
+              {aboveEl}
               {inner}
-              <div style={{ padding: '10px 4px 6px', display: 'flex', flexDirection: 'column', gap: 3 }}>
-                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.caption}</span>
-                {item.captionSub && <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.08em', color: '#C4B8A4', lineHeight: 1.5 }}>{item.captionSub}</span>}
-              </div>
+              {item.caption && (
+                <div style={{ padding: '10px 4px 6px', display: 'flex', flexDirection: 'column', gap: 3 }}>
+                  <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.caption}</span>
+                  {item.captionSub && <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.08em', color: '#C4B8A4', lineHeight: 1.5 }}>{item.captionSub}</span>}
+                </div>
+              )}
             </div>
           );
         }

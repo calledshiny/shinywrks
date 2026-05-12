@@ -151,8 +151,8 @@
             "padding": "0 48px",
             "gap": 10,
             "items": [
-              { "type": "video", "src": "tapestop/landing-idle.mp4", "aspectRatio": "1440/1020", "fit": "cover" },
-              { "type": "video", "src": "tapestop/mobile.mp4", "aspectRatio": "388/1082", "fit": "cover" }
+              { "type": "video", "src": "tapestop/landing-idle.mp4", "aspectRatio": "1440/1020", "fit": "cover", "labelAbove": "Desktop" },
+              { "type": "video", "src": "tapestop/mobile.mp4", "aspectRatio": "388/1082", "fit": "cover", "labelAbove": "Mobile" }
             ]
           }
         ]

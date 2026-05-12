@@ -24,7 +24,7 @@ for (const file of files) {
   const inStat = await stat(file);
   totalIn += inStat.size;
   const out = file.replace(/\.(png|jpe?g)$/i, '.webp');
-  const img = sharp(file);
+  const img = sharp(file).rotate();
   const meta = await img.metadata();
   const longest = Math.max(meta.width || 0, meta.height || 0);
   const pipeline = longest > MAX_SIDE

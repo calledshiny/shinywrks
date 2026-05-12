@@ -1,4 +1,4 @@
-import sharp from 'sharp';
+import fs from 'node:fs/promises';
 
 const TERRA = '#B07050';
 const W = 1600, H = 900;
@@ -82,5 +82,5 @@ const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" 
 
 </svg>`;
 
-await sharp(Buffer.from(svg)).webp({ quality: 92 }).toFile('/home/user/shinywrks/public/spotright/ux-flow.webp');
+await fs.writeFile('/home/user/shinywrks/public/spotright/ux-flow.svg', svg);
 console.log('done');

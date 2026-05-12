@@ -15,9 +15,10 @@ export default function Nav({ page, onNav }) {
       backdropFilter: 'blur(12px)',
       WebkitBackdropFilter: 'blur(12px)',
     }}>
-      <button onClick={() => onNav('home')} style={{
+      <button className="nav-logo-btn" onClick={() => onNav('home')} style={{
         display: 'flex', alignItems: 'center', gap: 10,
         background: 'none', border: 'none', cursor: CROSS_CURSOR, padding: 0,
+        position: 'relative',
       }}>
         <StarSignet size={mobile ? 22 : 28}/>
       </button>

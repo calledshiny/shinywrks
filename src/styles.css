@@ -87,6 +87,14 @@ nav { background: rgba(245,243,239,0.94) !important; }
 
 .strip-meta { background: #F5F3EF; }
 
+@media (hover: none), (pointer: coarse) {
+  .nav-logo-btn::before {
+    content: '';
+    position: absolute;
+    inset: -16px;
+  }
+}
+
 .nav-link {
   font-family: 'Space Mono', monospace;
   font-size: 11px;

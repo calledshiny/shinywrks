@@ -187,7 +187,7 @@
     "location": "FREIES PROJEKT",
     "date": "OKT 2025",
     "bg": "radial-gradient(ellipse at 30% 40%, #3a1f14 0%, #1a0f0a 55%, #0a0a0d 100%)",
-    "thumb": "spotright/placeholder.webp",
+    "thumb": "spotright/placeholder-wide.webp",
     "thumbW": 1600,
     "thumbH": 1067,
     "width": 320,
@@ -200,7 +200,7 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "16/9", "caption": "Colors, Typography, Logo" }
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "caption": "Colors, Typography, Logo" }
             ]
           },
           { "type": "sublabel", "text": "Glass Material" },
@@ -208,9 +208,9 @@
             "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Light" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Warm" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "1/1", "caption": "Dark" }
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Light" },
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Warm" },
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Dark" }
             ]
           }
         ]
@@ -222,9 +222,9 @@
             "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Landing" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Discovery" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Event Detail" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Landing" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Discovery" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Event Detail" }
             ]
           },
           {
@@ -232,8 +232,8 @@
             "gap": 10,
             "marginTop": 10,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Search" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Search" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" }
             ]
           }
         ]
@@ -244,7 +244,7 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Video folgt", "captionSub": "Glass-Transitions & Sheet-Animations" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Video folgt", "captionSub": "Glass-Transitions & Sheet-Animations" }
             ]
           }
         ]

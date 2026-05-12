@@ -127,7 +127,8 @@ Item-Felder: `src`, `type` (`video` optional), `aspectRatio`, `fit` (`cover`|`co
 - **Body** (Beschreibung, Fliesstext): Space Grotesk 17px, `lineHeight 1.65`, color `#1A1209`
 - **Titel/Hero/Prev-Next-Title**: Space Grotesk 500, `letter-spacing -0.03em` (gross) bzw. `0.1em` uppercase (klein)
 - **Mono-Labels klein**: Space Mono **11px, `letter-spacing 0.14em`, uppercase**, color `#3D3428`
-  → gilt für: Section-Nummer (`01`), Section-Label, Sublabels, Caption, CaptionSub, labelAbove, „Beschreibung"-Label
+  → gilt für: Section-Label, Sublabels, Caption, CaptionSub, labelAbove, „Beschreibung"-Label
+- **Section-Nummern** (`01`, `02`, …): wie oben, aber bewusst dekorativ in `#C4B8A4` (heller, sitzt als Marker links neben dem Label)
 - **Mono Header oben**: Space Mono 12px, `letter-spacing 0.08em`, color `#3D3428`
 - **Prev/Next-Footer**: mono 10px (eigener Kontext, kleiner ok)
 

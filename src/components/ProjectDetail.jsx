@@ -13,15 +13,13 @@ export default function ProjectDetail({ project, projects, onNav }) {
     if (!m) return s;
     return s.replace(/48px/g, '20px').replace(/0 25%/g, '0');
   };
-  const adaptGridCols = (s) => (m && s ? '1fr' : s);
-
   const placeholderBg = (shade) => {
     const shades = [p.bg, 'linear-gradient(160deg, #E8E2D6 0%, #C4B8A4 100%)', 'linear-gradient(140deg, #F5F3EF 0%, #E8E2D6 100%)'];
     return shades[shade % shades.length];
   };
 
   const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
-    <div key={ri} style={{ display: 'grid', gridTemplateColumns: adaptGridCols(gridCols) || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) || 0 }}>
+    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) || 0 }}>
       {items.map((item, ii) => {
         let inner;
         if (item.type === 'video') {
@@ -208,7 +206,8 @@ export default function ProjectDetail({ project, projects, onNav }) {
                       </div>
                     );
                   }
-                  const el = renderRow(row.items, row.cols, ri, row.padding, row.gap, row.gridTemplateColumns);
+                  const gridCols = m && row.mobileGridTemplateColumns !== undefined ? row.mobileGridTemplateColumns : row.gridTemplateColumns;
+                  const el = renderRow(row.items, row.cols, ri, row.padding, row.gap, gridCols);
                   return row.marginTop ? <div key={ri} style={{ marginTop: m ? Math.round(row.marginTop * 0.6) : row.marginTop }}>{el}</div> : el;
                 })
               : renderRow(sec.items, sec.cols, 0)

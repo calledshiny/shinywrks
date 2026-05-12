@@ -154,6 +154,7 @@
         "rows": [
           {
             "gridTemplateColumns": "3.937fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
             "padding": "0 48px",
             "gap": 10,
             "items": [

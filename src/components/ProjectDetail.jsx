@@ -1,8 +1,19 @@
+import { useMobile } from '../hooks/useMobile';
+
 export default function ProjectDetail({ project, projects, onNav }) {
+  const m = useMobile();
   const p = project || projects[0];
   const currentIndex = projects.findIndex(x => x.id === p.id);
   const next = projects[(currentIndex + 1) % projects.length];
   const prev = projects[(currentIndex - 1 + projects.length) % projects.length];
+
+  const sidePad = m ? 20 : 48;
+  const adaptPad = (s) => {
+    if (!s) return s;
+    if (!m) return s;
+    return s.replace(/48px/g, '20px').replace(/0 25%/g, '0');
+  };
+  const adaptGridCols = (s) => (m && s ? '1fr' : s);
 
   const placeholderBg = (shade) => {
     const shades = [p.bg, 'linear-gradient(160deg, #E8E2D6 0%, #C4B8A4 100%)', 'linear-gradient(140deg, #F5F3EF 0%, #E8E2D6 100%)'];
@@ -10,7 +21,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
   };
 
   const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
-    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: rowPadding || 0 }}>
+    <div key={ri} style={{ display: 'grid', gridTemplateColumns: adaptGridCols(gridCols) || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) || 0 }}>
       {items.map((item, ii) => {
         let inner;
         if (item.type === 'video') {
@@ -67,17 +78,17 @@ export default function ProjectDetail({ project, projects, onNav }) {
   return (
     <div style={{ paddingTop: 65, maxWidth: 1200, margin: '0 auto', position: 'relative', zIndex: 1 }}>
       <div style={{
-        padding: '20px 48px',
+        padding: `${m ? 16 : 20}px ${sidePad}px`,
         borderBottom: '1px solid #E8E2D6',
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
-        gap: 32,
+        gap: m ? 16 : 32,
         flexWrap: 'wrap',
       }}>
         <div style={{
           fontFamily: 'Space Mono, monospace',
-          fontSize: 12,
+          fontSize: m ? 11 : 12,
           letterSpacing: '0.08em',
           lineHeight: 1.8,
           color: '#3D3428',
@@ -89,16 +100,18 @@ export default function ProjectDetail({ project, projects, onNav }) {
 
         <div style={{
           fontFamily: 'Space Mono, monospace',
-          fontSize: 12,
+          fontSize: m ? 11 : 12,
           letterSpacing: '0.08em',
           lineHeight: 1.8,
           color: '#3D3428',
-          textAlign: 'center',
+          textAlign: m ? 'left' : 'center',
+          order: m ? -1 : 0,
+          width: m ? '100%' : 'auto',
         }}>
           <div style={{
             fontFamily: 'Space Grotesk, sans-serif',
             fontWeight: 500,
-            fontSize: 13,
+            fontSize: m ? 15 : 13,
             letterSpacing: '0.1em',
             textTransform: 'uppercase',
             color: '#0D0B08',
@@ -109,7 +122,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
 
         <div style={{
           fontFamily: 'Space Mono, monospace',
-          fontSize: 12,
+          fontSize: m ? 11 : 12,
           letterSpacing: '0.08em',
           lineHeight: 1.8,
           color: '#3D3428',
@@ -149,7 +162,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
         </div>
       )}
 
-      <div style={{ padding: '56px 48px', borderBottom: '1px solid #E8E2D6', display: 'flex', gap: 96 }}>
+      <div style={{ padding: `${m ? 36 : 56}px ${sidePad}px`, borderBottom: '1px solid #E8E2D6', display: 'flex', flexDirection: m ? 'column' : 'row', gap: m ? 16 : 96 }}>
         <div style={{
           fontFamily: 'Space Mono, monospace', fontSize: 11,
           letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428',
@@ -181,8 +194,8 @@ export default function ProjectDetail({ project, projects, onNav }) {
 
       {p.sections ? (
         p.sections.map((sec, si) => (
-          <div key={si} style={{ borderTop: si === 0 ? 'none' : '1px solid #1A1209', marginTop: si === 0 ? 0 : 48 }}>
-            <div style={{ padding: '28px 48px 20px', display: 'flex', alignItems: 'baseline', gap: 20 }}>
+          <div key={si} style={{ borderTop: si === 0 ? 'none' : '1px solid #1A1209', marginTop: si === 0 ? 0 : (m ? 32 : 48) }}>
+            <div style={{ padding: `${m ? 24 : 28}px ${sidePad}px ${m ? 16 : 20}px`, display: 'flex', alignItems: 'baseline', gap: 20 }}>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', color: '#C4B8A4' }}>{String(si + 1).padStart(2, '0')}</span>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#1A1209' }}>{sec.label}</span>
             </div>
@@ -190,13 +203,13 @@ export default function ProjectDetail({ project, projects, onNav }) {
               ? sec.rows.map((row, ri) => {
                   if (row.type === 'sublabel') {
                     return (
-                      <div key={ri} style={{ padding: '48px 48px 16px' }}>
+                      <div key={ri} style={{ padding: `${m ? 32 : 48}px ${sidePad}px ${m ? 12 : 16}px` }}>
                         <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{row.text}</span>
                       </div>
                     );
                   }
                   const el = renderRow(row.items, row.cols, ri, row.padding, row.gap, row.gridTemplateColumns);
-                  return row.marginTop ? <div key={ri} style={{ marginTop: row.marginTop }}>{el}</div> : el;
+                  return row.marginTop ? <div key={ri} style={{ marginTop: m ? Math.round(row.marginTop * 0.6) : row.marginTop }}>{el}</div> : el;
                 })
               : renderRow(sec.items, sec.cols, 0)
             }

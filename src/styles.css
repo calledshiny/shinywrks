@@ -146,6 +146,9 @@ nav { background: rgba(245,243,239,0.94) !important; }
   transition: background 400ms;
 }
 .next-project-btn:hover { background: #E8E2D6; }
+@media (max-width: 720px) {
+  .next-project-btn { padding: 36px 20px; }
+}
 
 
 a, button, .strip-item, [role="button"] {

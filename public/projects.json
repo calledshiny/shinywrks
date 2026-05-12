@@ -229,7 +229,7 @@
                 "title": "Vom Hero zur Auswahl.",
                 "body": "Die App führt in drei Schritten zur Auswahl: Stadt wählen, Kategorie filtern, Event antippen. Wer's persönlicher will, wechselt in den „Für dich“-Funnel — Wann? Was? Wer? — und bekommt kuratierte Ergebnisse statt einer endlosen Liste."
               },
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "cover" }
+              { "type": "img", "src": "spotright/ux-flow.webp", "aspectRatio": "16/9", "fit": "cover" }
             ]
           }
         ]

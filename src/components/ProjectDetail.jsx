@@ -65,6 +65,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
   );
 
   return (
+    <div style={{ background: '#F5F3EF', position: 'relative', zIndex: 1 }}>
     <div style={{ paddingTop: 65, maxWidth: 1200, margin: '0 auto' }}>
       <div style={{
         padding: '20px 48px',
@@ -259,6 +260,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           }}>{next.tagLine}</div>
         </button>
       </div>
+    </div>
     </div>
   );
 }

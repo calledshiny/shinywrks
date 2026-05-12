@@ -5,8 +5,11 @@ import { initCustomCursor } from './lib/customCursor';
 import { initDotGrid } from './lib/dotGrid';
 import './styles.css';
 
-initCustomCursor();
-initDotGrid();
+const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+if (!isTouch) {
+  initCustomCursor();
+  initDotGrid();
+}
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

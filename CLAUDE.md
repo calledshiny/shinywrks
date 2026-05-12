@@ -67,6 +67,8 @@ Build-Preview: `npm run preview`
   "tagLine": "VISUAL IDENTITY / EVENT / 2025",  // Header Mitte: tags + year, slash-separated, UPPERCASE
   "blurb": "Techno / Trance Event Kollektiv",   // Subtitle auf Landing-Karte
   "desc": "Vollständiger Beschreibungstext …",  // Beschreibungs-Block auf Detail-Page
+  "claim": "no second take.",                   // optional, fett unter desc
+  "disclaimer": "Fiktives Projekt …",           // optional, Mono-Hinweis unter claim
 
   // Header oben links (3 Zeilen mono) — section-namen oder slash-getrennt
   "camera": "CORPORATE DESIGN /",
@@ -94,7 +96,7 @@ Build-Preview: `npm run preview`
    - mitte: `title` (Space Grotesk, uppercase) + `tagLine` (mono)
    - rechts: `studio` (optional) / `location` / `date`
 2. **Hero** (`height: clamp(360px, 55vw, 680px)`, `bg`, optional `heroImg` mit `invert(1)`, Noise-Overlay)
-3. **Beschreibung** (2-spaltig: Label „Beschreibung" + `desc` als Fliesstext)
+3. **Beschreibung** (2-spaltig: Label „Beschreibung" + rechte Spalte mit `desc` Fliesstext, optional `claim` (fett, Space Grotesk 19px, 28px Abstand), optional `disclaimer` (Space Mono 11px, 36px Abstand))
 4. **Sections** (siehe unten) — oder Placeholder-Galerie wenn `sections` fehlt
 5. **Prev/Next** Navigation am Fuß
 

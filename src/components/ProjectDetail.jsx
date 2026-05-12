@@ -155,11 +155,28 @@ export default function ProjectDetail({ project, projects, onNav }) {
           letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428',
           flexShrink: 0, paddingTop: 4,
         }}>Beschreibung</div>
-        <p style={{
-          fontFamily: 'Space Grotesk, sans-serif',
-          fontWeight: 400, fontSize: 17, lineHeight: 1.65,
-          color: '#1A1209', maxWidth: 600,
-        }}>{p.desc}</p>
+        <div style={{ maxWidth: 600 }}>
+          <p style={{
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontWeight: 400, fontSize: 17, lineHeight: 1.65,
+            color: '#1A1209', margin: 0,
+          }}>{p.desc}</p>
+          {p.claim && (
+            <p style={{
+              fontFamily: 'Space Grotesk, sans-serif',
+              fontWeight: 700, fontSize: 19, lineHeight: 1.4,
+              letterSpacing: '-0.01em',
+              color: '#0D0B08', margin: '28px 0 0',
+            }}>{p.claim}</p>
+          )}
+          {p.disclaimer && (
+            <p style={{
+              fontFamily: 'Space Mono, monospace',
+              fontSize: 11, lineHeight: 1.6, letterSpacing: '0.04em',
+              color: '#3D3428', margin: '36px 0 0',
+            }}>{p.disclaimer}</p>
+          )}
+        </div>
       </div>
 
       {p.sections ? (

@@ -228,13 +228,12 @@
             ]
           },
           {
-            "cols": 3,
+            "cols": 2,
             "gap": 10,
             "marginTop": 10,
             "items": [
               { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Search" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" },
-              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Drawer" }
+              { "type": "img", "src": "spotright/placeholder.webp", "aspectRatio": "9/19.5", "fit": "contain", "caption": "Login Wall" }
             ]
           }
         ]

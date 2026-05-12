@@ -227,6 +227,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
         </div>
       )}
 
+      {projects.length > 1 && (
       <div style={{ display: 'flex', borderTop: '1px solid #E8E2D6' }}>
         <button className="next-project-btn" onClick={() => onNav('project', prev)} style={{ borderRight: '1px solid #E8E2D6', flex: 1 }}>
           <div style={{
@@ -259,6 +260,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           }}>{next.tagLine}</div>
         </button>
       </div>
+      )}
     </div>
   );
 }

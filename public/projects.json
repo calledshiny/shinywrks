@@ -190,8 +190,9 @@
     "bg": "radial-gradient(ellipse at 30% 40%, #3a1f14 0%, #1a0f0a 55%, #0a0a0d 100%)",
     "heroPhoto": "spotright/hero.webp",
     "thumb": "spotright/hero-thumb.webp",
-    "thumbW": 1200,
-    "thumbH": 1600,
+    "thumbW": 1024,
+    "thumbH": 1537,
+    "heightPct": 1.0,
     "width": 320,
     "height": 420,
     "sections": [

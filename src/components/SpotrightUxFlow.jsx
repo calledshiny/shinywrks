@@ -10,9 +10,9 @@ const FG_DIM = 'rgba(255,255,255,0.55)';
 const STEPS = {
   landing:   { title: 'Landing',      sub: 'STADT + PILLS' },
   entdecken: { title: 'Entdecken',    sub: 'DATUM + LISTE' },
-  wann:      { title: 'Wann?',        sub: 'JETZT / HEUTE' },
-  was:       { title: 'Was?',         sub: 'ROOFTOP / MUSIK' },
-  wer:       { title: 'Wer?',         sub: 'GRUPPE / 18+' },
+  wann:      { title: 'Wann?',        sub: 'JETZT / HEUTE / …' },
+  was:       { title: 'Was?',         sub: 'ROOFTOP / MUSIK / …' },
+  wer:       { title: 'Wer?',         sub: 'GRUPPE / 18+ / …' },
   resultate: { title: 'Resultate',    sub: 'PERSONALISIERT' },
   detail:    { title: 'Event Detail', sub: 'SHEET' },
   save:      { title: 'Save',         sub: 'BOOKMARK' },
@@ -97,21 +97,25 @@ function PhaseHeader({ num, label }) {
   );
 }
 
-function PathRow({ label, mobile, children }) {
+function PathRow({ label, children }) {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: mobile ? 'column' : 'row',
-      alignItems: mobile ? 'stretch' : 'center',
-      gap: mobile ? 6 : 14,
-    }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
       <div style={{
         fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.18em',
         textTransform: 'uppercase', color: TERRA,
-        flexShrink: 0, minWidth: mobile ? 'auto' : 70,
       }}>{label}</div>
-      <div style={{ flex: 1, minWidth: 0 }}>{children}</div>
+      <div>{children}</div>
     </div>
+  );
+}
+
+function OrSeparator() {
+  return (
+    <div style={{
+      fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.2em',
+      textTransform: 'lowercase', color: TERRA,
+      textAlign: 'center',
+    }}>oder</div>
   );
 }
 
@@ -134,29 +138,26 @@ export default function SpotrightUxFlow() {
         color: 'white', margin: 0, marginBottom: 24,
       }}>Zwei Wege zum richtigen Event.</h3>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
         {/* Phase 1 */}
         <div>
           <PhaseHeader num="01" label="Öffnen"/>
           <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="landing"/></div>
         </div>
 
-        <ArrowV/>
-
         {/* Phase 2 */}
         <div>
           <PhaseHeader num="02" label="Entscheiden — zwei Wege"/>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
-            <PathRow label="Browse" mobile={mobile}>
+            <PathRow label="Browse">
               <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="entdecken"/></div>
             </PathRow>
-            <PathRow label="Funnel" mobile={mobile}>
+            <OrSeparator/>
+            <PathRow label="Funnel">
               <HorizFlow keys={['wann', 'was', 'wer', 'resultate']} mobile={mobile}/>
             </PathRow>
           </div>
         </div>
-
-        <ArrowV/>
 
         {/* Phase 3 */}
         <div>

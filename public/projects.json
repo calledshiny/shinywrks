@@ -199,21 +199,11 @@
       {
         "label": "Design System",
         "rows": [
-          { "type": "sublabel", "text": "Foundations" },
           {
             "cols": 1,
+            "padding": "0",
             "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "caption": "Colors, Typography, Logo" }
-            ]
-          },
-          { "type": "sublabel", "text": "Glass Material" },
-          {
-            "cols": 3,
-            "gap": 10,
-            "items": [
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Light" },
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Warm" },
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "caption": "Dark" }
+              { "type": "component", "name": "SpotrightDesignSystem" }
             ]
           }
         ]
@@ -244,7 +234,7 @@
                 "title": "Landing",
                 "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt."
               },
-              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
             ]
           },
           {
@@ -259,7 +249,7 @@
                 "title": "Entdecken",
                 "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs."
               },
-              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
             ]
           },
           {
@@ -274,7 +264,7 @@
                 "title": "Für dich",
                 "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste."
               },
-              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
             ]
           },
           {
@@ -289,7 +279,7 @@
                 "title": "Meine Spots",
                 "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest."
               },
-              { "type": "video", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "fit": "cover", "bg": "transparent" }
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
             ]
           }
         ]

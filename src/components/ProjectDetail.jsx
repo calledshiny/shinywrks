@@ -1,8 +1,10 @@
 import { useMobile } from '../hooks/useMobile';
 import SpotrightUxFlow from './SpotrightUxFlow';
+import SpotrightDesignSystem from './SpotrightDesignSystem';
 
 const COMPONENT_REGISTRY = {
   SpotrightUxFlow,
+  SpotrightDesignSystem,
 };
 
 export default function ProjectDetail({ project, projects, onNav }) {
@@ -61,7 +63,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           );
         } else if (item.aspectRatio) {
           inner = (
-            <div style={{ aspectRatio: item.aspectRatio, overflow: 'hidden', background: item.bg || 'transparent', padding: item.padding || 0, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ aspectRatio: item.aspectRatio, maxHeight: item.maxHeight || 'none', overflow: 'hidden', background: item.bg || 'transparent', padding: item.padding || 0, boxSizing: 'border-box', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img src={item.src} alt="" style={{ width: '100%', height: '100%', objectFit: item.fit || 'cover', display: 'block', filter: item.filter || 'none' }}/>
             </div>
           );

@@ -285,5 +285,126 @@
         ]
       }
     ]
+  },
+  {
+    "id": 3,
+    "slug": "hof-ist-dein-film",
+    "title": "HOF IST DEIN FILM",
+    "tag": "Visual Identity",
+    "tags": ["Visual Identity", "Campaign"],
+    "year": "2024",
+    "tagLine": "VISUAL IDENTITY / CAMPAIGN / 2024",
+    "blurb": "Imagekampagne für die Stadt Hof",
+    "desc": "Eine Imagekampagne für die Stadt Hof, die mit dem eigenen Image spielt. Altbekannte, vermeintlich langweilige Orte werden zur Filmkulisse, sobald man genau hinschaut. „Hof ist dein Film“ lädt die Einwohner ein, ihre Stadt durch ein neues Objektiv zu sehen — denn die Magie liegt nicht im Spektakulären, sondern im Detail.",
+    "claim": "just zoom in.",
+    "disclaimer": "Fiktives Projekt im Rahmen einer Konzeptarbeit. Die Stadt Hof, genannte Orte oder Personen dienen ausschliesslich der Veranschaulichung — es besteht keine Partnerschaft oder offizielle Verbindung.",
+    "camera": "CORPORATE DESIGN /",
+    "lens": "KAMPAGNE / PRINT /",
+    "film": "WEBSITE",
+    "studio": "SHINYWRKS",
+    "location": "FREIES PROJEKT",
+    "date": "AUG 2024",
+    "bg": "linear-gradient(160deg, #2a1a0a 0%, #0D0B08 100%)",
+    "thumb": "spotright/placeholder-wide.webp",
+    "thumbW": 1600,
+    "thumbH": 1067,
+    "width": 320,
+    "height": 420,
+    "sections": [
+      {
+        "label": "Corporate Design",
+        "rows": [
+          { "type": "sublabel", "text": "Logo" },
+          {
+            "cols": 1,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "contain", "caption": "Wortmarke" }
+            ]
+          },
+          { "type": "sublabel", "text": "Farben" },
+          {
+            "cols": 1,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "1311/503", "fit": "cover", "caption": "Farbpalette" }
+            ]
+          },
+          { "type": "sublabel", "text": "Typografie" },
+          {
+            "cols": 1,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "cover", "caption": "Schriftsystem" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Plakatkampagne",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover" }
+            ]
+          },
+          {
+            "cols": 3,
+            "gap": 10,
+            "marginTop": 48,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Postkarten",
+        "rows": [
+          {
+            "cols": 2,
+            "gap": 10,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover", "caption": "Vorderseite" },
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover", "caption": "Rückseite" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Sticker",
+        "rows": [
+          {
+            "cols": 3,
+            "gap": 10,
+            "padding": "0 48px",
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" },
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" },
+              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Website",
+        "rows": [
+          {
+            "gridTemplateColumns": "3.937fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "padding": "0 48px",
+            "gap": 10,
+            "items": [
+              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "1440/1020", "fit": "cover", "labelAbove": "Desktop" },
+              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "388/1082", "fit": "cover", "labelAbove": "Mobile" }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

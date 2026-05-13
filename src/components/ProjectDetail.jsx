@@ -165,13 +165,18 @@ export default function ProjectDetail({ project, projects, onNav }) {
         zIndex: 1,
         overflow: 'hidden',
       }}>
+        {p.heroPhoto && (
+          <img src={p.heroPhoto} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/>
+        )}
         <div className="noise"/>
-        {p.heroImg
-          ? <div style={{ position: 'absolute', inset: 0, padding: '5% 12%', boxSizing: 'border-box' }}>
-              <img src={p.heroImg} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'invert(1)' }}/>
-            </div>
-          : <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(196,184,164,0.3)' }}>Hero — {p.title}</div>
-        }
+        {p.heroImg && (
+          <div style={{ position: 'absolute', inset: 0, padding: '5% 12%', boxSizing: 'border-box' }}>
+            <img src={p.heroImg} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'invert(1)' }}/>
+          </div>
+        )}
+        {!p.heroImg && !p.heroPhoto && (
+          <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(196,184,164,0.3)' }}>Hero — {p.title}</div>
+        )}
       </div>
 
       {!p.sections && (

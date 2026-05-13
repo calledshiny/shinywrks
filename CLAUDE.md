@@ -87,6 +87,7 @@ Build-Preview: `npm run preview`
   "thumbW": 1600,
   "thumbH": 1067,
   "heroImg": "tapestop/logo.svg",          // optional; wird mit filter:invert auf bg gelegt
+  "heroPhoto": "spotright/hero.jpg",       // optional; full-bleed Photo-Hero (object-fit cover)
 
   "sections": [ /* siehe unten */ ]
 }

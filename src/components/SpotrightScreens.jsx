@@ -72,7 +72,7 @@ export default function SpotrightScreens({ screens = [] }) {
 
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 28 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
+      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 0 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
     >
       {!mobile && (
         <>
@@ -170,9 +170,12 @@ export default function SpotrightScreens({ screens = [] }) {
         ))}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '4px 0 2px', marginTop: mobile ? 0 : -80, position: 'relative', zIndex: 4 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: mobile ? 8 : 12, padding: '4px 0 2px', marginTop: mobile ? -44 : -80, position: 'relative', zIndex: 4 }}>
         {screens.map((_, i) => {
           const isActive = active === i;
+          const dotH = mobile ? 6 : 8;
+          const dotInactiveW = mobile ? 6 : 8;
+          const dotActiveW = mobile ? 18 : 24;
           return (
             <button
               key={i}
@@ -181,8 +184,8 @@ export default function SpotrightScreens({ screens = [] }) {
               aria-label={`Screen ${i + 1}`}
               aria-current={isActive ? 'true' : undefined}
               style={{
-                width: isActive ? 24 : 8,
-                height: 8,
+                width: isActive ? dotActiveW : dotInactiveW,
+                height: dotH,
                 borderRadius: 999,
                 border: 'none',
                 padding: 0,

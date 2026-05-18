@@ -379,7 +379,11 @@ a, button, .strip-item, [role="button"] {
 .iphone-side-vol-down{ left: -0.45%; top: 29.5%; width: 0.5%; height: 6.5%; }
 .iphone-side-power   { right: -0.45%; top: 22%;  width: 0.5%; height: 10%; background: linear-gradient(90deg, #3a3a3c 0%, #1a1a1c 50%, #3a3a3c 100%); }
 @media (max-width: 720px) {
-  .iphone-mockup { width: min(70vw, 320px); height: calc(min(70vw, 320px) * 19.5 / 9); }
+  .iphone-mockup {
+    width: 100%;
+    max-width: min(70vw, calc(var(--iphone-h, 60vh) * 9 / 19.5), 320px);
+    height: auto;
+  }
 }
 
 @keyframes fadeUp {

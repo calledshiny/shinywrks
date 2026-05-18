@@ -12,8 +12,10 @@ export default function SpotrightScreens({ screens = [] }) {
   const resumeTimer = useRef(null);
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => { activeRef.current = active; }, [active]);
+  useEffect(() => { setExpanded(false); }, [active]);
 
   useEffect(() => {
     const el = stripRef.current;
@@ -117,14 +119,45 @@ export default function SpotrightScreens({ screens = [] }) {
             scrollSnapAlign: 'start',
             padding: mobile ? '20px 20px 0' : '0 48px',
             boxSizing: 'border-box',
-            display: 'grid',
-            gridTemplateColumns: mobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) minmax(0, 1fr)',
-            gap: mobile ? 0 : 48,
+            display: mobile ? 'flex' : 'grid',
+            flexDirection: mobile ? 'column' : undefined,
+            gridTemplateColumns: mobile ? undefined : 'minmax(0, 1fr) minmax(0, 1fr)',
+            gap: mobile ? 16 : 48,
             alignItems: 'center',
-            justifyItems: 'center',
+            justifyItems: mobile ? undefined : 'center',
             height: mobile ? 'calc(100dvh - 180px)' : 'calc(100vh - 260px)',
             minHeight: mobile ? 0 : 480,
           }}>
+            {mobile && (s.title || s.label || s.body) && (
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%', flexShrink: 0 }}>
+                <button
+                  type="button"
+                  onClick={() => setExpanded((v) => !v)}
+                  aria-expanded={expanded}
+                  style={{
+                    display: 'flex', alignItems: 'center', gap: 8,
+                    background: 'transparent', border: 'none', padding: 0, cursor: 'none',
+                    fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 18,
+                    letterSpacing: '-0.02em', color: '#0D0B08',
+                  }}
+                >
+                  <span>{s.title}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 240ms cubic-bezier(0.16,1,0.3,1)' }}>
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </button>
+                {expanded && (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center', textAlign: 'center', maxWidth: 360, padding: '0 4px' }}>
+                    {s.label && (
+                      <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{s.label}</span>
+                    )}
+                    {s.body && (
+                      <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 400, fontSize: 13.5, lineHeight: 1.55, color: '#1A1209', margin: 0 }}>{s.body}</p>
+                    )}
+                  </div>
+                )}
+              </div>
+            )}
             {!mobile && (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
                 {s.label && (
@@ -138,12 +171,12 @@ export default function SpotrightScreens({ screens = [] }) {
                 )}
               </div>
             )}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: mobile ? 1 : undefined, minHeight: 0, width: '100%', height: mobile ? undefined : '100%' }}>
               <IPhoneMockup
                 src={s.src}
                 type={s.type}
                 screenBg={s.screenBg}
-                height={mobile ? 'min(calc(100dvh - 240px), 560px)' : 'min(72vh, calc(100vh - 280px))'}
+                height={mobile ? 'min(calc(100dvh - 280px), 560px)' : 'min(72vh, calc(100vh - 280px))'}
                 isActive={active === i}
                 onEnded={() => handleEnded(i)}
               />

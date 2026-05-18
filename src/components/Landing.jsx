@@ -80,13 +80,13 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               </button>
               {textOpen && (
                 <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginTop: 10 }}>
-                  Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identities, Kampagnen und Experiences für Brands, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
+                  Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identities, Kampagnen und Experiences für Brands und Events, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
                 </p>
               )}
             </div>
           ) : (
             <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
-              Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identitäten, Kampagnen und Web Experiences für Brands, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
+              Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identities, Kampagnen und Web Experiences für Brands und Events, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
             </p>
           )}
           <button className="cta-shine" onClick={() => onNav('contact')} style={{

@@ -220,10 +220,11 @@
                 "name": "SpotrightScreens",
                 "props": {
                   "screens": [
-                    { "label": "Screen 01", "title": "Landing",     "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt." },
-                    { "label": "Screen 02", "title": "Entdecken",   "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs." },
-                    { "label": "Screen 03", "title": "Für dich",    "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste." },
-                    { "label": "Screen 04", "title": "Meine Spots", "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest." }
+                    { "label": "Screen 01", "title": "Landing",      "src": "spotright/screens/01-landing.mp4",  "type": "video", "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt." },
+                    { "label": "Screen 02", "title": "Entdecken",    "src": "spotright/screens/02-entdecken.mp4", "type": "video", "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs." },
+                    { "label": "Screen 03", "title": "Event Detail", "src": "spotright/screens/03-detail.mp4", "type": "video", "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet." },
+                    { "label": "Screen 04", "title": "Für dich",     "src": "spotright/screens/04-fuerdich.mp4", "type": "video", "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste." },
+                    { "label": "Screen 05", "title": "Meine Spots",  "src": "spotright/screens/05-meinespots.mp4", "type": "video", "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest." }
                   ]
                 }
               }

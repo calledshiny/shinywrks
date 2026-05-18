@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useMobile } from '../hooks/useMobile';
 import IPhoneMockup from './IPhoneMockup';
 
-const AUTO_MS = 6000;
+const FALLBACK_MS = 6000; // used for screens without a video
 const PAUSE_MS = 60000;
 
 export default function SpotrightScreens({ screens = [] }) {
@@ -35,13 +35,22 @@ export default function SpotrightScreens({ screens = [] }) {
     el.scrollTo({ left: wrapped * el.clientWidth, behavior: 'smooth' });
   };
 
+  // Fallback advance for screens without a playable video (no src, or image)
   useEffect(() => {
     if (mobile || paused) return;
-    const id = setInterval(() => {
-      goTo(activeRef.current + 1);
-    }, AUTO_MS);
-    return () => clearInterval(id);
-  }, [mobile, paused, screens.length]);
+    const s = screens[active];
+    if (!s) return;
+    const isVideo = s.type === 'video' || (typeof s.src === 'string' && /\.(mp4|webm|mov)$/i.test(s.src));
+    if (isVideo) return; // advance is driven by onEnded
+    const id = setTimeout(() => goTo(activeRef.current + 1), FALLBACK_MS);
+    return () => clearTimeout(id);
+  }, [active, mobile, paused, screens]);
+
+  const handleEnded = (i) => {
+    if (mobile || paused) return;
+    if (i !== activeRef.current) return;
+    goTo(activeRef.current + 1);
+  };
 
   const pauseAuto = () => {
     setPaused(true);
@@ -127,7 +136,7 @@ export default function SpotrightScreens({ screens = [] }) {
               )}
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <IPhoneMockup src={s.src} type={s.type} screenBg={s.screenBg} height={mobile ? undefined : 'min(72vh, calc(100vh - 280px))'} />
+              <IPhoneMockup src={s.src} type={s.type} screenBg={s.screenBg} height={mobile ? undefined : 'min(72vh, calc(100vh - 280px))'} isActive={active === i} onEnded={() => handleEnded(i)} />
             </div>
           </div>
         ))}

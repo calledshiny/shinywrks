@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useMobile } from '../hooks/useMobile';
 import SpotrightUxFlow from './SpotrightUxFlow';
 import SpotrightDesignSystem from './SpotrightDesignSystem';
@@ -21,6 +22,10 @@ export default function ProjectDetail({ project, projects, onNav }) {
   const m = useMobile();
   const p = project || projects[0];
   const currentIndex = projects.findIndex(x => x.id === p.id);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [p.id]);
   const next = projects[(currentIndex + 1) % projects.length];
   const prev = projects[(currentIndex - 1 + projects.length) % projects.length];
 

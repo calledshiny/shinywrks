@@ -22,6 +22,7 @@
     "thumbW": 1600,
     "thumbH": 1067,
     "heroImg": "tapestop/logo.svg",
+    "heightPct": 0.82,
     "width": 320,
     "height": 420,
     "sections": [
@@ -270,6 +271,7 @@
     "thumb": "zoom-in/postkarten/postkarte-hochschule.webp",
     "thumbW": 1748,
     "thumbH": 1240,
+    "heightPct": 0.78,
     "width": 320,
     "height": 420,
     "sections": [
@@ -381,6 +383,122 @@
                 "type": "component",
                 "name": "WebsiteFrame",
                 "props": { "src": "zoom-in/website/website.webp" }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "slug": "mach-kaputt",
+    "title": "MACH KAPUTT",
+    "tag": "Music Video",
+    "tags": ["Music Video", "AI"],
+    "year": "2024",
+    "tagLine": "MUSIC VIDEO / AI / 2024",
+    "blurb": "Konzept-Edit zu OG Keemo & Schmyt",
+    "desc": "Cinematischer Konzept-Edit zur OG-Keemo-Strophe in „Mach Kaputt“ (OG Keemo & Schmyt). Eine düstere Bildsprache, vollständig generativ erzeugt — Einzelframes mit Nano Banana Pro, Bewegtbild mit Google Veo. In Premiere und After Effects zu einem Kurzfilm zusammengeschnitten und mit eigenem Sound Design unterlegt.",
+    "disclaimer": "Persönliches Konzeptprojekt zur Strophe von OG Keemo aus „Mach Kaputt“ (OG Keemo & Schmyt). Keine offizielle Kooperation oder Auftragsarbeit, kein Anspruch auf die Originalmusik.",
+    "camera": "CONCEPT EDIT /",
+    "lens": "GENERATIVE AI /",
+    "film": "SOUND DESIGN",
+    "studio": "SHINYWRKS",
+    "location": "EIGENINITIATIVE",
+    "date": "DEZ 2024",
+    "bg": "linear-gradient(160deg, #0D0B08 0%, #1A0F0A 55%, #2a1108 100%)",
+    "heroPhoto": "mach-kaputt/hero.webp",
+    "thumb": "mach-kaputt/thumb.webp",
+    "thumbW": 1080,
+    "thumbH": 1080,
+    "width": 320,
+    "height": 420,
+    "sections": [
+      {
+        "label": "Edit",
+        "rows": [
+          {
+            "cols": 1,
+            "padding": "0 22%",
+            "mobilePadding": "0 16px",
+            "items": [
+              {
+                "type": "video",
+                "src": "mach-kaputt/edit.mp4",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "controls": true,
+                "poster": "mach-kaputt/hero.webp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Process",
+        "rows": [
+          {
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "padding": "0 48px",
+            "gap": 32,
+            "items": [
+              {
+                "type": "text",
+                "labelAbove": "Workflow",
+                "title": "Frame für Frame, Cut für Cut.",
+                "body": "Bildidee zuerst — Mood, Komposition, Licht. Schlüsselframes mit Nano Banana Pro generiert, Varianten kuratiert, Inkonsistenzen retuschiert. Aus jedem Frame ein Veo-Clip mit präzisem Motion-Prompt: Kamerafahrt, Blickrichtung, Detail. Schnitt in Premiere auf den Beat der Strophe, Looks und Glitches in After Effects, eigenes Sound Design für Atmo und Akzente."
+              },
+              {
+                "type": "img",
+                "src": "mach-kaputt/still-07.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Keyframes",
+        "rows": [
+          {
+            "gridTemplateColumns": "1fr 1.78fr",
+            "mobileGridTemplateColumns": "1fr",
+            "padding": "0 48px",
+            "gap": 16,
+            "items": [
+              {
+                "type": "video",
+                "src": "mach-kaputt/bts-keyframes.mp4",
+                "aspectRatio": "9/16",
+                "fit": "cover",
+                "controls": true,
+                "labelAbove": "Behind the Scenes"
+              },
+              {
+                "type": "component",
+                "name": "StillsCarousel",
+                "labelAbove": "Stills",
+                "props": {
+                  "stills": [
+                    { "src": "mach-kaputt/still-01.webp" },
+                    { "src": "mach-kaputt/still-02.webp" },
+                    { "src": "mach-kaputt/still-03.webp" },
+                    { "src": "mach-kaputt/still-04.webp" },
+                    { "src": "mach-kaputt/still-05.webp" },
+                    { "src": "mach-kaputt/still-06.webp" },
+                    { "src": "mach-kaputt/still-07.webp" },
+                    { "src": "mach-kaputt/still-08.webp" },
+                    { "src": "mach-kaputt/still-09.webp" },
+                    { "src": "mach-kaputt/still-10.webp" },
+                    { "src": "mach-kaputt/still-11.webp" },
+                    { "src": "mach-kaputt/still-12.webp" },
+                    { "src": "mach-kaputt/still-13.webp" },
+                    { "src": "mach-kaputt/still-14.webp" }
+                  ]
+                }
               }
             ]
           }

@@ -5,6 +5,7 @@ import SpotrightDesignSystem from './SpotrightDesignSystem';
 import IPhoneMockup from './IPhoneMockup';
 import SpotrightScreens from './SpotrightScreens';
 import PlakatCarousel from './PlakatCarousel';
+import StillsCarousel from './StillsCarousel';
 import WebsiteFrame from './WebsiteFrame';
 import ZoomInDesignSystem from './ZoomInDesignSystem';
 
@@ -14,6 +15,7 @@ const COMPONENT_REGISTRY = {
   IPhoneMockup,
   SpotrightScreens,
   PlakatCarousel,
+  StillsCarousel,
   WebsiteFrame,
   ZoomInDesignSystem,
 };
@@ -40,12 +42,22 @@ export default function ProjectDetail({ project, projects, onNav }) {
     return shades[shade % shades.length];
   };
 
-  const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols) => (
-    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gap: rowGap ?? 2, padding: adaptPad(rowPadding) ?? `0 ${sidePad}px` }}>
+  const renderRow = (items, cols, ri, rowPadding, rowGap, gridCols, gridAutoFlow) => (
+    <div key={ri} style={{ display: 'grid', gridTemplateColumns: gridCols || `repeat(${cols || 1}, 1fr)`, gridAutoFlow, gap: rowGap ?? 2, padding: adaptPad(rowPadding) ?? `0 ${sidePad}px` }}>
       {items.map((item, ii) => {
         if (item.type === 'component') {
           const Cmp = COMPONENT_REGISTRY[item.name];
           if (!Cmp) return null;
+          if (item.labelAbove) {
+            return (
+              <div key={ii}>
+                <div style={{ padding: '0 4px 10px' }}>
+                  <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.labelAbove}</span>
+                </div>
+                <Cmp {...(item.props || {})} />
+              </div>
+            );
+          }
           return <Cmp key={ii} {...(item.props || {})} />;
         }
         if (item.type === 'text') {
@@ -65,14 +77,17 @@ export default function ProjectDetail({ project, projects, onNav }) {
         }
         let inner;
         if (item.type === 'video') {
+          const videoProps = item.controls
+            ? { controls: true, playsInline: true, poster: item.poster }
+            : { autoPlay: true, muted: true, loop: true, playsInline: true };
           inner = item.aspectRatio ? (
             <div style={{ aspectRatio: item.aspectRatio, background: item.bg || '#0D0B08', overflow: 'hidden' }}>
-              <video autoPlay muted loop playsInline style={{ width: '100%', height: '100%', objectFit: item.fit || 'cover', display: 'block', position: 'relative', zIndex: 1 }}>
+              <video {...videoProps} style={{ width: '100%', height: '100%', objectFit: item.fit || 'cover', display: 'block', position: 'relative', zIndex: 1 }}>
                 <source src={item.src} type="video/mp4"/>
               </video>
             </div>
           ) : (
-            <video autoPlay muted loop playsInline style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}>
+            <video {...videoProps} style={{ width: '100%', height: 'auto', display: 'block', position: 'relative', zIndex: 1 }}>
               <source src={item.src} type="video/mp4"/>
             </video>
           );
@@ -97,9 +112,14 @@ export default function ProjectDetail({ project, projects, onNav }) {
           </div>
         ) : null;
         const gridColumn = m && item.mobileGridColumn ? item.mobileGridColumn : item.gridColumn;
+        const gridRow = m && item.mobileGridRow ? item.mobileGridRow : item.gridRow;
+        const placement = {};
+        if (gridColumn) placement.gridColumn = gridColumn;
+        if (gridRow) placement.gridRow = gridRow;
+        const hasPlacement = Object.keys(placement).length > 0;
         if (item.caption || aboveEl) {
           return (
-            <div key={ii} style={gridColumn ? { gridColumn } : undefined}>
+            <div key={ii} style={hasPlacement ? placement : undefined}>
               {aboveEl}
               {inner}
               {item.caption && (
@@ -112,7 +132,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           );
         }
         const baseStyle = !item.aspectRatio && item.fit === 'contain' ? { height: '100%' } : {};
-        return <div key={ii} style={gridColumn ? { ...baseStyle, gridColumn } : baseStyle}>{inner}</div>;
+        return <div key={ii} style={hasPlacement ? { ...baseStyle, ...placement } : baseStyle}>{inner}</div>;
       })}
     </div>
   );
@@ -271,7 +291,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
                   }
                   const gridCols = m && row.mobileGridTemplateColumns !== undefined ? row.mobileGridTemplateColumns : row.gridTemplateColumns;
                   const padding = m && row.mobilePadding !== undefined ? row.mobilePadding : row.padding;
-                  const el = renderRow(row.items, row.cols, ri, padding, row.gap, gridCols);
+                  const el = renderRow(row.items, row.cols, ri, padding, row.gap, gridCols, row.gridAutoFlow);
                   return row.marginTop ? <div key={ri} style={{ marginTop: m ? Math.round(row.marginTop * 0.6) : row.marginTop }}>{el}</div> : el;
                 })
               : renderRow(sec.items, sec.cols, 0)

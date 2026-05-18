@@ -70,7 +70,7 @@ export default function SpotrightScreens({ screens = [] }) {
 
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 28 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
+      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 8 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
     >
       {!mobile && (
         <>
@@ -106,7 +106,7 @@ export default function SpotrightScreens({ screens = [] }) {
           scrollSnapType: 'x mandatory',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
-          paddingBottom: mobile ? 0 : 100,
+          paddingBottom: mobile ? 56 : 100,
         }}
         className="screens-strip"
       >
@@ -115,34 +115,44 @@ export default function SpotrightScreens({ screens = [] }) {
             flexShrink: 0,
             width: '100%',
             scrollSnapAlign: 'start',
-            padding: mobile ? '0 20px' : '0 48px',
+            padding: mobile ? '20px 20px 0' : '0 48px',
             boxSizing: 'border-box',
             display: 'grid',
             gridTemplateColumns: mobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) minmax(0, 1fr)',
-            gap: mobile ? 28 : 48,
+            gap: mobile ? 0 : 48,
             alignItems: 'center',
-            height: mobile ? 'auto' : 'calc(100vh - 260px)',
-            minHeight: mobile ? 'auto' : 480,
+            justifyItems: 'center',
+            height: mobile ? 'calc(100dvh - 180px)' : 'calc(100vh - 260px)',
+            minHeight: mobile ? 0 : 480,
           }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
-              {s.label && (
-                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{s.label}</span>
-              )}
-              {s.title && (
-                <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: mobile ? 22 : 26, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#0D0B08', margin: 0 }}>{s.title}</h3>
-              )}
-              {s.body && (
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 400, fontSize: 15, lineHeight: 1.6, color: '#1A1209', margin: 0, maxWidth: 460 }}>{s.body}</p>
-              )}
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
-              <IPhoneMockup src={s.src} type={s.type} screenBg={s.screenBg} height={mobile ? undefined : 'min(72vh, calc(100vh - 280px))'} isActive={active === i} onEnded={() => handleEnded(i)} />
+            {!mobile && (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
+                {s.label && (
+                  <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{s.label}</span>
+                )}
+                {s.title && (
+                  <h3 style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 26, letterSpacing: '-0.02em', lineHeight: 1.15, color: '#0D0B08', margin: 0 }}>{s.title}</h3>
+                )}
+                {s.body && (
+                  <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 400, fontSize: 15, lineHeight: 1.6, color: '#1A1209', margin: 0, maxWidth: 460 }}>{s.body}</p>
+                )}
+              </div>
+            )}
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%' }}>
+              <IPhoneMockup
+                src={s.src}
+                type={s.type}
+                screenBg={s.screenBg}
+                height={mobile ? 'min(calc(100dvh - 240px), 560px)' : 'min(72vh, calc(100vh - 280px))'}
+                isActive={active === i}
+                onEnded={() => handleEnded(i)}
+              />
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '4px 0 2px', marginTop: mobile ? 0 : -80, position: 'relative', zIndex: 4 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '4px 0 2px', marginTop: mobile ? -36 : -80, position: 'relative', zIndex: 4 }}>
         {screens.map((_, i) => {
           const isActive = active === i;
           return (

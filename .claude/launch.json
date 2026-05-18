@@ -2,10 +2,11 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "shinywrks-worktree",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", ".", "-p", "3001"],
-      "port": 3001
+      "name": "shinywrks",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "port": 3000,
+      "autoPort": true
     }
   ]
 }

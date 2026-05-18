@@ -65,7 +65,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
             letterSpacing: '-0.03em', lineHeight: 0.9,
             color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 2vh, 28px)',
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(11px, 0.85vw, 14px)', letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.6vh, 22px)' }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(11px, 0.85vw, 18px)', letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.6vh, 22px)' }}>
             I make your brand shine different
           </div>
           {mobile ? (
@@ -85,12 +85,12 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 17px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 560px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
               Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identities, Kampagnen und Experiences für Brands, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
             </p>
           )}
           <button className="fu3" onClick={() => onNav('contact')} style={{
-            fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.78vw, 13px)',
+            fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.78vw, 16px)',
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: '#F5F3EF', background: '#0D0B08', border: '1px solid #0D0B08',
             padding: mobile ? '11px 24px' : 'clamp(11px, 1.2vh, 16px) clamp(24px, 1.8vw, 36px)', cursor: STAR_CURSOR,
@@ -114,22 +114,22 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 'clamp(20px, 2vh, 28px)', width: mobile ? undefined : 'clamp(175px, 14vw, 230px)', flex: mobile ? 1 : undefined }}>
 
             <div>
-              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 15, letterSpacing: '-0.02em', color: '#0D0B08', whiteSpace: 'nowrap', marginBottom: 6 }}>
+              <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: mobile ? 15 : 'clamp(15px, 0.85vw, 19px)', letterSpacing: '-0.02em', color: '#0D0B08', whiteSpace: 'nowrap', marginBottom: 6 }}>
                 Justin Wiemann
               </div>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
                 Kommunikationsdesigner
               </div>
             </div>
 
             <div>
               <div style={{ width: 24, height: 1, background: '#E8E2D6', marginBottom: 10 }}/>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
                 Hof, DE
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                 <div className="availability-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
-                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
+                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
               </div>
             </div>
 
@@ -164,7 +164,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
       <div style={{ flex: 1, minHeight: 0, maxHeight: mobile ? 'none' : 'clamp(440px, 65vh, 920px)', display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(14px, 3.5vh, 56px)' }}>
         <div className="fu4" style={{
           padding: mobile ? '0 20px 6px' : '0 48px 6px',
-          fontFamily: 'Space Mono, monospace', fontSize: 10,
+          fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 14px)',
           letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428',
         }}>Meine Projekte</div>
         <div className="fu4" style={{

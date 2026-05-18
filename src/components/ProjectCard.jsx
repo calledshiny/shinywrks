@@ -10,6 +10,7 @@ export default function ProjectCard({ p, hPct, onNav }) {
   const effectiveHPct = typeof p.heightPct === 'number' ? p.heightPct : hPct;
   return (
     <div
+      role="button"
       onClick={() => onNav('project', p)}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

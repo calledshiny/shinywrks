@@ -1,10 +1,14 @@
 import { useMobile } from '../hooks/useMobile';
 import SpotrightUxFlow from './SpotrightUxFlow';
 import SpotrightDesignSystem from './SpotrightDesignSystem';
+import IPhoneMockup from './IPhoneMockup';
+import SpotrightScreens from './SpotrightScreens';
 
 const COMPONENT_REGISTRY = {
   SpotrightUxFlow,
   SpotrightDesignSystem,
+  IPhoneMockup,
+  SpotrightScreens,
 };
 
 export default function ProjectDetail({ project, projects, onNav }) {
@@ -31,7 +35,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
         if (item.type === 'component') {
           const Cmp = COMPONENT_REGISTRY[item.name];
           if (!Cmp) return null;
-          return <Cmp key={ii} />;
+          return <Cmp key={ii} {...(item.props || {})} />;
         }
         if (item.type === 'text') {
           return (
@@ -285,7 +289,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
       )}
 
       {projects.length > 1 && (
-      <div style={{ display: 'flex', borderTop: '1px solid #E8E2D6' }}>
+      <div style={{ display: 'flex', borderTop: '1px solid #E8E2D6', marginTop: m ? 48 : 80 }}>
         <button className="next-project-btn" onClick={() => onNav('project', prev)} style={{ borderRight: '1px solid #E8E2D6', flex: 1 }}>
           <div style={{
             fontFamily: 'Space Mono, monospace', fontSize: 10,

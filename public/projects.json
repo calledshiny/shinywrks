@@ -209,6 +209,29 @@
         ]
       },
       {
+        "label": "Screens",
+        "rows": [
+          {
+            "cols": 1,
+            "padding": "0",
+            "items": [
+              {
+                "type": "component",
+                "name": "SpotrightScreens",
+                "props": {
+                  "screens": [
+                    { "label": "Screen 01", "title": "Landing",     "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt." },
+                    { "label": "Screen 02", "title": "Entdecken",   "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs." },
+                    { "label": "Screen 03", "title": "Für dich",    "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste." },
+                    { "label": "Screen 04", "title": "Meine Spots", "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest." }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "label": "UX Flow",
         "rows": [
           {
@@ -216,70 +239,6 @@
             "padding": "0",
             "items": [
               { "type": "component", "name": "SpotrightUxFlow" }
-            ]
-          }
-        ]
-      },
-      {
-        "label": "Screens",
-        "rows": [
-          {
-            "gridTemplateColumns": "1fr 1fr",
-            "mobileGridTemplateColumns": "1fr",
-            "gap": 48,
-            "items": [
-              {
-                "type": "text",
-                "labelAbove": "Screen 01",
-                "title": "Landing",
-                "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt."
-              },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
-            ]
-          },
-          {
-            "gridTemplateColumns": "1fr 1fr",
-            "mobileGridTemplateColumns": "1fr",
-            "gap": 48,
-            "marginTop": 64,
-            "items": [
-              {
-                "type": "text",
-                "labelAbove": "Screen 02",
-                "title": "Entdecken",
-                "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs."
-              },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
-            ]
-          },
-          {
-            "gridTemplateColumns": "1fr 1fr",
-            "mobileGridTemplateColumns": "1fr",
-            "gap": 48,
-            "marginTop": 64,
-            "items": [
-              {
-                "type": "text",
-                "labelAbove": "Screen 03",
-                "title": "Für dich",
-                "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste."
-              },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
-            ]
-          },
-          {
-            "gridTemplateColumns": "1fr 1fr",
-            "mobileGridTemplateColumns": "1fr",
-            "gap": 48,
-            "marginTop": 64,
-            "items": [
-              {
-                "type": "text",
-                "labelAbove": "Screen 04",
-                "title": "Meine Spots",
-                "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest."
-              },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "9/19.5", "maxHeight": "72vh", "fit": "cover", "bg": "transparent" }
             ]
           }
         ]

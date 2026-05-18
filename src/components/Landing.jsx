@@ -86,20 +86,20 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
             </div>
           ) : (
             <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
-              Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identities, Kampagnen und Experiences für Brands, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
+              Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Identitäten, Kampagnen und Web Experiences für Brands, die etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Stift und Kamera.
             </p>
           )}
-          <button className="fu3" onClick={() => onNav('contact')} style={{
+          <button className="cta-shine" onClick={() => onNav('contact')} style={{
             fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.78vw, 16px)',
             letterSpacing: '0.14em', textTransform: 'uppercase',
-            color: '#F5F3EF', background: '#0D0B08', border: '1px solid #0D0B08',
+            color: '#F5F3EF', border: '1px solid #0D0B08',
             padding: mobile ? '11px 24px' : 'clamp(11px, 1.2vh, 16px) clamp(24px, 1.8vw, 36px)', cursor: STAR_CURSOR,
-            transition: 'background 300ms, border-color 300ms',
             alignSelf: mobile ? 'center' : undefined,
-          }}
-          onMouseEnter={e => { e.target.style.background='#3D3428'; e.target.style.borderColor='#3D3428'; }}
-          onMouseLeave={e => { e.target.style.background='#0D0B08'; e.target.style.borderColor='#0D0B08'; }}
-          >Kontakt →</button>
+            display: 'inline-flex', alignItems: 'center', gap: 6,
+          }}>
+            <span>Kontakt</span>
+            <span className="cta-arrow" aria-hidden="true">→</span>
+          </button>
         </div>
 
         <div className="fu2" style={{
@@ -133,7 +133,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? 16 : 12 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? 20 : 18 }}>
               {SOCIAL_ICONS.map(({ href, title, d }) => {
                 const isExternal = !href.startsWith('mailto:');
                 return (
@@ -142,7 +142,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
                     style={{ color: '#C4B8A4', display: 'flex', textDecoration: 'none', transition: 'color 200ms' }}
                     onMouseEnter={e => e.currentTarget.style.color = '#3D3428'}
                     onMouseLeave={e => e.currentTarget.style.color = '#C4B8A4'}>
-                    <svg width={mobile ? 26 : 20} height={mobile ? 26 : 20} viewBox="0 0 24 24" fill="currentColor"><path d={d}/></svg>
+                    <svg width={mobile ? 28 : 26} height={mobile ? 28 : 26} viewBox="0 0 24 24" fill="currentColor"><path d={d}/></svg>
                   </a>
                 );
               })}

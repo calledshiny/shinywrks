@@ -3,12 +3,18 @@ import SpotrightUxFlow from './SpotrightUxFlow';
 import SpotrightDesignSystem from './SpotrightDesignSystem';
 import IPhoneMockup from './IPhoneMockup';
 import SpotrightScreens from './SpotrightScreens';
+import PlakatCarousel from './PlakatCarousel';
+import WebsiteFrame from './WebsiteFrame';
+import ZoomInDesignSystem from './ZoomInDesignSystem';
 
 const COMPONENT_REGISTRY = {
   SpotrightUxFlow,
   SpotrightDesignSystem,
   IPhoneMockup,
   SpotrightScreens,
+  PlakatCarousel,
+  WebsiteFrame,
+  ZoomInDesignSystem,
 };
 
 export default function ProjectDetail({ project, projects, onNav }) {
@@ -85,9 +91,10 @@ export default function ProjectDetail({ project, projects, onNav }) {
             <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{item.labelAbove}</span>
           </div>
         ) : null;
+        const gridColumn = m && item.mobileGridColumn ? item.mobileGridColumn : item.gridColumn;
         if (item.caption || aboveEl) {
           return (
-            <div key={ii}>
+            <div key={ii} style={gridColumn ? { gridColumn } : undefined}>
               {aboveEl}
               {inner}
               {item.caption && (
@@ -99,7 +106,8 @@ export default function ProjectDetail({ project, projects, onNav }) {
             </div>
           );
         }
-        return <div key={ii} style={!item.aspectRatio && item.fit === 'contain' ? { height: '100%' } : {}}>{inner}</div>;
+        const baseStyle = !item.aspectRatio && item.fit === 'contain' ? { height: '100%' } : {};
+        return <div key={ii} style={gridColumn ? { ...baseStyle, gridColumn } : baseStyle}>{inner}</div>;
       })}
     </div>
   );
@@ -165,14 +173,16 @@ export default function ProjectDetail({ project, projects, onNav }) {
 
       <div style={{
         width: '100%',
-        height: 'clamp(360px, 55vw, 680px)',
+        ...(p.heroAspectRatio
+          ? { aspectRatio: p.heroAspectRatio }
+          : { height: 'clamp(360px, 55vw, 680px)' }),
         background: p.bg,
         position: 'relative',
         zIndex: 1,
         overflow: 'hidden',
       }}>
         {p.heroPhoto && (
-          <img src={p.heroPhoto} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}/>
+          <img src={p.heroPhoto} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: p.heroFit || 'cover', display: 'block' }}/>
         )}
         <div className="noise"/>
         {p.heroImg && (

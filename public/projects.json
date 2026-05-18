@@ -4,9 +4,9 @@
     "slug": "tapestop",
     "title": "TAPESTOP",
     "tag": "Visual Identity",
-    "tags": ["Visual Identity", "Event"],
+    "tags": ["Visual Identity"],
     "year": "2025",
-    "tagLine": "VISUAL IDENTITY / EVENT / 2025",
+    "tagLine": "VISUAL IDENTITY / 2025",
     "blurb": "Techno / Trance Event Kollektiv",
     "desc": "Vollständige Markenidentität für ein unabhängiges Event-Kollektiv, das authentische Techno-, House- und Trance-Partys an wechselnden Locations veranstaltet — ohne Kommerz, ohne Inszenierung. Jedes Event ist ein Take, eine Aufnahme: abgeklebte Handykameras, Einwegkameras statt Stories, Events nummeriert wie Kapitel einer fortlaufenden Geschichte. Von Naming und Logo über Corporate Design bis zu Plakaten, Print, Event Experience und Landing Page — alles analog gedacht, konsequent umgesetzt.",
     "claim": "no second take.",
@@ -172,10 +172,10 @@
     "id": 2,
     "slug": "spotright",
     "title": "SPOTRIGHT",
-    "tag": "UI/UX Design",
-    "tags": ["UI/UX Design", "AI"],
+    "tag": "Web",
+    "tags": ["Visual Identity", "Web", "AI"],
     "year": "2025",
-    "tagLine": "UI/UX DESIGN / AI / 2025",
+    "tagLine": "VISUAL IDENTITY / WEB / AI / 2025",
     "blurb": "Entdecken von lokalen Events",
     "liveUrl": "https://spotright.de",
     "desc": "In einer fremden Stadt weißt du nicht, wo heute Abend wirklich was los ist. Spotright löst das — eine Event-Discovery-App, die zeigt was in deiner Stadt gerade passiert: Clubs, Konzerte, Bar-Events. Kuratiert, aktuell, lokal. Für junge Leute, die eine Stadt nicht googeln wollen, sondern spüren. Die UI hält sich bewusst zurück — Liquid Glass und warme Terra-Akzente lassen die Stadt selbst die Bühne sein.",
@@ -251,51 +251,36 @@
     "slug": "hof-ist-dein-film",
     "title": "HOF IST DEIN FILM",
     "tag": "Visual Identity",
-    "tags": ["Visual Identity", "Campaign"],
+    "tags": ["Visual Identity"],
     "year": "2024",
-    "tagLine": "VISUAL IDENTITY / CAMPAIGN / 2024",
+    "tagLine": "VISUAL IDENTITY / 2024",
     "blurb": "Imagekampagne für die Stadt Hof",
-    "desc": "Eine Imagekampagne für die Stadt Hof, die mit dem eigenen Image spielt. Altbekannte, vermeintlich langweilige Orte werden zur Filmkulisse, sobald man genau hinschaut. „Hof ist dein Film“ lädt die Einwohner ein, ihre Stadt durch ein neues Objektiv zu sehen — denn die Magie liegt nicht im Spektakulären, sondern im Detail.",
+    "desc": "Eine Imagekampagne für die Stadt Hof, die mit dem eigenen Image spielt. Altbekannte, vermeintlich langweilige Orte werden zur Filmkulisse, sobald man genau hinschaut. „Hof ist dein Film“ lädt die Einwohner ein, ihre Stadt durch ein neues Objektiv zu sehen — denn die Magie liegt nicht im Spektakulären, sondern im Detail. Logo, Plakatserie, Postkarten, Sticker und Landing Page bilden ein zusammenhängendes System aus Suchermarkierungen, gespaltenen Motiven und einem klaren Call: just zoom in.",
     "claim": "just zoom in.",
-    "disclaimer": "Fiktives Projekt im Rahmen einer Konzeptarbeit. Die Stadt Hof, genannte Orte oder Personen dienen ausschliesslich der Veranschaulichung — es besteht keine Partnerschaft oder offizielle Verbindung.",
+    "disclaimer": "Studienarbeit im Modul Corporate Design Advanced (HTK Academy, SoSe 2024). Die Stadt Hof, genannte Orte oder Personen dienen ausschliesslich der Veranschaulichung — es besteht keine Partnerschaft oder offizielle Verbindung.",
     "camera": "CORPORATE DESIGN /",
-    "lens": "KAMPAGNE / PRINT /",
-    "film": "WEBSITE",
+    "lens": "PLAKATKAMPAGNE / PRINT /",
+    "film": "LANDING PAGE",
     "studio": "SHINYWRKS",
-    "location": "FREIES PROJEKT",
+    "location": "HTK ACADEMY",
     "date": "AUG 2024",
-    "bg": "linear-gradient(160deg, #2a1a0a 0%, #0D0B08 100%)",
-    "thumb": "spotright/placeholder-wide.webp",
-    "thumbW": 1600,
-    "thumbH": 1067,
+    "bg": "linear-gradient(160deg, #C2A8E3 0%, #8466B8 100%)",
+    "heroPhoto": "zoom-in/postkarten/postkarte-hochschule.webp",
+    "heroAspectRatio": "1748/1240",
+    "thumb": "zoom-in/postkarten/postkarte-hochschule.webp",
+    "thumbW": 1748,
+    "thumbH": 1240,
     "width": 320,
     "height": 420,
     "sections": [
       {
         "label": "Corporate Design",
         "rows": [
-          { "type": "sublabel", "text": "Logo" },
           {
             "cols": 1,
-            "padding": "0 48px",
+            "padding": "0",
             "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "contain", "caption": "Wortmarke" }
-            ]
-          },
-          { "type": "sublabel", "text": "Farben" },
-          {
-            "cols": 1,
-            "padding": "0 48px",
-            "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "1311/503", "fit": "cover", "caption": "Farbpalette" }
-            ]
-          },
-          { "type": "sublabel", "text": "Typografie" },
-          {
-            "cols": 1,
-            "padding": "0 48px",
-            "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "16/9", "fit": "cover", "caption": "Schriftsystem" }
+              { "type": "component", "name": "ZoomInDesignSystem" }
             ]
           }
         ]
@@ -306,17 +291,28 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover" }
+              { "type": "img", "src": "zoom-in/mockups/plakat-mockup.webp", "aspectRatio": "2400/1680", "fit": "cover" }
             ]
           },
+          { "type": "sublabel", "text": "Motive" },
           {
-            "cols": 3,
-            "gap": 10,
-            "marginTop": 48,
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
             "items": [
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "2/3", "fit": "cover" }
+              {
+                "type": "component",
+                "name": "PlakatCarousel",
+                "props": {
+                  "plakate": [
+                    { "title": "Bismarckturm",   "src": "zoom-in/plakate/plakat-bismarckturm.webp" },
+                    { "title": "Marienkirche",   "src": "zoom-in/plakate/plakat-marienkirche.webp" },
+                    { "title": "Hochschule",     "src": "zoom-in/plakate/plakat-hochschule.webp" },
+                    { "title": "Theresienstein", "src": "zoom-in/plakate/plakat-theresienstein.webp" },
+                    { "title": "Untreusee",      "src": "zoom-in/plakate/plakat-untreusee.webp" }
+                  ]
+                }
+              }
             ]
           }
         ]
@@ -325,12 +321,23 @@
         "label": "Postkarten",
         "rows": [
           {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "zoom-in/mockups/postkarten-mockup.webp", "aspectRatio": "2400/1600", "fit": "cover" }
+            ]
+          },
+          { "type": "sublabel", "text": "Vorderseite" },
+          {
             "cols": 2,
             "gap": 10,
             "padding": "0 48px",
+            "marginTop": 16,
             "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover", "caption": "Vorderseite" },
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "3/2", "fit": "cover", "caption": "Rückseite" }
+              { "type": "img", "src": "zoom-in/postkarten/postkarte-bismarckturm.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Bismarckturm", "mobileGridColumn": "1 / -1" },
+              { "type": "img", "src": "zoom-in/postkarten/postkarte-marienkirche.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Marienkirche" },
+              { "type": "img", "src": "zoom-in/postkarten/postkarte-hochschule.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Hochschule" },
+              { "type": "img", "src": "zoom-in/postkarten/postkarte-theresienstein.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Theresienstein" },
+              { "type": "img", "src": "zoom-in/postkarten/postkarte-untreusee.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Untreusee" }
             ]
           }
         ]
@@ -339,28 +346,42 @@
         "label": "Sticker",
         "rows": [
           {
-            "cols": 3,
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "zoom-in/mockups/sticker-mockup-1.webp", "aspectRatio": "2400/1760", "fit": "cover" }
+            ]
+          },
+          { "type": "sublabel", "text": "Motive" },
+          {
+            "cols": 4,
             "gap": 10,
             "padding": "0 48px",
+            "mobileGridTemplateColumns": "repeat(2, 1fr)",
+            "marginTop": 16,
             "items": [
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" },
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" },
-              { "type": "img", "src": "spotright/placeholder-square.webp", "aspectRatio": "1/1", "fit": "cover" }
+              { "type": "img", "src": "zoom-in/sticker/sticker-dark.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "HOF Negativ" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-light.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "HOF Positiv" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-bismarckturm.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Bismarckturm" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-marienkirche.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Marienkirche" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-hochschule.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Hochschule" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-theresienstein.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Theresienstein" },
+              { "type": "img", "src": "zoom-in/sticker/sticker-untreusee.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Untreusee" }
             ]
           }
         ]
       },
       {
-        "label": "Website",
+        "label": "Landing Page (statisch)",
         "rows": [
           {
-            "gridTemplateColumns": "3.937fr 1fr",
-            "mobileGridTemplateColumns": "1fr",
-            "padding": "0 48px",
-            "gap": 10,
+            "cols": 1,
+            "padding": "0",
             "items": [
-              { "type": "img", "src": "spotright/placeholder-wide.webp", "aspectRatio": "1440/1020", "fit": "cover", "labelAbove": "Desktop" },
-              { "type": "img", "src": "spotright/placeholder-portrait.webp", "aspectRatio": "388/1082", "fit": "cover", "labelAbove": "Mobile" }
+              {
+                "type": "component",
+                "name": "WebsiteFrame",
+                "props": { "src": "zoom-in/website/website.webp" }
+              }
             ]
           }
         ]

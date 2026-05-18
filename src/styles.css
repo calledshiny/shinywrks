@@ -380,10 +380,8 @@ a, button, .strip-item, [role="button"] {
 .iphone-side-power   { right: -0.45%; top: 22%;  width: 0.5%; height: 10%; background: linear-gradient(90deg, #3a3a3c 0%, #1a1a1c 50%, #3a3a3c 100%); }
 @media (max-width: 720px) {
   .iphone-mockup {
-    --iphone-w: min(70vw, calc(var(--iphone-h, 60vh) * 9 / 19.5), 320px);
-    width: var(--iphone-w);
-    height: calc(var(--iphone-w) * 19.5 / 9);
-    max-width: none;
+    width: min(58vw, calc((100dvh - 200px) * 9 / 19.5), 300px);
+    height: calc(min(58vw, calc((100dvh - 200px) * 9 / 19.5), 300px) * 19.5 / 9);
   }
 }
 

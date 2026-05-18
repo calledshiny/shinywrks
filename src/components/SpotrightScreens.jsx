@@ -72,7 +72,7 @@ export default function SpotrightScreens({ screens = [] }) {
 
   return (
     <div
-      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 8 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
+      style={{ display: 'flex', flexDirection: 'column', gap: mobile ? 28 : 0, marginBottom: mobile ? 0 : 16, position: 'relative' }}
     >
       {!mobile && (
         <>
@@ -108,7 +108,7 @@ export default function SpotrightScreens({ screens = [] }) {
           scrollSnapType: 'x mandatory',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
-          paddingBottom: mobile ? 56 : 100,
+          paddingBottom: mobile ? 60 : 100,
         }}
         className="screens-strip"
       >
@@ -117,29 +117,22 @@ export default function SpotrightScreens({ screens = [] }) {
             flexShrink: 0,
             width: '100%',
             scrollSnapAlign: 'start',
-            padding: mobile ? '20px 20px 0' : '0 48px',
+            padding: mobile ? '0 20px' : '0 48px',
             boxSizing: 'border-box',
-            display: mobile ? 'flex' : 'grid',
-            flexDirection: mobile ? 'column' : undefined,
-            gridTemplateColumns: mobile ? undefined : 'minmax(0, 1fr) minmax(0, 1fr)',
-            gap: mobile ? 16 : 48,
+            display: 'grid',
+            gridTemplateColumns: mobile ? 'minmax(0, 1fr)' : 'minmax(0, 1fr) minmax(0, 1fr)',
+            gap: mobile ? 28 : 48,
             alignItems: 'center',
-            justifyItems: mobile ? undefined : 'center',
-            height: mobile ? 'calc(100dvh - 180px)' : 'calc(100vh - 260px)',
-            minHeight: mobile ? 0 : 480,
+            height: mobile ? 'auto' : 'calc(100vh - 260px)',
+            minHeight: mobile ? 'auto' : 480,
           }}>
-            {mobile && (s.title || s.label || s.body) && (
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%', flexShrink: 0 }}>
+            {mobile ? (
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, width: '100%' }}>
                 <button
                   type="button"
                   onClick={() => setExpanded((v) => !v)}
                   aria-expanded={expanded}
-                  style={{
-                    display: 'flex', alignItems: 'center', gap: 8,
-                    background: 'transparent', border: 'none', padding: 0, cursor: 'none',
-                    fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 18,
-                    letterSpacing: '-0.02em', color: '#0D0B08',
-                  }}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8, background: 'transparent', border: 'none', padding: 0, cursor: 'none', fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: 18, letterSpacing: '-0.02em', color: '#0D0B08' }}
                 >
                   <span>{s.title}</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: expanded ? 'rotate(180deg)' : 'none', transition: 'transform 240ms cubic-bezier(0.16,1,0.3,1)' }}>
@@ -147,7 +140,7 @@ export default function SpotrightScreens({ screens = [] }) {
                   </svg>
                 </button>
                 {expanded && (
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center', textAlign: 'center', maxWidth: 360, padding: '0 4px' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'center', textAlign: 'center', maxWidth: 360 }}>
                     {s.label && (
                       <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{s.label}</span>
                     )}
@@ -157,8 +150,7 @@ export default function SpotrightScreens({ screens = [] }) {
                   </div>
                 )}
               </div>
-            )}
-            {!mobile && (
+            ) : (
               <div style={{ display: 'flex', flexDirection: 'column', gap: 14, justifyContent: 'center' }}>
                 {s.label && (
                   <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{s.label}</span>
@@ -171,21 +163,14 @@ export default function SpotrightScreens({ screens = [] }) {
                 )}
               </div>
             )}
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flex: mobile ? 1 : undefined, minHeight: 0, width: '100%', height: mobile ? undefined : '100%' }}>
-              <IPhoneMockup
-                src={s.src}
-                type={s.type}
-                screenBg={s.screenBg}
-                height={mobile ? 'min(calc(100dvh - 280px), 560px)' : 'min(72vh, calc(100vh - 280px))'}
-                isActive={active === i}
-                onEnded={() => handleEnded(i)}
-              />
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+              <IPhoneMockup src={s.src} type={s.type} screenBg={s.screenBg} height={mobile ? undefined : 'min(72vh, calc(100vh - 280px))'} isActive={active === i} onEnded={() => handleEnded(i)} />
             </div>
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '4px 0 2px', marginTop: mobile ? -36 : -80, position: 'relative', zIndex: 4 }}>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 12, padding: '4px 0 2px', marginTop: mobile ? 0 : -80, position: 'relative', zIndex: 4 }}>
         {screens.map((_, i) => {
           const isActive = active === i;
           return (

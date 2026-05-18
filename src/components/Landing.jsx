@@ -36,6 +36,12 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
 
   const [textOpen, setTextOpen] = useState(false);
 
+  const aboutCopy = (
+    <>
+      Manchmal ruhig, manchmal laut — immer mit <strong style={{ fontWeight: 600 }}>Charakter</strong>. Ich entwickle Visuelle Identitäten, Kampagnen und (Web) Experiences für Brands, Events, Artists, Studios, uvm, die <strong style={{ fontWeight: 600 }}>moderne Kultur</strong> prägen — und etwas zu sagen haben. <strong style={{ fontWeight: 600 }}>AI</strong> gehört dabei zum Werkzeug wie Bleistift und Kamera.
+    </>
+  );
+
   const heightPcts = [0.94, 0.72, 0.60, 1.0, 0.80, 0.66];
 
   return (
@@ -80,13 +86,13 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               </button>
               {textOpen && (
                 <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginTop: 10 }}>
-                  Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Visuelle Identitäten, Kampagnen und (Web) Experiences für Brands, Events, Artists und Studios, die moderne Kultur prägen — und etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Bleistift und Kamera.
+                  {aboutCopy}
                 </p>
               )}
             </div>
           ) : (
             <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
-              Manchmal ruhig, manchmal laut — immer mit Charakter. Ich entwickle Visuelle Identitäten, Kampagnen und (Web) Experiences für Brands, Events, Artists und Studios, die moderne Kultur prägen — und etwas zu sagen haben. AI gehört dabei zum Werkzeug wie Bleistift und Kamera.
+              {aboutCopy}
             </p>
           )}
           <button className="cta-shine" onClick={() => onNav('contact')} style={{

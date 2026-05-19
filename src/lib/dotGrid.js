@@ -2,10 +2,9 @@ export function initDotGrid() {
   const canvas = document.getElementById('dot-grid-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const isMobileViewport = () => window.matchMedia('(max-width: 720px)').matches;
-  let SPACING = isMobileViewport() ? 18 : 20;
+  const SPACING = 20;
   const BASE_RADIUS = 1.0;
-  const BASE_ALPHA = 0.35;
+  const BASE_ALPHA = 0.21;
   const REPEL_RADIUS = 140;
   const MAX_REPEL = 6;
 
@@ -17,7 +16,6 @@ export function initDotGrid() {
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    SPACING = isMobileViewport() ? 14 : 20;
     buildDots();
   }
 

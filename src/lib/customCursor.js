@@ -2,16 +2,10 @@ export function initCustomCursor() {
   const cursor = document.querySelector('.custom-cursor');
   if (!cursor || matchMedia('(hover: none), (pointer: coarse)').matches) return;
   const interactiveSel = 'a, button, .strip-item, [role="button"], input, select, textarea';
-  let nx = -100, ny = -100, cx = -100, cy = -100;
   let pendingTarget = null, hover = false, ready = false, frame = 0;
 
-  function tick() {
+  function tickHover() {
     frame = 0;
-    if (nx !== cx || ny !== cy) {
-      cursor.style.transform = `translate3d(${nx - 12}px, ${ny - 12}px, 0)`;
-      cx = nx; cy = ny;
-    }
-    if (!ready) { cursor.classList.add('is-ready'); ready = true; }
     if (pendingTarget) {
       const next = !!pendingTarget.closest(interactiveSel);
       if (next !== hover) { hover = next; cursor.classList.toggle('is-hover', hover); }
@@ -20,9 +14,10 @@ export function initCustomCursor() {
   }
 
   window.addEventListener('pointermove', e => {
-    nx = e.clientX; ny = e.clientY;
+    cursor.style.transform = `translate3d(${e.clientX - 12}px, ${e.clientY - 12}px, 0)`;
+    if (!ready) { cursor.classList.add('is-ready'); ready = true; }
     pendingTarget = e.target;
-    if (!frame) frame = requestAnimationFrame(tick);
+    if (!frame) frame = requestAnimationFrame(tickHover);
   }, { passive: true });
 
   window.addEventListener('mouseleave', () => {

@@ -126,14 +126,14 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               <div style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500, fontSize: mobile ? 15 : 'clamp(15px, 0.85vw, 19px)', letterSpacing: '-0.02em', color: '#0D0B08', whiteSpace: 'nowrap', marginBottom: 6 }}>
                 Justin Wiemann
               </div>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontWeight: 700, fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
                 Kommunikationsdesigner
               </div>
             </div>
 
             <div>
               <div style={{ width: 24, height: 1, background: '#E8E2D6', marginBottom: 10 }}/>
-              <div style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
+              <div style={{ fontFamily: 'Space Mono, monospace', fontWeight: 700, fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 13px)', letterSpacing: '0.06em', color: '#C4B8A4', marginBottom: 8 }}>
                 Hof, DE
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>

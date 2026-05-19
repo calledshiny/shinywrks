@@ -2,9 +2,10 @@ export function initDotGrid() {
   const canvas = document.getElementById('dot-grid-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  const SPACING = 20;
+  const isMobileViewport = () => window.matchMedia('(max-width: 720px)').matches;
+  let SPACING = isMobileViewport() ? 14 : 20;
   const BASE_RADIUS = 1.0;
-  const BASE_ALPHA = 0.15;
+  const BASE_ALPHA = 0.35;
   const REPEL_RADIUS = 140;
   const MAX_REPEL = 6;
 
@@ -16,6 +17,7 @@ export function initDotGrid() {
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+    SPACING = isMobileViewport() ? 14 : 20;
     buildDots();
   }
 
@@ -72,13 +74,13 @@ export function initDotGrid() {
         const nx = Math.random() * canvas.width;
         const ny = Math.random() * canvas.height;
         const tooClose = pulses.some(p => Math.hypot(nx - p.x, ny - p.y) < 400);
-        if (!tooClose) { pulses.push({ x: nx, y: ny, radius: 0, maxRadius: 700 + Math.random() * 400, speed: 1.0 + Math.random() * 0.6, intensity: 0.35 + Math.random() * 0.18, sigma: 80 + Math.random() * 40 }); spawned = true; }
+        if (!tooClose) { pulses.push({ x: nx, y: ny, radius: 0, maxRadius: 1300 + Math.random() * 600, speed: 0.5 + Math.random() * 0.4, intensity: 1.2 + Math.random() * 0.4, sigma: 110 + Math.random() * 50 }); spawned = true; }
       }
       lastPulseTime = now;
-      nextPulseIn = 5000 + Math.random() * 4000;
+      nextPulseIn = 7000 + Math.random() * 5000;
     }
     pulses = pulses.filter(p => p.radius < p.maxRadius);
-    for (const p of pulses) { p.speed += 0.05; p.radius += p.speed; }
+    for (const p of pulses) { p.speed += 0.02; p.radius += p.speed; }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 

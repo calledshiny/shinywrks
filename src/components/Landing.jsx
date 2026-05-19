@@ -77,15 +77,18 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           {mobile ? (
             <div style={{ marginBottom: 14 }}>
               <button onClick={() => setTextOpen(o => !o)} style={{
-                fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.1em',
-                textTransform: 'uppercase', color: '#C4B8A4', background: 'none', border: 'none',
-                cursor: STAR_CURSOR, padding: 0, display: 'flex', alignItems: 'center', gap: 5, margin: '0 auto',
+                fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em',
+                textTransform: 'uppercase', color: '#1A1209',
+                background: 'transparent', border: '1px solid #0D0B08',
+                borderRadius: 999, padding: '7px 14px',
+                cursor: STAR_CURSOR, display: 'inline-flex', alignItems: 'center', gap: 6,
+                margin: '0 auto', transition: 'background 200ms, color 200ms',
               }}>
-                <span>{textOpen ? 'weniger' : 'mehr'}</span>
+                <span>{textOpen ? 'weniger' : 'mehr über mich'}</span>
                 <span style={{ display: 'inline-block', transition: 'transform 300ms', transform: textOpen ? 'rotate(180deg)' : 'none' }}>↓</span>
               </button>
               {textOpen && (
-                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginTop: 10 }}>
+                <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 13, lineHeight: 1.6, color: '#1A1209', maxWidth: 400, marginTop: 14 }}>
                   {aboutCopy}
                 </p>
               )}

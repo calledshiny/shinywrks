@@ -8,6 +8,9 @@ import PlakatCarousel from './PlakatCarousel';
 import StillsCarousel from './StillsCarousel';
 import WebsiteFrame from './WebsiteFrame';
 import ZoomInDesignSystem from './ZoomInDesignSystem';
+import MyndfulTypography from './MyndfulTypography';
+import MyndfulColors from './MyndfulColors';
+import MyndfulCarousel from './MyndfulCarousel';
 
 const COMPONENT_REGISTRY = {
   SpotrightUxFlow,
@@ -18,6 +21,9 @@ const COMPONENT_REGISTRY = {
   StillsCarousel,
   WebsiteFrame,
   ZoomInDesignSystem,
+  MyndfulTypography,
+  MyndfulColors,
+  MyndfulCarousel,
 };
 
 export default function ProjectDetail({ project, projects, onNav }) {
@@ -283,8 +289,10 @@ export default function ProjectDetail({ project, projects, onNav }) {
             {sec.rows
               ? sec.rows.map((row, ri) => {
                   if (row.type === 'sublabel') {
+                    const top = row.tight ? (m ? 16 : 24) : (m ? 32 : 48);
+                    const bot = row.tight ? (m ? 8 : 10) : (m ? 12 : 16);
                     return (
-                      <div key={ri} style={{ padding: `${m ? 32 : 48}px ${sidePad}px ${m ? 12 : 16}px` }}>
+                      <div key={ri} style={{ padding: `${top}px ${sidePad}px ${bot}px` }}>
                         <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 11, letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428' }}>{row.text}</span>
                       </div>
                     );

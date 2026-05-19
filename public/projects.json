@@ -248,6 +248,280 @@
     ]
   },
   {
+    "id": 5,
+    "slug": "myndful",
+    "title": "MYNDFUL",
+    "tag": "Visual Identity",
+    "tags": ["Visual Identity", "Campaign", "Print"],
+    "year": "2023",
+    "tagLine": "VISUAL IDENTITY / CAMPAIGN / PRINT / 2023",
+    "blurb": "Kurztrip-Plattform für Kreative",
+    "desc": "Markenidentität und Kampagne für eine fiktive Plattform, die kurze, unkomplizierte Daytrips für kreative Berufstätige plant — von Transport über Unterkunft bis zu kuratierten Spots. Adressiert eine reale Spannung: Creative Block durch Dauerstress und überfrachteten Alltag. Daraus entsteht ein Kampagnensystem aus Plakaten, Visitenkarten und Social Posts mit Routen-Linien und geometrischen Pause-Formen.",
+    "claim": "you really need a break.",
+    "disclaimer": "Studienarbeit im Modul Campaign (HTK Academy, WiSe 2023/24). Genannte Städte, Marken oder Personen dienen ausschliesslich der Veranschaulichung — myndful ist ein fiktives Markenkonzept.",
+    "camera": "CORPORATE DESIGN /",
+    "lens": "PRINT / VISITENKARTEN /",
+    "film": "SOCIAL CAMPAIGN",
+    "studio": "SHINYWRKS",
+    "location": "HTK ACADEMY",
+    "date": "NOV 2023",
+    "bg": "linear-gradient(160deg, #3D4D44 0%, #2E3B34 100%)",
+    "thumb": "myndful/mockup-cards-1.webp",
+    "thumbW": 2400,
+    "thumbH": 1760,
+    "heroImg": "myndful/logo-long.svg",
+    "heightPct": 0.78,
+    "width": 320,
+    "height": 420,
+    "sections": [
+      {
+        "label": "Corporate Design",
+        "rows": [
+          { "type": "sublabel", "text": "Logo" },
+          {
+            "cols": 2,
+            "padding": "0 48px",
+            "marginTop": 16,
+            "mobileGridTemplateColumns": "1fr",
+            "items": [
+              { "type": "img", "src": "myndful/logo-long.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "10% 12%", "caption": "Wortmarke", "captionSub": "„m\" als Pause-Symbol — leise Aufforderung zur bewussten Pause." },
+              { "type": "img", "src": "myndful/logo-compact.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "10% 30%", "caption": "Signet", "captionSub": "Kompakte Marke aus Pause-Symbol und „y\" — für App-Icon und Favicon." }
+            ]
+          },
+          { "type": "sublabel", "text": "Farben" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulColors" }
+            ]
+          },
+          { "type": "sublabel", "text": "Typografie" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulTypography" }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Plakate",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "myndful/mockup-poster.webp", "fit": "cover" }
+            ]
+          },
+          { "type": "sublabel", "text": "Motive" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "2481/3508",
+                "items": [
+                  { "src": "myndful/poster-noway.webp", "caption": "No Way?", "captionSub": "our path makes your trip" },
+                  { "src": "myndful/poster-pause.webp", "caption": "Pause", "captionSub": "you really need a break" },
+                  { "src": "myndful/poster-recharge.webp", "caption": "Recharge", "captionSub": "recharge your creative battery" }
+                ]
+              } }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Visitenkarten",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              { "type": "img", "src": "myndful/mockup-cards-1.webp", "fit": "cover" }
+            ]
+          },
+          { "type": "sublabel", "text": "Vorderseiten" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "1075/721",
+                "items": [
+                  { "src": "myndful/card-front-path.webp", "caption": "Our Path Makes Your Trip" },
+                  { "src": "myndful/card-front-break.webp", "caption": "You Really Need A Break" },
+                  { "src": "myndful/card-front-recharge.webp", "caption": "Recharge Your Creative Battery" }
+                ]
+              } }
+            ]
+          },
+          { "type": "sublabel", "text": "Rückseiten — Pause" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "1075/721",
+                "items": [
+                  { "src": "myndful/card-icon-pink.webp" },
+                  { "src": "myndful/card-icon-dark.webp" },
+                  { "src": "myndful/card-icon-brown.webp" }
+                ]
+              } }
+            ]
+          },
+          { "type": "sublabel", "text": "Rückseiten — Route", "tight": true },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "1075/721",
+                "items": [
+                  { "src": "myndful/card-map-dark.webp" },
+                  { "src": "myndful/card-map-teal.webp" },
+                  { "src": "myndful/card-map-brown.webp" }
+                ]
+              } }
+            ]
+          },
+          { "type": "sublabel", "text": "Rückseiten — MY", "tight": true },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "1075/721",
+                "items": [
+                  { "src": "myndful/card-ny-dark.webp" },
+                  { "src": "myndful/card-ny-teal.webp" },
+                  { "src": "myndful/card-ny-brown.webp" }
+                ]
+              } }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Social Campaign",
+        "rows": [
+          { "type": "sublabel", "text": "Stories" },
+          {
+            "cols": 1,
+            "marginTop": 16,
+            "items": [
+              { "type": "img", "src": "myndful/mockup-ig-stories.webp", "fit": "cover" }
+            ]
+          },
+          {
+            "cols": 3,
+            "gap": 10,
+            "padding": "0 48px",
+            "mobilePadding": "0 16px",
+            "marginTop": 24,
+            "items": [
+              { "type": "img", "src": "myndful/story-newyork.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "New York" },
+              { "type": "img", "src": "myndful/story-london.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "London" },
+              { "type": "img", "src": "myndful/story-berlin.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "Berlin" }
+            ]
+          },
+          { "type": "sublabel", "text": "Karussell — Two Days Berlin" },
+          {
+            "cols": 1,
+            "marginTop": 16,
+            "items": [
+              { "type": "img", "src": "myndful/mockup-ig-posts.webp", "fit": "cover" }
+            ]
+          },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "desktopGap": 2,
+                "aspectRatio": "4/5",
+                "seamless": true,
+                "items": [
+                  { "src": "myndful/post-berlin-1.webp" },
+                  { "src": "myndful/post-berlin-2.webp" },
+                  { "src": "myndful/post-berlin-3.webp" }
+                ]
+              } }
+            ]
+          },
+          { "type": "sublabel", "text": "Feature-Posts" },
+          {
+            "cols": 1,
+            "marginTop": 16,
+            "items": [
+              { "type": "img", "src": "myndful/mockup-ig-grid.webp", "fit": "cover" }
+            ]
+          },
+          {
+            "cols": 3,
+            "gap": 10,
+            "padding": "0 48px",
+            "mobilePadding": "0 16px",
+            "marginTop": 24,
+            "items": [
+              { "type": "img", "src": "myndful/post-intro.webp", "aspectRatio": "4/5", "fit": "cover", "caption": "Intro" },
+              { "type": "img", "src": "myndful/post-map.webp", "aspectRatio": "4/5", "fit": "cover", "caption": "Outro" }
+            ]
+          },
+          { "type": "sublabel", "text": "Kategorien" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "4/5",
+                "items": [
+                  { "src": "myndful/post-cat-restaurants.webp", "caption": "Restaurants" },
+                  { "src": "myndful/post-cat-hotels.webp", "caption": "Hotels" },
+                  { "src": "myndful/post-cat-bars.webp", "caption": "Bars" }
+                ]
+              } }
+            ]
+          },
+          { "type": "sublabel", "text": "Feature Highlights" },
+          {
+            "cols": 1,
+            "padding": "0",
+            "marginTop": 16,
+            "items": [
+              { "type": "component", "name": "MyndfulCarousel", "props": {
+                "desktopCols": 3,
+                "aspectRatio": "4/5",
+                "items": [
+                  { "src": "myndful/post-feat-restaurants.webp", "caption": "1000+ Restaurants" },
+                  { "src": "myndful/post-feat-sleep.webp", "caption": "Sleeping Situation" },
+                  { "src": "myndful/post-feat-travel.webp", "caption": "Easy Travel" }
+                ]
+              } }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": 3,
     "slug": "hof-ist-dein-film",
     "title": "HOF IST DEIN FILM",

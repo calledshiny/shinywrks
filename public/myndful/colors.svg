@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 320" font-family="'Space Mono', monospace">
+  <g>
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#E56F89"/>
+    <text x="110" y="270" text-anchor="middle" font-size="18" fill="#3D3428" letter-spacing="1.5">#E56F89</text>
+  </g>
+  <g transform="translate(270 0)">
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#3E4843"/>
+    <text x="110" y="270" text-anchor="middle" font-size="18" fill="#3D3428" letter-spacing="1.5">#3E4843</text>
+  </g>
+  <g transform="translate(540 0)">
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#ECEBE2"/>
+    <text x="110" y="270" text-anchor="middle" font-size="18" fill="#3D3428" letter-spacing="1.5">#ECEBE2</text>
+  </g>
+  <g transform="translate(810 0)">
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#8A7666"/>
+    <text x="110" y="270" text-anchor="middle" font-size="18" fill="#3D3428" letter-spacing="1.5">#8A7666</text>
+  </g>
+  <g transform="translate(1080 0)">
+    <rect x="0" y="0" width="220" height="220" rx="28" fill="#84AFB0"/>
+    <text x="110" y="270" text-anchor="middle" font-size="18" fill="#3D3428" letter-spacing="1.5">#84AFB0</text>
+  </g>
+</svg>

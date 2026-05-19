@@ -11,9 +11,9 @@ export default function Nav({ page, onNav }) {
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       padding: mobile ? '14px 20px' : '18px 48px',
       borderBottom: '1px solid rgba(232,226,214,0.8)',
-      background: mobile ? '#F5F3EF' : 'rgba(245,243,239,0.88)',
-      backdropFilter: mobile ? 'none' : 'blur(12px)',
-      WebkitBackdropFilter: mobile ? 'none' : 'blur(12px)',
+      background: 'rgba(245,243,239,0.88)',
+      backdropFilter: 'blur(12px)',
+      WebkitBackdropFilter: 'blur(12px)',
     }}>
       <button className="nav-logo-btn" onClick={() => onNav('home')} style={{
         display: 'flex', alignItems: 'center', gap: 10,

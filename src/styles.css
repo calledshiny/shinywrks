@@ -80,12 +80,17 @@ body::after {
   flex-shrink: 0;
 }
 
-@media (min-width: 721px) {
-  nav { background: rgba(245,243,239,0.94) !important; }
-}
+nav { background: rgba(245,243,239,0.94) !important; }
 @media (max-width: 720px) {
-  nav { background: #F5F3EF !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
-  footer { background: #F5F3EF !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+  nav {
+    padding-top: calc(14px + env(safe-area-inset-top)) !important;
+    margin-top: calc(-1 * env(safe-area-inset-top));
+  }
+  footer {
+    padding-bottom: env(safe-area-inset-bottom) !important;
+    height: calc(32px + env(safe-area-inset-bottom)) !important;
+    margin-bottom: calc(-1 * env(safe-area-inset-bottom));
+  }
 }
 
 .filter-tag { background: #F5F3EF; }

@@ -22,7 +22,7 @@
     "thumbW": 1600,
     "thumbH": 1067,
     "heroImg": "tapestop/logo.svg",
-    "heightPct": 0.82,
+    "heightPct": 0.78,
     "width": 320,
     "height": 420,
     "sections": [
@@ -193,7 +193,7 @@
     "thumb": "spotright/hero-thumb.webp",
     "thumbW": 1024,
     "thumbH": 1537,
-    "heightPct": 1.0,
+    "heightPct": 0.95,
     "width": 320,
     "height": 420,
     "sections": [
@@ -270,7 +270,7 @@
     "thumbW": 2400,
     "thumbH": 1760,
     "heroImg": "myndful/logo-long.svg",
-    "heightPct": 0.78,
+    "heightPct": 0.68,
     "width": 320,
     "height": 420,
     "sections": [
@@ -545,7 +545,7 @@
     "thumb": "zoom-in/postkarten/postkarte-hochschule.webp",
     "thumbW": 1748,
     "thumbH": 1240,
-    "heightPct": 0.78,
+    "heightPct": 0.85,
     "width": 320,
     "height": 420,
     "sections": [
@@ -686,6 +686,7 @@
     "thumb": "mach-kaputt/thumb.webp",
     "thumbW": 1080,
     "thumbH": 1080,
+    "heightPct": 0.72,
     "width": 320,
     "height": 420,
     "sections": [

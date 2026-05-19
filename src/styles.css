@@ -1,5 +1,5 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   background: #F5F3EF;
   color: #1A1209;
@@ -8,6 +8,7 @@ body {
   overflow-x: hidden;
   cursor: none;
 }
+#root { overflow-x: hidden; }
 @media (hover: none), (pointer: coarse) {
   body { cursor: auto; }
 }

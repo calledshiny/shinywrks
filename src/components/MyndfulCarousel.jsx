@@ -52,7 +52,7 @@ export default function MyndfulCarousel({
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', padding: seamless ? '0 16px' : 0, boxSizing: 'border-box' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', padding: seamless ? '0 16px' : 0, boxSizing: 'border-box', maxWidth: '100%', minWidth: 0, overflow: 'hidden' }}>
       <div
         ref={stripRef}
         className="screens-strip"
@@ -63,6 +63,8 @@ export default function MyndfulCarousel({
           scrollSnapType: 'x mandatory',
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
+          maxWidth: '100%',
+          minWidth: 0,
         }}
       >
         {items.map((p, i) => (

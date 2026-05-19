@@ -62,7 +62,7 @@ export function initDotGrid() {
 
   let pulses = [];
   let lastPulseTime = performance.now();
-  let nextPulseIn = 1000 + Math.random() * 1500;
+  let nextPulseIn = 3500 + Math.random() * 3500;
 
   function draw() {
     const now = performance.now();
@@ -71,14 +71,14 @@ export function initDotGrid() {
       while (tries++ < 8 && !spawned) {
         const nx = Math.random() * canvas.width;
         const ny = Math.random() * canvas.height;
-        const tooClose = pulses.some(p => Math.hypot(nx - p.x, ny - p.y) < 250);
-        if (!tooClose) { pulses.push({ x: nx, y: ny, radius: 0, maxRadius: 500 + Math.random() * 400, speed: 6 + Math.random() * 4, intensity: 0.55 + Math.random() * 0.25, sigma: 60 + Math.random() * 40 }); spawned = true; }
+        const tooClose = pulses.some(p => Math.hypot(nx - p.x, ny - p.y) < 400);
+        if (!tooClose) { pulses.push({ x: nx, y: ny, radius: 0, maxRadius: 700 + Math.random() * 400, speed: 1.0 + Math.random() * 0.6, intensity: 0.35 + Math.random() * 0.18, sigma: 80 + Math.random() * 40 }); spawned = true; }
       }
       lastPulseTime = now;
-      nextPulseIn = 400 + Math.random() * 500;
+      nextPulseIn = 5000 + Math.random() * 4000;
     }
     pulses = pulses.filter(p => p.radius < p.maxRadius);
-    for (const p of pulses) { p.speed += 0.5; p.radius += p.speed; }
+    for (const p of pulses) { p.speed += 0.05; p.radius += p.speed; }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 

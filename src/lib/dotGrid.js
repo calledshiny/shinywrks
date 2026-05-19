@@ -13,6 +13,26 @@ export function initDotGrid() {
 
   const BASE_COLOR = [100, 88, 72];
 
+  function hslToRgb(h, s, l) {
+    h = ((h % 360) + 360) % 360 / 360;
+    if (s === 0) { const v = Math.round(l * 255); return [v, v, v]; }
+    const hue2rgb = (p, q, t) => {
+      if (t < 0) t += 1;
+      if (t > 1) t -= 1;
+      if (t < 1 / 6) return p + (q - p) * 6 * t;
+      if (t < 1 / 2) return q;
+      if (t < 2 / 3) return p + (q - p) * (2 / 3 - t) * 6;
+      return p;
+    };
+    const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+    const p = 2 * l - q;
+    return [
+      Math.round(hue2rgb(p, q, h + 1 / 3) * 255),
+      Math.round(hue2rgb(p, q, h) * 255),
+      Math.round(hue2rgb(p, q, h - 1 / 3) * 255),
+    ];
+  }
+
   function resize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -64,6 +84,24 @@ export function initDotGrid() {
   let lastPulseTime = performance.now();
   let nextPulseIn = 3500 + Math.random() * 3500;
 
+  window.addEventListener('pointerdown', e => {
+    if (e.button !== undefined && e.button !== 0) return;
+    const el = e.target;
+    if (el && el.closest && el.closest('button, a, input, select, textarea, [role="button"]')) return;
+    pulses.push({
+      x: e.clientX,
+      y: e.clientY,
+      radius: 0,
+      maxRadius: Math.hypot(canvas.width, canvas.height) * 1.05,
+      speed: 10,
+      intensity: 1.4,
+      sigma: 60,
+      isClick: true,
+      displacement: 16,
+      hueOffset: Math.random() * 360,
+    });
+  }, { passive: true });
+
   function draw() {
     const now = performance.now();
     if (now - lastPulseTime > nextPulseIn) {
@@ -105,19 +143,41 @@ export function initDotGrid() {
       }
 
       let pulseAlpha = 0;
+      let pulsePushX = 0, pulsePushY = 0, pulsePushBoost = 0;
+      let hueVecX = 0, hueVecY = 0, hueStrength = 0;
       for (const p of pulses) {
         const pdx = d.bx - p.x;
         const pdy = d.by - p.y;
         const pdist = Math.sqrt(pdx * pdx + pdy * pdy);
         const delta = pdist - p.radius;
-        pulseAlpha += p.intensity * p._fade * Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
+        const gauss = Math.exp(-0.5 * Math.pow(delta / p.sigma, 2));
+        pulseAlpha += p.intensity * p._fade * gauss;
+        if (p.isClick && pdist > 0.001) {
+          const force = gauss * p._fade;
+          pulsePushX += (pdx / pdist) * force * p.displacement;
+          pulsePushY += (pdy / pdist) * force * p.displacement;
+          pulsePushBoost += force;
+          const angleDeg = Math.atan2(pdy, pdx) * 180 / Math.PI;
+          const hueRad = (angleDeg + p.hueOffset) * Math.PI / 180;
+          hueVecX += Math.cos(hueRad) * force;
+          hueVecY += Math.sin(hueRad) * force;
+          hueStrength += force;
+        }
+      }
+
+      if (pulsePushBoost > 0) {
+        d.tx += pulsePushX;
+        d.ty += pulsePushY;
+        if (pulsePushBoost > d.tc) d.tc = pulsePushBoost;
+        const pulseTa = BASE_ALPHA + pulsePushBoost * 0.9;
+        if (pulseTa > d.ta) d.ta = pulseTa;
       }
 
       d.vx = (d.vx + (d.tx - d.ox) * 0.26) * 0.58;
       d.vy = (d.vy + (d.ty - d.oy) * 0.26) * 0.58;
       d.ox += d.vx;
       d.oy += d.vy;
-      const aSpeed = inRepel ? 0.45 : 0.12;
+      const aSpeed = (inRepel || pulsePushBoost > 0.1) ? 0.45 : 0.12;
       d.a  = (d.a  || BASE_ALPHA) + ((d.ta || BASE_ALPHA) - d.a)  * aSpeed;
       d.cf = (d.cf || 0)          + ((d.tc || 0)          - d.cf) * aSpeed;
 
@@ -129,9 +189,17 @@ export function initDotGrid() {
       const radiusY = Math.max(0.4, baseR * (1 - tiltFactor * 0.55));
 
       const boost = Math.round((d.cf || 0) * 55);
-      const r = Math.min(255, BASE_COLOR[0] + boost);
-      const g = Math.min(255, BASE_COLOR[1] + boost);
-      const b = Math.min(255, BASE_COLOR[2] + boost);
+      let r = Math.min(255, BASE_COLOR[0] + boost);
+      let g = Math.min(255, BASE_COLOR[1] + boost);
+      let b = Math.min(255, BASE_COLOR[2] + boost);
+      if (hueStrength > 0.02) {
+        const hue = Math.atan2(hueVecY, hueVecX) * 180 / Math.PI;
+        const [rr, gg, bb] = hslToRgb(hue, 1.0, 0.68);
+        const mix = Math.min(1, hueStrength);
+        r = Math.round(r * (1 - mix) + rr * mix);
+        g = Math.round(g * (1 - mix) + gg * mix);
+        b = Math.round(b * (1 - mix) + bb * mix);
+      }
       const finalAlpha = Math.min(1, d.a + pulseAlpha);
 
       ctx.beginPath();

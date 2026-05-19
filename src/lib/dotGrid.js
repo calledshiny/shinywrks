@@ -84,13 +84,9 @@ export function initDotGrid() {
   let lastPulseTime = performance.now();
   let nextPulseIn = 3500 + Math.random() * 3500;
 
-  window.addEventListener('pointerdown', e => {
-    if (e.button !== undefined && e.button !== 0) return;
-    const el = e.target;
-    if (el && el.closest && el.closest('button, a, input, select, textarea, [role="button"]')) return;
+  function spawnClickPulse(x, y) {
     pulses.push({
-      x: e.clientX,
-      y: e.clientY,
+      x, y,
       radius: 0,
       maxRadius: Math.hypot(canvas.width, canvas.height) * 1.05,
       speed: 10,
@@ -100,6 +96,40 @@ export function initDotGrid() {
       displacement: 16,
       hueOffset: Math.random() * 360,
     });
+  }
+
+  let pendingTap = null;
+  const TAP_MOVE_THRESHOLD = 10;
+  const TAP_TIME_THRESHOLD = 500;
+
+  window.addEventListener('pointerdown', e => {
+    if (e.button !== undefined && e.button !== 0) return;
+    const el = e.target;
+    if (el && el.closest && el.closest('button, a, input, select, textarea, [role="button"]')) return;
+    if (e.pointerType === 'mouse') {
+      spawnClickPulse(e.clientX, e.clientY);
+    } else {
+      pendingTap = { x: e.clientX, y: e.clientY, t: performance.now(), id: e.pointerId };
+    }
+  }, { passive: true });
+
+  window.addEventListener('pointermove', e => {
+    if (!pendingTap || pendingTap.id !== e.pointerId) return;
+    if (Math.hypot(e.clientX - pendingTap.x, e.clientY - pendingTap.y) > TAP_MOVE_THRESHOLD) {
+      pendingTap = null;
+    }
+  }, { passive: true });
+
+  window.addEventListener('pointerup', e => {
+    if (!pendingTap || pendingTap.id !== e.pointerId) return;
+    if (performance.now() - pendingTap.t <= TAP_TIME_THRESHOLD) {
+      spawnClickPulse(e.clientX, e.clientY);
+    }
+    pendingTap = null;
+  }, { passive: true });
+
+  window.addEventListener('pointercancel', e => {
+    if (pendingTap && pendingTap.id === e.pointerId) pendingTap = null;
   }, { passive: true });
 
   function draw() {

@@ -11,9 +11,9 @@ export default function Footer({ onNav }) {
       padding: mobile ? '0 16px' : '0 48px',
       height: 32,
       borderTop: '1px solid #E8E2D6',
-      background: 'rgba(245,243,239,0.92)',
-      backdropFilter: 'blur(8px)',
-      WebkitBackdropFilter: 'blur(8px)',
+      background: mobile ? '#F5F3EF' : 'rgba(245,243,239,0.92)',
+      backdropFilter: mobile ? 'none' : 'blur(8px)',
+      WebkitBackdropFilter: mobile ? 'none' : 'blur(8px)',
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     }}>
       <button onClick={() => onNav('home')} style={{

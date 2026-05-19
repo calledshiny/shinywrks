@@ -16,23 +16,103 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
 
   const stripRef = useRef();
   const wrapRef = useRef();
+  const [stripProgress, setStripProgress] = useState(0);
+  const [stripOverflows, setStripOverflows] = useState(false);
+  const isInfinite = activeFilter === 'All';
 
   useEffect(() => {
     if (mobile) return;
     const strip = stripRef.current;
     const wrap = wrapRef.current;
     if (!strip || !wrap) return;
+
+    const measureOverflow = () => setStripOverflows(strip.scrollWidth > strip.clientWidth + 1);
+
+    if (isInfinite) {
+      const PEEK = 48;
+      const AUTO_SPEED = 0.08;
+      const AUTO_START_DELAY = 1300;
+      const AUTO_PAUSE_AFTER_INPUT = 15000;
+      const blockWidth = () => strip.scrollWidth / 3;
+      requestAnimationFrame(() => {
+        strip.scrollLeft = blockWidth() - PEEK;
+        measureOverflow();
+      });
+
+      const wrapScroll = () => {
+        const bw = blockWidth();
+        if (!bw) return;
+        if (strip.scrollLeft >= bw * 2 - PEEK) strip.scrollLeft -= bw;
+        else if (strip.scrollLeft < bw - PEEK) strip.scrollLeft += bw;
+        setStripProgress((strip.scrollLeft - bw + PEEK) / bw);
+      };
+
+      let pauseUntil = performance.now() + AUTO_START_DELAY;
+      let rafId = null;
+      let lastTs = null;
+      const autoTick = (ts) => {
+        if (lastTs == null) lastTs = ts;
+        const dt = ts - lastTs;
+        lastTs = ts;
+        if (ts >= pauseUntil) {
+          strip.scrollLeft += AUTO_SPEED * dt;
+          wrapScroll();
+        }
+        rafId = requestAnimationFrame(autoTick);
+      };
+      rafId = requestAnimationFrame(autoTick);
+
+      const onWheel = (e) => {
+        e.preventDefault();
+        strip.scrollLeft += e.deltaY + e.deltaX;
+        wrapScroll();
+        pauseUntil = performance.now() + AUTO_PAUSE_AFTER_INPUT;
+      };
+      const onScroll = () => wrapScroll();
+      const onResize = () => measureOverflow();
+
+      wrap.addEventListener('wheel', onWheel, { passive: false });
+      strip.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onResize);
+      document.body.style.overflow = 'hidden';
+      return () => {
+        if (rafId != null) cancelAnimationFrame(rafId);
+        wrap.removeEventListener('wheel', onWheel);
+        strip.removeEventListener('scroll', onScroll);
+        window.removeEventListener('resize', onResize);
+        document.body.style.overflow = '';
+      };
+    }
+
+    requestAnimationFrame(() => {
+      strip.scrollLeft = 0;
+      measureOverflow();
+    });
+
+    const updateProgress = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      setStripProgress(max > 0 ? strip.scrollLeft / max : 0);
+    };
+
     const onWheel = (e) => {
       e.preventDefault();
       strip.scrollLeft += e.deltaY + e.deltaX;
+      updateProgress();
     };
+    const onScroll = () => updateProgress();
+    const onResize = () => measureOverflow();
+
     wrap.addEventListener('wheel', onWheel, { passive: false });
+    strip.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onResize);
     document.body.style.overflow = 'hidden';
     return () => {
       wrap.removeEventListener('wheel', onWheel);
+      strip.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
       document.body.style.overflow = '';
     };
-  }, [mobile]);
+  }, [mobile, filtered.length, isInfinite]);
 
   const [textOpen, setTextOpen] = useState(false);
 
@@ -199,17 +279,56 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               flex: 1, minHeight: 0,
               display: 'flex', alignItems: 'flex-end', gap: 3,
               overflowX: 'auto', overflowY: 'hidden',
-              padding: '4px 48px 64px',
+              padding: isInfinite ? '4px 0 64px' : '4px 48px 64px',
               scrollbarWidth: 'none',
               MsOverflowStyle: 'none',
             }}
           >
-            {filtered.map((p, i) => (
-              <ProjectCard key={p.id} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
-            ))}
+            {(isInfinite ? [0, 1, 2] : [0]).flatMap(copy => filtered.map((p, i) => (
+              <ProjectCard key={`${copy}-${p.id}`} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
+            )))}
           </div>
         )}
       </div>
+
+      {!mobile && stripOverflows && (
+        <div style={{ position: 'fixed', left: 0, right: 0, bottom: 32, pointerEvents: 'none', zIndex: 1000 }}>
+          {(() => {
+            const segW = isInfinite ? 100 / filtered.length : 30;
+            if (isInfinite) {
+              const segL = stripProgress * 100;
+              return (
+                <div style={{ position: 'relative', height: 2, overflow: 'hidden' }}>
+                  {[0, -100, 100].map(off => (
+                    <div key={off} style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: `${segL + off}%`,
+                      width: `${segW}%`,
+                      height: 2,
+                      background: '#0D0B08',
+                    }}/>
+                  ))}
+                </div>
+              );
+            }
+            const segL = stripProgress * (100 - segW);
+            return (
+              <div style={{ position: 'relative', height: 2 }}>
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: `${segL}%`,
+                  width: `${segW}%`,
+                  height: 2,
+                  background: '#0D0B08',
+                  transition: 'left 120ms cubic-bezier(0.16,1,0.3,1)',
+                }}/>
+              </div>
+            );
+          })()}
+        </div>
+      )}
 
     </div>
   );

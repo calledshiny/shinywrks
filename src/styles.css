@@ -82,14 +82,26 @@ body::after {
 
 nav { background: rgba(245,243,239,0.94) !important; }
 @media (max-width: 720px) {
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: #F5F3EF;
+    z-index: 998;
+    pointer-events: none;
+  }
+  body::before { top: 0; height: env(safe-area-inset-top); }
+  body::after { bottom: 0; height: env(safe-area-inset-bottom); }
   nav {
     padding-top: calc(14px + env(safe-area-inset-top)) !important;
-    margin-top: calc(-1 * env(safe-area-inset-top));
+    top: calc(-1 * env(safe-area-inset-top)) !important;
   }
   footer {
     padding-bottom: env(safe-area-inset-bottom) !important;
     height: calc(32px + env(safe-area-inset-bottom)) !important;
-    margin-bottom: calc(-1 * env(safe-area-inset-bottom));
+    bottom: calc(-1 * env(safe-area-inset-bottom)) !important;
   }
 }
 

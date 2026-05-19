@@ -77,14 +77,14 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           {mobile ? (
             <div style={{ marginBottom: 14 }}>
               <button onClick={() => setTextOpen(o => !o)} style={{
-                fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em',
+                fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.12em',
                 textTransform: 'uppercase', color: '#1A1209',
                 background: 'transparent', border: '1px solid #0D0B08',
-                borderRadius: 999, padding: '7px 14px',
-                cursor: STAR_CURSOR, display: 'inline-flex', alignItems: 'center', gap: 6,
+                borderRadius: 999, padding: '4px 10px',
+                cursor: STAR_CURSOR, display: 'inline-flex', alignItems: 'center', gap: 5,
                 margin: '0 auto', transition: 'background 200ms, color 200ms',
               }}>
-                <span>{textOpen ? 'weniger' : 'mehr über mich'}</span>
+                <span>{textOpen ? 'weniger' : 'mehr'}</span>
                 <span style={{ display: 'inline-block', transition: 'transform 300ms', transform: textOpen ? 'rotate(180deg)' : 'none' }}>↓</span>
               </button>
               {textOpen && (

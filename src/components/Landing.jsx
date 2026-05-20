@@ -166,7 +166,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         flexShrink: 0, position: 'relative', zIndex: 1,
       }}>
         <div style={{
-          '--title-fs': mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, min(5vw, 7vh), 120px)',
+          '--title-fs': mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, min(5vw, 8.5vh), 120px)',
           ...(mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : {}),
         }}>
           <h1 className="fu" style={{
@@ -198,7 +198,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(11px, calc(var(--title-fs) * 0.175), 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 36vw, 820px)', marginBottom: 'clamp(10px, 1.4vh, 24px)' }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, calc(var(--title-fs) * 0.175), 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 36vw, 820px)', marginBottom: 'clamp(10px, 1.4vh, 24px)' }}>
               {aboutCopy}
             </p>
           )}
@@ -263,8 +263,8 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           </div>
 
           <div style={{
-            width: mobile ? 130 : 'clamp(130px, 22vh, 240px)',
-            height: mobile ? 174 : 'clamp(173px, 29vh, 320px)',
+            width: mobile ? 130 : 'clamp(130px, 19vh, 240px)',
+            height: mobile ? 174 : 'clamp(173px, 25vh, 320px)',
             position: 'relative', overflow: 'hidden', flexShrink: 0,
           }}>
             <img src="portrait.webp" alt="Justin Wiemann" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}/>
@@ -274,7 +274,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         </div>
       </section>
 
-      <div style={{ flex: 1, minHeight: 0, maxHeight: mobile ? 'none' : 'clamp(440px, 65vh, 920px)', display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(14px, 3.5vh, 56px)' }}>
+      <div style={{ flex: 1, minHeight: 0, maxHeight: mobile ? 'none' : 'clamp(440px, 72vh, 940px)', display: 'flex', flexDirection: 'column', marginTop: mobile ? 28 : 'clamp(10px, 1.6vh, 28px)' }}>
         <div className="fu4" style={{
           padding: mobile ? '0 20px 6px' : '0 48px 6px',
           fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 14px)',

@@ -165,14 +165,17 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         gap: mobile ? 32 : 48,
         flexShrink: 0, position: 'relative', zIndex: 1,
       }}>
-        <div style={mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : undefined}>
+        <div style={{
+          '--title-fs': mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, min(5vw, 7vh), 120px)',
+          ...(mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : {}),
+        }}>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, min(5vw, 7.5vh), 120px)',
+            fontSize: 'var(--title-fs)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
-            color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 2vh, 28px)',
+            color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(8px, 1.4vh, 22px)',
           }}>shinywrks</h1>
-          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(11px, 0.85vw, 18px)', letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(8px, 1.6vh, 22px)' }}>
+          <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, calc(var(--title-fs) * 0.15), 18px)', letterSpacing: '0.06em', color: '#3D3428', marginBottom: mobile ? 10 : 'clamp(6px, 1.2vh, 18px)' }}>
             I make your brand shine different
           </div>
           {mobile ? (
@@ -195,15 +198,15 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, min(0.95vw, 1.65vh), 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 36vw, 820px)', marginBottom: 'clamp(10px, 1.6vh, 26px)' }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(11px, calc(var(--title-fs) * 0.175), 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 36vw, 820px)', marginBottom: 'clamp(10px, 1.4vh, 24px)' }}>
               {aboutCopy}
             </p>
           )}
           <button className="cta-shine" onClick={() => onNav('contact')} style={{
-            fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.78vw, 16px)',
+            fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(9px, calc(var(--title-fs) * 0.133), 16px)',
             letterSpacing: '0.14em', textTransform: 'uppercase',
             color: '#F5F3EF', border: '1px solid #0D0B08',
-            padding: mobile ? '11px 24px' : 'clamp(11px, 1.2vh, 16px) clamp(24px, 1.8vw, 36px)', cursor: STAR_CURSOR,
+            padding: mobile ? '11px 24px' : 'clamp(9px, 1vh, 16px) clamp(20px, 1.6vw, 36px)', cursor: STAR_CURSOR,
             alignSelf: mobile ? 'center' : undefined,
             display: 'inline-flex', alignItems: 'center', gap: 6,
           }}>

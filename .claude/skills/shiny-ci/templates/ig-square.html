@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>shinywrks — IG Square Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #0D0B08;
+    --dark: #1A1209;
+    --mono: #3D3428;
+    --beige: #C4B8A4;
+    --border: #E8E2D6;
+    --paper: #F5F3EF;
+  }
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: var(--paper);
+    color: var(--dark);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow: hidden;
+    position: relative;
+    padding: 80px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mono);
+  }
+  .top { display: flex; justify-content: space-between; }
+  .center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 32px;
+  }
+  h1 {
+    font-weight: 500;
+    font-size: 140px;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--black);
+  }
+  .lead {
+    font-size: 28px;
+    line-height: 1.45;
+    color: var(--dark);
+    max-width: 80%;
+  }
+  .bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+  body::after {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+    opacity: 0.55;
+  }
+</style>
+</head>
+<body>
+  <div class="top">
+    <span class="mono">SHINYWRKS</span>
+    <span class="mono">{{INDEX}}</span>
+  </div>
+  <div class="center">
+    <h1>{{HEADLINE}}</h1>
+    <p class="lead">{{LEAD}}</p>
+  </div>
+  <div class="bottom">
+    <span class="mono">{{META_LEFT}}</span>
+    <span class="mono">{{META_RIGHT}}</span>
+  </div>
+</body>
+</html>

@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!--
+  shinywrks CV / A4 Template — siehe SKILL.md Sektion 2H + 4
+
+  Verwendung:
+  1. Datei kopieren in einen Arbeitsordner (z.B. /tmp/lebenslauf/)
+  2. portrait.webp daneben legen (referenziert via `url('portrait.webp')`)
+  3. Inhalte (Name, Daten, Sections) anpassen
+  4. Browser-Preview ODER render-pdf.mjs (siehe Sektion 5 SKILL.md) für A4-PDF
+
+  Pflicht-CI: paper-warm (#EFE8D8), Space Grotesk + Mono, Noise-Overlay (warm/braun),
+  Section-Pattern mit Nummer in beige-soft, Mono-Labels in #8B7A5C oder #3D3428.
+-->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>shinywrks — Lebenslauf</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #0D0B08;
+    --dark: #1A1209;
+    --mono: #3D3428;
+    --beige: #8B7A5C;
+    --beige-soft: #A89878;
+    --border: #D8CDB8;
+    --paper: #EFE8D8;
+    --paper-2: #E5DBC4;
+    --dot: rgba(100, 88, 72, 0.18);
+  }
+
+  @page { size: A4 portrait; margin: 0; }
+
+  html, body { background: #c9c1b0; }
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--dark);
+    -webkit-font-smoothing: antialiased;
+    padding: 18px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .page {
+    position: relative;
+    width: 210mm;
+    height: 297mm;
+    background: var(--paper);
+    box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .dot-grid {
+    background-image: radial-gradient(circle at 1px 1px, var(--dot) 0.8px, transparent 1.1px);
+    background-size: 18px 18px;
+    background-position: 0 0;
+  }
+
+  .page::after {
+    content: '';
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.18 0 0 0 0   0.14 0 0 0 0   0.08 0 0 0 0   0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+    opacity: 0.45;
+    z-index: 10;
+  }
+
+  /* === TOP HEADER === */
+  .top-header {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr 1fr;
+    padding: 12px 28px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+  }
+  .mono {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mono);
+    line-height: 1.6;
+  }
+  .top-left .mono,
+  .top-right .mono { display: block; }
+  .top-right { text-align: right; }
+  .top-center { text-align: center; }
+  .top-center .title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .top-center .tagline {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    color: var(--mono);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* === HERO === */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.85fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-text {
+    padding: 16px 28px 10px 28px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .hero-signet {
+    margin-bottom: 4px;
+  }
+  .hero-signet svg {
+    width: 72px;
+    height: 72px;
+    fill: var(--black);
+    display: block;
+  }
+  .hero-text .contact-strip {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+  .hero-text .contact-strip .ci {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-text .contact-strip .ci-icon {
+    width: 12px;
+    height: 12px;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+  .hero-text .contact-strip .mono {
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    color: var(--black);
+    white-space: nowrap;
+  }
+  .hero-text .contact-strip .mono.lower {
+    text-transform: none;
+    letter-spacing: 0.02em;
+  }
+  .hero-text h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    letter-spacing: -0.035em;
+    line-height: 1.15;
+    color: var(--black);
+  }
+  .hero-text .intro {
+    font-size: 11px;
+    line-height: 1.48;
+    color: var(--dark);
+    max-width: 95%;
+  }
+  .hero-text .intro strong {
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: var(--paper-2);
+    padding: 14px 14px 10px 12px;
+  }
+  .portrait {
+    width: 100%;
+    max-width: 235px;
+    aspect-ratio: 4 / 5;
+    margin: 0 auto;
+    background:
+      url('portrait.webp') center 28% / cover no-repeat,
+      var(--paper-2);
+    position: relative;
+    filter: sepia(0.22) saturate(0.88) contrast(1.04);
+    border: 1px solid var(--border);
+  }
+  .portrait::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(45,30,18,0) 55%, rgba(45,30,18,0.22) 100%);
+    pointer-events: none;
+  }
+  .meta-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14px;
+    row-gap: 9px;
+  }
+  .meta-block.full { grid-column: 1 / -1; }
+  .meta-block .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 0.18em;
+    color: var(--beige);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .meta-block .value {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    text-transform: uppercase;
+    display: block;
+    line-height: 1.4;
+  }
+  .meta-block .value.lower { text-transform: none; letter-spacing: 0.02em; }
+
+  /* === SECTION === */
+  section.block {
+    padding: 13px 28px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  .bottom-row > section.block { padding: 13px 24px 12px; }
+  .section-header {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .section-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    color: var(--beige-soft);
+  }
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    color: var(--dark);
+    text-transform: uppercase;
+  }
+
+  /* === TIMELINE === */
+  .entry {
+    display: grid;
+    grid-template-columns: 150px 1fr 235px;
+    column-gap: 18px;
+    padding: 9px 0 9px;
+    border-top: 1px solid var(--border);
+    align-items: baseline;
+  }
+  .entry:first-of-type { border-top: none; padding-top: 2px; }
+
+  .entry-date {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    color: var(--mono);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .entry-main .place {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: -0.005em;
+    color: var(--black);
+    text-transform: uppercase;
+  }
+  .entry-main .role {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    color: var(--mono);
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .entry-desc {
+    font-size: 9.5px;
+    line-height: 1.5;
+    color: var(--dark);
+  }
+
+  /* === BOTTOM ROW === */
+  .bottom-row {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    flex: 1;
+  }
+  .bottom-row > section.block {
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+  }
+  .bottom-row > section.block:last-child { border-right: none; }
+
+  /* === QUALIFIKATIONEN === */
+  .qual-item { padding: 7px 0; }
+  .qual-item + .qual-item { border-top: 1px solid var(--border); margin-top: 5px; padding-top: 9px; }
+  .qual-item .qdate {
+    font-family: 'Space Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    color: var(--mono);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .qual-item .qtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 11.5px;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
+    margin-bottom: 3px;
+  }
+  .qual-item .qbody {
+    font-size: 9.5px;
+    line-height: 1.5;
+    color: var(--dark);
+  }
+
+  /* === SOFTWARE GRID === */
+  .software-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  .sw-chip {
+    border: 1px solid var(--border);
+    background: rgba(208, 195, 170, 0.35);
+    padding: 8px 10px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    align-items: center;
+  }
+  .sw-chip .sw-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--black);
+  }
+  .sw-chip .sw-icon.boxed {
+    background: var(--black);
+    color: var(--paper);
+    border-radius: 5px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 12.5px;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .sw-chip .sw-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  .sw-chip .sw-icon.boxed svg {
+    width: 18px;
+    height: 18px;
+  }
+  .sw-chip .sw-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 7.5px;
+    letter-spacing: 0.14em;
+    color: var(--mono);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .sw-dots {
+    display: flex;
+    gap: 4px;
+  }
+  .sw-dots span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .sw-dots[data-level="1"] span:nth-child(-n+1),
+  .sw-dots[data-level="2"] span:nth-child(-n+2),
+  .sw-dots[data-level="3"] span:nth-child(-n+3),
+  .sw-dots[data-level="4"] span:nth-child(-n+4) {
+    background: var(--black);
+  }
+
+  /* === FOOTER === */
+  footer {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    padding: 10px 28px 12px;
+    border-top: 1px solid var(--border);
+    background: var(--paper-2);
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .footer-brand svg {
+    width: 13px;
+    height: 13px;
+    fill: var(--black);
+    flex-shrink: 0;
+  }
+  .footer-brand .mono {
+    font-size: 9px;
+    color: var(--black);
+    letter-spacing: 0.14em;
+  }
+  footer .center { text-align: center; }
+  footer .right { text-align: right; }
+
+  @media print {
+    body { padding: 0; background: var(--paper); }
+    .page { box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- TOP HEADER -->
+  <div class="top-header">
+    <div class="top-left">
+      <span class="mono">VISUAL IDENTITY /</span>
+      <span class="mono">COMMUNICATION DESIGN /</span>
+      <span class="mono">CONTENT / MUSIC</span>
+    </div>
+    <div class="top-center">
+      <div class="title">LEBENSLAUF</div>
+      <div class="tagline">JUSTIN WIEMANN</div>
+    </div>
+    <div class="top-right">
+      <span class="mono">HOF, DE</span>
+      <span class="mono">2026</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text dot-grid">
+      <div class="hero-signet">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376 347">
+          <polygon points="253.5 208.7 360.6 347 215.4 233.3 147.3 277.4 155.6 237.2 15.4 347 128.1 201.5 0 217.6 122.5 138.3 15.4 0 160.6 113.7 228.7 69.6 220.3 109.8 360.6 0 247.9 145.4 376 129.4 253.5 208.7"/>
+        </svg>
+      </div>
+      <h1>Hey,<br>Ich bin shiny.</h1>
+      <p class="intro">
+        Bürgerlich <strong>Justin Wiemann</strong> — seit dem Alter von ca. 14 Jahren
+        kreativ aktiv in <strong>Design</strong>, <strong>Content Creation</strong> und
+        <strong>Musik</strong>, vor allem digital. Ich habe 3 Semester Medieninformatik
+        studiert und meine Ausbildung zum Kommunikationsdesigner an der HTK Academy
+        abgeschlossen. Der Name „shiny" hat sich über die Jahre als Künstlername
+        etabliert; <strong>shinywrks</strong> ist meine Portfolio-Website, unter der ich
+        meine stärksten Projekte zeige. Ich verstehe mich als Allrounder — mit den
+        Schwerpunkten in: Corporate Design, Visual Identity, Campaign, Print, UI/UX,
+        Video und AI.
+      </p>
+      <div class="contact-strip">
+        <span class="ci">
+          <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9.5"/>
+            <line x1="2.5" y1="12" x2="21.5" y2="12"/>
+            <path d="M12 2.5 C 7 7 7 17 12 21.5 M 12 2.5 C 17 7 17 17 12 21.5"/>
+          </svg>
+          <span class="mono">SHINYWRKS.DE</span>
+        </span>
+        <span class="ci">
+          <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+          <span class="mono">+49 151 6334 6324</span>
+        </span>
+        <span class="ci">
+          <svg class="ci-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2.5" y="4.5" width="19" height="15"/>
+            <polyline points="2.5 6.5 12 13 21.5 6.5"/>
+          </svg>
+          <span class="mono lower">justinwiemann.hof@gmail.com</span>
+        </span>
+      </div>
+    </div>
+
+    <aside class="hero-meta">
+      <div class="portrait"></div>
+      <div class="meta-list">
+        <div class="meta-block">
+          <span class="label">Name</span>
+          <span class="value">Justin Wiemann</span>
+        </div>
+        <div class="meta-block">
+          <span class="label">Geb. / Alter</span>
+          <span class="value">30.04.2002 / 24</span>
+        </div>
+        <div class="meta-block">
+          <span class="label">Rolle</span>
+          <span class="value">Kommunikations-<br>designer</span>
+        </div>
+        <div class="meta-block">
+          <span class="label">Standort</span>
+          <span class="value">Eppenreuth 36<br>95032 Hof</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- 01 BERUFSWEG -->
+  <section class="block">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-label">Bildungs- und Berufsweg</span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">FEB 2026 — HEUTE</div>
+      <div class="entry-main">
+        <div class="place">Belan GmbH</div>
+        <div class="role">Produktmanager / Mediengestalter</div>
+      </div>
+      <div class="entry-desc">
+        E-Commerce, Bereich Haus, Garten &amp; Wohnen. Erstellung &amp; Kuration von
+        Amazon-Produktbildern und A+ Content, Produkt-Pflege.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">SEP 2022 — AUG 2025</div>
+      <div class="entry-main">
+        <div class="place">HTK Academy</div>
+        <div class="role">Ausbildung Kommunikationsdesign</div>
+      </div>
+      <div class="entry-desc">
+        Corporate Design, Packaging, Campaign, Typografie, Plakat,
+        Text &amp; Creativity, 3D-Modeling, Motion, UI/UX.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">OKT 2020 — MÄR 2022</div>
+      <div class="entry-main">
+        <div class="place">Hochschule Hof</div>
+        <div class="role">Medieninformatik (3 Semester)</div>
+      </div>
+      <div class="entry-desc">
+        Grundlagen Programmierung &amp; Informationstechnik, Gestaltung, Film und Fotografie.
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-date">SEP 2012 — APR 2020</div>
+      <div class="entry-main">
+        <div class="place">Schiller-Gymnasium Hof</div>
+        <div class="role">Allgemeine Hochschulreife</div>
+      </div>
+      <div class="entry-desc">Abitur, Durchschnitt ø 2,7.</div>
+    </div>
+  </section>
+
+  <!-- BOTTOM ROW: Qualifikationen + Software -->
+  <div class="bottom-row dot-grid">
+    <section class="block">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-label">Qualifikationen</span>
+      </div>
+
+      <div class="qual-item">
+        <span class="qdate">SEIT 2016 / SOCIAL MEDIA</span>
+        <div class="qtitle">Content &amp; Community</div>
+        <div class="qbody">
+          Gespür für Trends, kreative Ideen für Beiträge, einheitliche Feeds,
+          aktive Community-Interaktion.
+        </div>
+      </div>
+      <div class="qual-item">
+        <span class="qdate">SEIT 2018 / MUSIK</span>
+        <div class="qtitle">Produktion &amp; Mixing</div>
+        <div class="qbody">
+          7 Jahre Erfahrung in elektronischer Musikproduktion, Vocal-Recording
+          und Mixing. Instrumente: Klavier, Gitarre.
+        </div>
+      </div>
+      <div class="qual-item">
+        <span class="qdate">SEIT DEZ 2025 / AI</span>
+        <div class="qtitle">Generative AI Workflows</div>
+        <div class="qbody">
+          Routine im Einsatz etablierter generativer Modelle — Higgsfield als kreative
+          Engine, Claude als zentrale Schnittstelle. Quer durch alle Design-Bereiche,
+          von Konzept und Visual über Code bis Bewegtbild.
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-label">Software &amp; Tools</span>
+      </div>
+
+      <div class="software-grid">
+        <div class="sw-chip"><div class="sw-icon boxed">Ps</div><div><div class="sw-name">Photoshop</div><div class="sw-dots" data-level="4"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon boxed">Ai</div><div><div class="sw-name">Illustrator</div><div class="sw-dots" data-level="4"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon boxed">Id</div><div><div class="sw-name">InDesign</div><div class="sw-dots" data-level="3"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon boxed">Pr</div><div><div class="sw-name">Premiere</div><div class="sw-dots" data-level="3"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon boxed">Ae</div><div><div class="sw-name">After Effects</div><div class="sw-dots" data-level="3"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.852 8.981h-4.588V0h4.588a4.49 4.49 0 0 1 0 8.981zM12.735 7.51h3.117a3.019 3.019 0 1 0 0-6.039h-3.117zm0 1.471H8.148a4.491 4.491 0 0 1 0-8.981h4.587zM8.148 1.471a3.019 3.019 0 1 0 0 6.039h3.117V1.471zm4.587 15.019H8.148a4.49 4.49 0 0 1 0-8.981h4.587zM8.148 8.981a3.02 3.02 0 1 0 0 6.039h3.117V8.981zM8.172 24a4.491 4.491 0 0 1-.024-8.981h4.588v4.441A4.55 4.55 0 0 1 8.172 24zm-.024-7.51a3.023 3.023 0 1 0 3.117 3.019v-3.019zm7.704 0h-.098a4.49 4.49 0 1 1 .098 0zm-.097-7.509a3.019 3.019 0 0 0-.001 6.038h.098a3.019 3.019 0 0 0 0-6.038z"/></svg></div><div><div class="sw-name">Figma</div><div class="sw-dots" data-level="2"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2 12c0-3.866 4.477-7 10-7s10 3.134 10 7-4.477 7-10 7S2 15.866 2 12zm10 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><circle cx="12" cy="12" r="1.2"/></svg></div><div><div class="sw-name">Blender</div><div class="sw-dots" data-level="2"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="5.6" y1="5.6" x2="18.4" y2="18.4"/><line x1="18.4" y1="5.6" x2="5.6" y2="18.4"/></svg></div><div><div class="sw-name">Claude Code</div><div class="sw-dots" data-level="4"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="3" width="3.5" height="18" rx="0.5"/><rect x="16.5" y="3" width="3.5" height="18" rx="0.5"/><rect x="4" y="10.5" width="16" height="3" rx="0.5"/></svg></div><div><div class="sw-name">Higgsfield</div><div class="sw-dots" data-level="4"><span></span><span></span><span></span><span></span></div></div></div>
+        <div class="sw-chip"><div class="sw-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.887l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933z"/></svg></div><div><div class="sw-name">Notion</div><div class="sw-dots" data-level="1"><span></span><span></span><span></span><span></span></div></div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 376 347">
+        <polygon points="253.5 208.7 360.6 347 215.4 233.3 147.3 277.4 155.6 237.2 15.4 347 128.1 201.5 0 217.6 122.5 138.3 15.4 0 160.6 113.7 228.7 69.6 220.3 109.8 360.6 0 247.9 145.4 376 129.4 253.5 208.7"/>
+      </svg>
+      <span class="mono">SHINYWRKS.DE</span>
+    </div>
+    <span class="mono center">KOMMUNIKATIONSDESIGN</span>
+    <span class="mono right">LEBENSLAUF / 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

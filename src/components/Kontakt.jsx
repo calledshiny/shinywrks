@@ -20,7 +20,7 @@ export default function Kontakt() {
           href="mailto:justin@shinywrks.de"
           className="email-shine fu2"
           style={{
-            display: 'block',
+            display: 'inline-block',
             fontFamily: 'Space Grotesk, sans-serif',
             fontWeight: 500,
             fontSize: 'clamp(28px, 4.5vw, 72px)',

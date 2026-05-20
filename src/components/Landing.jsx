@@ -168,7 +168,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         <div style={mobile ? { textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' } : undefined}>
           <h1 className="fu" style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
-            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, 5vw, 120px)',
+            fontSize: mobile ? 'clamp(36px, 10vw, 52px)' : 'clamp(42px, min(5vw, 8.5vh), 120px)',
             letterSpacing: '-0.03em', lineHeight: 0.9,
             color: '#0D0B08', marginBottom: mobile ? 12 : 'clamp(10px, 2vh, 28px)',
           }}>shinywrks</h1>
@@ -195,7 +195,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               )}
             </div>
           ) : (
-            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, 0.95vw, 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
+            <p className="fu2" style={{ fontFamily: 'Space Grotesk, sans-serif', fontSize: 'clamp(13px, min(0.95vw, 2vh), 21px)', lineHeight: 1.55, color: '#1A1209', maxWidth: 'clamp(400px, 32vw, 720px)', marginBottom: 'clamp(10px, 2.2vh, 32px)' }}>
               {aboutCopy}
             </p>
           )}

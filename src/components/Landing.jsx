@@ -18,7 +18,12 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
   const wrapRef = useRef();
   const [stripProgress, setStripProgress] = useState(0);
   const [stripOverflows, setStripOverflows] = useState(false);
+  const [tileMultiplier, setTileMultiplier] = useState(1);
   const isInfinite = activeFilter === 'All';
+
+  useEffect(() => {
+    setTileMultiplier(1);
+  }, [activeFilter]);
 
   useEffect(() => {
     if (mobile) return;
@@ -34,6 +39,22 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
       const AUTO_START_DELAY = 1300;
       const AUTO_PAUSE_AFTER_INPUT = 15000;
       const blockWidth = () => strip.scrollWidth / 3;
+
+      const ensureWideEnough = () => {
+        const bw = blockWidth();
+        if (bw <= 0) return false;
+        const minBw = strip.clientWidth + PEEK;
+        if (bw >= minBw) return false;
+        const singleWidth = bw / tileMultiplier;
+        if (singleWidth <= 0) return false;
+        const needed = Math.ceil(minBw / singleWidth);
+        if (needed <= tileMultiplier) return false;
+        setTileMultiplier(needed);
+        return true;
+      };
+
+      if (ensureWideEnough()) return;
+
       requestAnimationFrame(() => {
         strip.scrollLeft = blockWidth() - PEEK;
         measureOverflow();
@@ -69,7 +90,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
         pauseUntil = performance.now() + AUTO_PAUSE_AFTER_INPUT;
       };
       const onScroll = () => wrapScroll();
-      const onResize = () => measureOverflow();
+      const onResize = () => { measureOverflow(); ensureWideEnough(); };
 
       wrap.addEventListener('wheel', onWheel, { passive: false });
       strip.addEventListener('scroll', onScroll, { passive: true });
@@ -112,7 +133,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
       window.removeEventListener('resize', onResize);
       document.body.style.overflow = '';
     };
-  }, [mobile, filtered.length, isInfinite]);
+  }, [mobile, filtered.length, isInfinite, tileMultiplier]);
 
   const [textOpen, setTextOpen] = useState(false);
 
@@ -284,7 +305,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               MsOverflowStyle: 'none',
             }}
           >
-            {(isInfinite ? [0, 1, 2] : [0]).flatMap(copy => filtered.map((p, i) => (
+            {(isInfinite ? Array.from({ length: 3 * tileMultiplier }, (_, i) => i) : [0]).flatMap(copy => filtered.map((p, i) => (
               <ProjectCard key={`${copy}-${p.id}`} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
             )))}
           </div>

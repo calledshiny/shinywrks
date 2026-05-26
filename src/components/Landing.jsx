@@ -347,7 +347,6 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
                   width: `${segW}%`,
                   height: 2,
                   background: '#0D0B08',
-                  transition: 'left 120ms cubic-bezier(0.16,1,0.3,1)',
                 }}/>
               </div>
             );

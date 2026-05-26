@@ -6,6 +6,7 @@ import { SOCIAL_ICONS } from './SocialIcons';
 
 const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'Web', 'AI'];
 const STAR_CURSOR = 'none';
+const INFINITE_STRIP_ENABLED = false;
 
 export default function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
   const mobile = useMobile();
@@ -19,7 +20,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
   const [stripProgress, setStripProgress] = useState(0);
   const [stripOverflows, setStripOverflows] = useState(false);
   const [tileMultiplier, setTileMultiplier] = useState(1);
-  const isInfinite = activeFilter === 'All';
+  const isInfinite = INFINITE_STRIP_ENABLED && activeFilter === 'All';
 
   useEffect(() => {
     setTileMultiplier(1);

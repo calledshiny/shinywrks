@@ -4,7 +4,10 @@
     "slug": "tapestop",
     "title": "TAPESTOP",
     "tag": "Visual Identity",
-    "tags": ["Visual Identity", "Event"],
+    "tags": [
+      "Visual Identity",
+      "Event"
+    ],
     "year": "2025",
     "tagLine": "VISUAL IDENTITY / EVENT / 2025",
     "blurb": "Techno / Trance Event Kollektiv",
@@ -32,17 +35,39 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/colors.svg", "aspectRatio": "1311/503" }
+              {
+                "type": "img",
+                "src": "tapestop/colors.svg",
+                "aspectRatio": "1311/503"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Logo" },
+          {
+            "type": "sublabel",
+            "text": "Logo"
+          },
           {
             "cols": 2,
             "padding": "0 48px",
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "tapestop/logo.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "7% 8%", "caption": "Wortmarke" },
-              { "type": "img", "src": "tapestop/rad.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "7% 22%", "caption": "Signet", "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas." }
+              {
+                "type": "img",
+                "src": "tapestop/logo.svg",
+                "aspectRatio": "2.5/1",
+                "fit": "contain",
+                "padding": "7% 8%",
+                "caption": "Wortmarke"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/rad.svg",
+                "aspectRatio": "2.5/1",
+                "fit": "contain",
+                "padding": "7% 22%",
+                "caption": "Signet",
+                "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas."
+              }
             ]
           }
         ]
@@ -50,61 +75,138 @@
       {
         "label": "Event Experience",
         "rows": [
-          { "type": "sublabel", "text": "Tickets" },
+          {
+            "type": "sublabel",
+            "text": "Tickets"
+          },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/tickets-scene6.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/tickets-scene6.webp"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Entry" },
+          {
+            "type": "sublabel",
+            "text": "Entry"
+          },
           {
             "cols": 5,
             "gap": 10,
             "gridTemplateColumns": "1fr 0.75fr 0.135fr 0.135fr 0.135fr",
             "items": [
-              { "type": "img", "src": "tapestop/sticker-iphone.webp", "aspectRatio": "1/1.81", "fit": "contain" },
-              { "type": "img", "src": "tapestop/baendchen-hand.webp", "aspectRatio": "1/2.41", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-1.webp", "aspectRatio": "225/3012", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-2.webp", "aspectRatio": "225/3012", "fit": "contain" },
-              { "type": "img", "src": "tapestop/tyvek-3.webp", "aspectRatio": "225/3012", "fit": "contain" }
+              {
+                "type": "img",
+                "src": "tapestop/sticker-iphone.webp",
+                "aspectRatio": "1/1.81",
+                "fit": "contain"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/baendchen-hand.webp",
+                "aspectRatio": "1/2.41",
+                "fit": "contain"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tyvek-1.webp",
+                "aspectRatio": "225/3012",
+                "fit": "contain"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tyvek-2.webp",
+                "aspectRatio": "225/3012",
+                "fit": "contain"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tyvek-3.webp",
+                "aspectRatio": "225/3012",
+                "fit": "contain"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Disposable" },
+          {
+            "type": "sublabel",
+            "text": "Disposable"
+          },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/banderole-3.webp", "fit": "contain" }
+              {
+                "type": "img",
+                "src": "tapestop/banderole-3.webp",
+                "fit": "contain"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Shirts" },
+          {
+            "type": "sublabel",
+            "text": "Shirts"
+          },
           {
             "cols": 3,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "tapestop/tee-bar-front.webp" },
-              { "type": "img", "src": "tapestop/tee-crew-front.webp" },
-              { "type": "img", "src": "tapestop/tee-safety-front.webp" },
-              { "type": "img", "src": "tapestop/tee-bar-back.webp" },
-              { "type": "img", "src": "tapestop/tee-crew-back.webp" },
-              { "type": "img", "src": "tapestop/tee-safety-back.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/tee-bar-front.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tee-crew-front.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tee-safety-front.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tee-bar-back.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tee-crew-back.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/tee-safety-back.webp"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Recovery Kit" },
+          {
+            "type": "sublabel",
+            "text": "Recovery Kit"
+          },
           {
             "cols": 2,
             "gap": 10,
             "items": [
-              { "type": "img", "src": "tapestop/bag-front.webp" },
-              { "type": "img", "src": "tapestop/bag-back2.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/bag-front.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/bag-back2.webp"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Drinks" },
+          {
+            "type": "sublabel",
+            "text": "Drinks"
+          },
           {
             "cols": 1,
             "padding": "0 25%",
             "items": [
-              { "type": "img", "src": "tapestop/drink-card.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/drink-card.webp"
+              }
             ]
           }
         ]
@@ -112,11 +214,17 @@
       {
         "label": "Campaign",
         "rows": [
-          { "type": "sublabel", "text": "Plakate" },
+          {
+            "type": "sublabel",
+            "text": "Plakate"
+          },
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "tapestop/m-poster-triple.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/m-poster-triple.webp"
+              }
             ]
           },
           {
@@ -124,30 +232,66 @@
             "gap": 10,
             "marginTop": 48,
             "items": [
-              { "type": "img", "src": "tapestop/poster-tapeit-1.webp" },
-              { "type": "img", "src": "tapestop/poster-tapeit-2.webp" },
-              { "type": "img", "src": "tapestop/poster-tapeit-3.webp" },
-              { "type": "img", "src": "tapestop/poster-eject-1.webp" },
-              { "type": "img", "src": "tapestop/poster-eject-2.webp" },
-              { "type": "img", "src": "tapestop/poster-eject-3.webp" },
-              { "type": "img", "src": "tapestop/poster-offtrack-1.webp" },
-              { "type": "img", "src": "tapestop/poster-offtrack-2.webp" },
-              { "type": "img", "src": "tapestop/poster-offtrack-3.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/poster-tapeit-1.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-tapeit-2.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-tapeit-3.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-eject-1.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-eject-2.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-eject-3.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-offtrack-1.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-offtrack-2.webp"
+              },
+              {
+                "type": "img",
+                "src": "tapestop/poster-offtrack-3.webp"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Flyer" },
+          {
+            "type": "sublabel",
+            "text": "Flyer"
+          },
           {
             "cols": 1,
             "marginTop": 48,
             "items": [
-              { "type": "img", "src": "tapestop/flyer-front.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/flyer-front.webp"
+              }
             ]
           },
           {
             "cols": 1,
             "gap": 0,
             "items": [
-              { "type": "img", "src": "tapestop/flyer-back.webp" }
+              {
+                "type": "img",
+                "src": "tapestop/flyer-back.webp"
+              }
             ]
           }
         ]
@@ -161,8 +305,20 @@
             "padding": "0 48px",
             "gap": 10,
             "items": [
-              { "type": "video", "src": "tapestop/landing-idle.mp4", "aspectRatio": "1440/1020", "fit": "cover", "labelAbove": "Desktop" },
-              { "type": "video", "src": "tapestop/mobile.mp4", "aspectRatio": "388/1082", "fit": "cover", "labelAbove": "Mobile" }
+              {
+                "type": "video",
+                "src": "tapestop/landing-idle.mp4",
+                "aspectRatio": "1440/1020",
+                "fit": "cover",
+                "labelAbove": "Desktop"
+              },
+              {
+                "type": "video",
+                "src": "tapestop/mobile.mp4",
+                "aspectRatio": "388/1082",
+                "fit": "cover",
+                "labelAbove": "Mobile"
+              }
             ]
           }
         ]
@@ -174,7 +330,12 @@
     "slug": "spotright",
     "title": "SPOTRIGHT",
     "tag": "Web",
-    "tags": ["Visual Identity", "Web", "AI", "Event"],
+    "tags": [
+      "Visual Identity",
+      "Web",
+      "AI",
+      "Event"
+    ],
     "year": "2025",
     "tagLine": "VISUAL IDENTITY / WEB / AI / EVENT / 2025",
     "blurb": "Entdecken von lokalen Events",
@@ -204,7 +365,10 @@
             "cols": 1,
             "padding": "0",
             "items": [
-              { "type": "component", "name": "SpotrightDesignSystem" }
+              {
+                "type": "component",
+                "name": "SpotrightDesignSystem"
+              }
             ]
           }
         ]
@@ -221,11 +385,41 @@
                 "name": "SpotrightScreens",
                 "props": {
                   "screens": [
-                    { "label": "Screen 01", "title": "Landing",      "src": "spotright/screens/01-landing.mp4",  "type": "video", "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt." },
-                    { "label": "Screen 02", "title": "Entdecken",    "src": "spotright/screens/02-entdecken.mp4", "type": "video", "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs." },
-                    { "label": "Screen 03", "title": "Event Detail", "src": "spotright/screens/03-detail.mp4", "type": "video", "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet." },
-                    { "label": "Screen 04", "title": "Für dich",     "src": "spotright/screens/04-fuerdich.mp4", "type": "video", "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste." },
-                    { "label": "Screen 05", "title": "Meine Spots",  "src": "spotright/screens/05-meinespots.mp4", "type": "video", "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest." }
+                    {
+                      "label": "Screen 01",
+                      "title": "Landing",
+                      "src": "spotright/screens/01-landing.mp4",
+                      "type": "video",
+                      "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt."
+                    },
+                    {
+                      "label": "Screen 02",
+                      "title": "Entdecken",
+                      "src": "spotright/screens/02-entdecken.mp4",
+                      "type": "video",
+                      "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs."
+                    },
+                    {
+                      "label": "Screen 03",
+                      "title": "Event Detail",
+                      "src": "spotright/screens/03-detail.mp4",
+                      "type": "video",
+                      "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet."
+                    },
+                    {
+                      "label": "Screen 04",
+                      "title": "Für dich",
+                      "src": "spotright/screens/04-fuerdich.mp4",
+                      "type": "video",
+                      "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste."
+                    },
+                    {
+                      "label": "Screen 05",
+                      "title": "Meine Spots",
+                      "src": "spotright/screens/05-meinespots.mp4",
+                      "type": "video",
+                      "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest."
+                    }
                   ]
                 }
               }
@@ -240,7 +434,10 @@
             "cols": 1,
             "padding": "0",
             "items": [
-              { "type": "component", "name": "SpotrightUxFlow" }
+              {
+                "type": "component",
+                "name": "SpotrightUxFlow"
+              }
             ]
           }
         ]
@@ -252,7 +449,11 @@
     "slug": "myndful",
     "title": "MYNDFUL",
     "tag": "Visual Identity",
-    "tags": ["Visual Identity", "Campaign", "Print"],
+    "tags": [
+      "Visual Identity",
+      "Campaign",
+      "Print"
+    ],
     "year": "2023",
     "tagLine": "VISUAL IDENTITY / CAMPAIGN / PRINT / 2023",
     "blurb": "Kurztrip-Plattform für Kreative",
@@ -277,33 +478,64 @@
       {
         "label": "Corporate Design",
         "rows": [
-          { "type": "sublabel", "text": "Logo" },
+          {
+            "type": "sublabel",
+            "text": "Logo"
+          },
           {
             "cols": 2,
             "padding": "0 48px",
             "marginTop": 16,
             "mobileGridTemplateColumns": "1fr",
             "items": [
-              { "type": "img", "src": "myndful/logo-long.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "10% 12%", "caption": "Wortmarke", "captionSub": "„m\" als Pause-Symbol — leise Aufforderung zur bewussten Pause." },
-              { "type": "img", "src": "myndful/logo-compact.svg", "aspectRatio": "2.5/1", "fit": "contain", "padding": "10% 30%", "caption": "Signet", "captionSub": "Kompakte Marke aus Pause-Symbol und „y\" — für App-Icon und Favicon." }
+              {
+                "type": "img",
+                "src": "myndful/logo-long.svg",
+                "aspectRatio": "2.5/1",
+                "fit": "contain",
+                "padding": "10% 12%",
+                "caption": "Wortmarke",
+                "captionSub": "„m\" als Pause-Symbol — leise Aufforderung zur bewussten Pause."
+              },
+              {
+                "type": "img",
+                "src": "myndful/logo-compact.svg",
+                "aspectRatio": "2.5/1",
+                "fit": "contain",
+                "padding": "10% 30%",
+                "caption": "Signet",
+                "captionSub": "Kompakte Marke aus Pause-Symbol und „y\" — für App-Icon und Favicon."
+              }
             ]
           },
-          { "type": "sublabel", "text": "Farben" },
+          {
+            "type": "sublabel",
+            "text": "Farben"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulColors" }
+              {
+                "type": "component",
+                "name": "MyndfulColors"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Typografie" },
+          {
+            "type": "sublabel",
+            "text": "Typografie"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulTypography" }
+              {
+                "type": "component",
+                "name": "MyndfulTypography"
+              }
             ]
           }
         ]
@@ -314,24 +546,47 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "myndful/mockup-poster.webp", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "myndful/mockup-poster.webp",
+                "fit": "cover"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Motive" },
+          {
+            "type": "sublabel",
+            "text": "Motive"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "2481/3508",
-                "items": [
-                  { "src": "myndful/poster-noway.webp", "caption": "No Way?", "captionSub": "our path makes your trip" },
-                  { "src": "myndful/poster-pause.webp", "caption": "Pause", "captionSub": "you really need a break" },
-                  { "src": "myndful/poster-recharge.webp", "caption": "Recharge", "captionSub": "recharge your creative battery" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "2481/3508",
+                  "items": [
+                    {
+                      "src": "myndful/poster-noway.webp",
+                      "caption": "No Way?",
+                      "captionSub": "our path makes your trip"
+                    },
+                    {
+                      "src": "myndful/poster-pause.webp",
+                      "caption": "Pause",
+                      "captionSub": "you really need a break"
+                    },
+                    {
+                      "src": "myndful/poster-recharge.webp",
+                      "caption": "Recharge",
+                      "captionSub": "recharge your creative battery"
+                    }
+                  ]
+                }
+              }
             ]
           }
         ]
@@ -342,75 +597,136 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "myndful/mockup-cards-1.webp", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "myndful/mockup-cards-1.webp",
+                "fit": "cover"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Vorderseiten" },
+          {
+            "type": "sublabel",
+            "text": "Vorderseiten"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "1075/721",
-                "items": [
-                  { "src": "myndful/card-front-path.webp", "caption": "Our Path Makes Your Trip" },
-                  { "src": "myndful/card-front-break.webp", "caption": "You Really Need A Break" },
-                  { "src": "myndful/card-front-recharge.webp", "caption": "Recharge Your Creative Battery" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "1075/721",
+                  "items": [
+                    {
+                      "src": "myndful/card-front-path.webp",
+                      "caption": "Our Path Makes Your Trip"
+                    },
+                    {
+                      "src": "myndful/card-front-break.webp",
+                      "caption": "You Really Need A Break"
+                    },
+                    {
+                      "src": "myndful/card-front-recharge.webp",
+                      "caption": "Recharge Your Creative Battery"
+                    }
+                  ]
+                }
+              }
             ]
           },
-          { "type": "sublabel", "text": "Rückseiten — Pause" },
+          {
+            "type": "sublabel",
+            "text": "Rückseiten — Pause"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "1075/721",
-                "items": [
-                  { "src": "myndful/card-icon-pink.webp" },
-                  { "src": "myndful/card-icon-dark.webp" },
-                  { "src": "myndful/card-icon-brown.webp" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "1075/721",
+                  "items": [
+                    {
+                      "src": "myndful/card-icon-pink.webp"
+                    },
+                    {
+                      "src": "myndful/card-icon-dark.webp"
+                    },
+                    {
+                      "src": "myndful/card-icon-brown.webp"
+                    }
+                  ]
+                }
+              }
             ]
           },
-          { "type": "sublabel", "text": "Rückseiten — Route", "tight": true },
+          {
+            "type": "sublabel",
+            "text": "Rückseiten — Route",
+            "tight": true
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "1075/721",
-                "items": [
-                  { "src": "myndful/card-map-dark.webp" },
-                  { "src": "myndful/card-map-teal.webp" },
-                  { "src": "myndful/card-map-brown.webp" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "1075/721",
+                  "items": [
+                    {
+                      "src": "myndful/card-map-dark.webp"
+                    },
+                    {
+                      "src": "myndful/card-map-teal.webp"
+                    },
+                    {
+                      "src": "myndful/card-map-brown.webp"
+                    }
+                  ]
+                }
+              }
             ]
           },
-          { "type": "sublabel", "text": "Rückseiten — MY", "tight": true },
+          {
+            "type": "sublabel",
+            "text": "Rückseiten — MY",
+            "tight": true
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "1075/721",
-                "items": [
-                  { "src": "myndful/card-ny-dark.webp" },
-                  { "src": "myndful/card-ny-teal.webp" },
-                  { "src": "myndful/card-ny-brown.webp" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "1075/721",
+                  "items": [
+                    {
+                      "src": "myndful/card-ny-dark.webp"
+                    },
+                    {
+                      "src": "myndful/card-ny-teal.webp"
+                    },
+                    {
+                      "src": "myndful/card-ny-brown.webp"
+                    }
+                  ]
+                }
+              }
             ]
           }
         ]
@@ -418,12 +734,19 @@
       {
         "label": "Social Campaign",
         "rows": [
-          { "type": "sublabel", "text": "Stories" },
+          {
+            "type": "sublabel",
+            "text": "Stories"
+          },
           {
             "cols": 1,
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "myndful/mockup-ig-stories.webp", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "myndful/mockup-ig-stories.webp",
+                "fit": "cover"
+              }
             ]
           },
           {
@@ -433,17 +756,42 @@
             "mobilePadding": "0 16px",
             "marginTop": 24,
             "items": [
-              { "type": "img", "src": "myndful/story-newyork.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "New York" },
-              { "type": "img", "src": "myndful/story-london.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "London" },
-              { "type": "img", "src": "myndful/story-berlin.webp", "aspectRatio": "9/16", "fit": "cover", "caption": "Berlin" }
+              {
+                "type": "img",
+                "src": "myndful/story-newyork.webp",
+                "aspectRatio": "9/16",
+                "fit": "cover",
+                "caption": "New York"
+              },
+              {
+                "type": "img",
+                "src": "myndful/story-london.webp",
+                "aspectRatio": "9/16",
+                "fit": "cover",
+                "caption": "London"
+              },
+              {
+                "type": "img",
+                "src": "myndful/story-berlin.webp",
+                "aspectRatio": "9/16",
+                "fit": "cover",
+                "caption": "Berlin"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Karussell — Two Days Berlin" },
+          {
+            "type": "sublabel",
+            "text": "Karussell — Two Days Berlin"
+          },
           {
             "cols": 1,
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "myndful/mockup-ig-posts.webp", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "myndful/mockup-ig-posts.webp",
+                "fit": "cover"
+              }
             ]
           },
           {
@@ -451,25 +799,42 @@
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "desktopGap": 2,
-                "aspectRatio": "4/5",
-                "seamless": true,
-                "items": [
-                  { "src": "myndful/post-berlin-1.webp" },
-                  { "src": "myndful/post-berlin-2.webp" },
-                  { "src": "myndful/post-berlin-3.webp" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "desktopGap": 2,
+                  "aspectRatio": "4/5",
+                  "seamless": true,
+                  "items": [
+                    {
+                      "src": "myndful/post-berlin-1.webp"
+                    },
+                    {
+                      "src": "myndful/post-berlin-2.webp"
+                    },
+                    {
+                      "src": "myndful/post-berlin-3.webp"
+                    }
+                  ]
+                }
+              }
             ]
           },
-          { "type": "sublabel", "text": "Feature-Posts" },
+          {
+            "type": "sublabel",
+            "text": "Feature-Posts"
+          },
           {
             "cols": 1,
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "myndful/mockup-ig-grid.webp", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "myndful/mockup-ig-grid.webp",
+                "fit": "cover"
+              }
             ]
           },
           {
@@ -479,42 +844,86 @@
             "mobilePadding": "0 16px",
             "marginTop": 24,
             "items": [
-              { "type": "img", "src": "myndful/post-intro.webp", "aspectRatio": "4/5", "fit": "cover", "caption": "Intro" },
-              { "type": "img", "src": "myndful/post-map.webp", "aspectRatio": "4/5", "fit": "cover", "caption": "Outro" }
+              {
+                "type": "img",
+                "src": "myndful/post-intro.webp",
+                "aspectRatio": "4/5",
+                "fit": "cover",
+                "caption": "Intro"
+              },
+              {
+                "type": "img",
+                "src": "myndful/post-map.webp",
+                "aspectRatio": "4/5",
+                "fit": "cover",
+                "caption": "Outro"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Kategorien" },
+          {
+            "type": "sublabel",
+            "text": "Kategorien"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "4/5",
-                "items": [
-                  { "src": "myndful/post-cat-restaurants.webp", "caption": "Restaurants" },
-                  { "src": "myndful/post-cat-hotels.webp", "caption": "Hotels" },
-                  { "src": "myndful/post-cat-bars.webp", "caption": "Bars" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "4/5",
+                  "items": [
+                    {
+                      "src": "myndful/post-cat-restaurants.webp",
+                      "caption": "Restaurants"
+                    },
+                    {
+                      "src": "myndful/post-cat-hotels.webp",
+                      "caption": "Hotels"
+                    },
+                    {
+                      "src": "myndful/post-cat-bars.webp",
+                      "caption": "Bars"
+                    }
+                  ]
+                }
+              }
             ]
           },
-          { "type": "sublabel", "text": "Feature Highlights" },
+          {
+            "type": "sublabel",
+            "text": "Feature Highlights"
+          },
           {
             "cols": 1,
             "padding": "0",
             "marginTop": 16,
             "items": [
-              { "type": "component", "name": "MyndfulCarousel", "props": {
-                "desktopCols": 3,
-                "aspectRatio": "4/5",
-                "items": [
-                  { "src": "myndful/post-feat-restaurants.webp", "caption": "1000+ Restaurants" },
-                  { "src": "myndful/post-feat-sleep.webp", "caption": "Sleeping Situation" },
-                  { "src": "myndful/post-feat-travel.webp", "caption": "Easy Travel" }
-                ]
-              } }
+              {
+                "type": "component",
+                "name": "MyndfulCarousel",
+                "props": {
+                  "desktopCols": 3,
+                  "aspectRatio": "4/5",
+                  "items": [
+                    {
+                      "src": "myndful/post-feat-restaurants.webp",
+                      "caption": "1000+ Restaurants"
+                    },
+                    {
+                      "src": "myndful/post-feat-sleep.webp",
+                      "caption": "Sleeping Situation"
+                    },
+                    {
+                      "src": "myndful/post-feat-travel.webp",
+                      "caption": "Easy Travel"
+                    }
+                  ]
+                }
+              }
             ]
           }
         ]
@@ -526,7 +935,9 @@
     "slug": "hof-ist-dein-film",
     "title": "HOF IST DEIN FILM",
     "tag": "Visual Identity",
-    "tags": ["Visual Identity"],
+    "tags": [
+      "Visual Identity"
+    ],
     "year": "2024",
     "tagLine": "VISUAL IDENTITY / 2024",
     "blurb": "Imagekampagne für die Stadt Hof",
@@ -556,7 +967,10 @@
             "cols": 1,
             "padding": "0",
             "items": [
-              { "type": "component", "name": "ZoomInDesignSystem" }
+              {
+                "type": "component",
+                "name": "ZoomInDesignSystem"
+              }
             ]
           }
         ]
@@ -567,10 +981,18 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "zoom-in/mockups/plakat-mockup.webp", "aspectRatio": "2400/1680", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "zoom-in/mockups/plakat-mockup.webp",
+                "aspectRatio": "2400/1680",
+                "fit": "cover"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Motive" },
+          {
+            "type": "sublabel",
+            "text": "Motive"
+          },
           {
             "cols": 1,
             "padding": "0",
@@ -581,11 +1003,26 @@
                 "name": "PlakatCarousel",
                 "props": {
                   "plakate": [
-                    { "title": "Bismarckturm",   "src": "zoom-in/plakate/plakat-bismarckturm.webp" },
-                    { "title": "Marienkirche",   "src": "zoom-in/plakate/plakat-marienkirche.webp" },
-                    { "title": "Hochschule",     "src": "zoom-in/plakate/plakat-hochschule.webp" },
-                    { "title": "Theresienstein", "src": "zoom-in/plakate/plakat-theresienstein.webp" },
-                    { "title": "Untreusee",      "src": "zoom-in/plakate/plakat-untreusee.webp" }
+                    {
+                      "title": "Bismarckturm",
+                      "src": "zoom-in/plakate/plakat-bismarckturm.webp"
+                    },
+                    {
+                      "title": "Marienkirche",
+                      "src": "zoom-in/plakate/plakat-marienkirche.webp"
+                    },
+                    {
+                      "title": "Hochschule",
+                      "src": "zoom-in/plakate/plakat-hochschule.webp"
+                    },
+                    {
+                      "title": "Theresienstein",
+                      "src": "zoom-in/plakate/plakat-theresienstein.webp"
+                    },
+                    {
+                      "title": "Untreusee",
+                      "src": "zoom-in/plakate/plakat-untreusee.webp"
+                    }
                   ]
                 }
               }
@@ -599,21 +1036,60 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "zoom-in/mockups/postkarten-mockup.webp", "aspectRatio": "2400/1600", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "zoom-in/mockups/postkarten-mockup.webp",
+                "aspectRatio": "2400/1600",
+                "fit": "cover"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Vorderseite" },
+          {
+            "type": "sublabel",
+            "text": "Vorderseite"
+          },
           {
             "cols": 2,
             "gap": 10,
             "padding": "0 48px",
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "zoom-in/postkarten/postkarte-bismarckturm.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Bismarckturm", "mobileGridColumn": "1 / -1" },
-              { "type": "img", "src": "zoom-in/postkarten/postkarte-marienkirche.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Marienkirche" },
-              { "type": "img", "src": "zoom-in/postkarten/postkarte-hochschule.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Hochschule" },
-              { "type": "img", "src": "zoom-in/postkarten/postkarte-theresienstein.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Theresienstein" },
-              { "type": "img", "src": "zoom-in/postkarten/postkarte-untreusee.webp", "aspectRatio": "1748/1240", "fit": "cover", "caption": "Untreusee" }
+              {
+                "type": "img",
+                "src": "zoom-in/postkarten/postkarte-bismarckturm.webp",
+                "aspectRatio": "1748/1240",
+                "fit": "cover",
+                "caption": "Bismarckturm",
+                "mobileGridColumn": "1 / -1"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/postkarten/postkarte-marienkirche.webp",
+                "aspectRatio": "1748/1240",
+                "fit": "cover",
+                "caption": "Marienkirche"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/postkarten/postkarte-hochschule.webp",
+                "aspectRatio": "1748/1240",
+                "fit": "cover",
+                "caption": "Hochschule"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/postkarten/postkarte-theresienstein.webp",
+                "aspectRatio": "1748/1240",
+                "fit": "cover",
+                "caption": "Theresienstein"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/postkarten/postkarte-untreusee.webp",
+                "aspectRatio": "1748/1240",
+                "fit": "cover",
+                "caption": "Untreusee"
+              }
             ]
           }
         ]
@@ -624,10 +1100,18 @@
           {
             "cols": 1,
             "items": [
-              { "type": "img", "src": "zoom-in/mockups/sticker-mockup-1.webp", "aspectRatio": "2400/1760", "fit": "cover" }
+              {
+                "type": "img",
+                "src": "zoom-in/mockups/sticker-mockup-1.webp",
+                "aspectRatio": "2400/1760",
+                "fit": "cover"
+              }
             ]
           },
-          { "type": "sublabel", "text": "Motive" },
+          {
+            "type": "sublabel",
+            "text": "Motive"
+          },
           {
             "cols": 4,
             "gap": 10,
@@ -635,13 +1119,55 @@
             "mobileGridTemplateColumns": "repeat(2, 1fr)",
             "marginTop": 16,
             "items": [
-              { "type": "img", "src": "zoom-in/sticker/sticker-dark.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "HOF Negativ" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-light.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "HOF Positiv" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-bismarckturm.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Bismarckturm" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-marienkirche.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Marienkirche" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-hochschule.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Hochschule" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-theresienstein.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Theresienstein" },
-              { "type": "img", "src": "zoom-in/sticker/sticker-untreusee.webp", "aspectRatio": "1/1", "fit": "cover", "caption": "Untreusee" }
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-dark.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "HOF Negativ"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-light.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "HOF Positiv"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-bismarckturm.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "Bismarckturm"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-marienkirche.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "Marienkirche"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-hochschule.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "Hochschule"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-theresienstein.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "Theresienstein"
+              },
+              {
+                "type": "img",
+                "src": "zoom-in/sticker/sticker-untreusee.webp",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "caption": "Untreusee"
+              }
             ]
           }
         ]
@@ -656,7 +1182,173 @@
               {
                 "type": "component",
                 "name": "WebsiteFrame",
-                "props": { "src": "zoom-in/website/website.webp" }
+                "props": {
+                  "src": "zoom-in/website/website.webp"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "slug": "so-weit-weg",
+    "title": "SO WEIT WEG",
+    "tag": "Music Video",
+    "tags": [
+      "Music Video",
+      "AI",
+      "Photography"
+    ],
+    "year": "2025",
+    "tagLine": "MUSIC VIDEO / AI / PHOTOGRAPHY / 2025",
+    "blurb": "Konzept-Edit zu Souly",
+    "desc": "Konzept-Edit zum Song „So weit weg“ von Souly. Die Basis: eigene Fotografien aus Karlsbad, aufgenommen im Winter. Diese Frames wurden als Keyframes in AI-Bewegtbild übersetzt, in Premiere auf den Beat geschnitten und mit eigenem Sound Design unterlegt.",
+    "disclaimer": "Persönliches Konzeptprojekt zum Song „So weit weg“ von Souly. Keine offizielle Kooperation oder Auftragsarbeit, kein Anspruch auf die Originalmusik.",
+    "camera": "FOTOGRAFIE /",
+    "lens": "CONCEPT EDIT /",
+    "film": "GENERATIVE AI / SOUND DESIGN",
+    "studio": "SHINYWRKS",
+    "location": "EIGENINITIATIVE",
+    "date": "2025",
+    "bg": "linear-gradient(160deg, #0D0B08 0%, #0F1A1A 55%, #0a1510 100%)",
+    "heroPhoto": "so-weit-weg/hero.webp",
+    "thumb": "so-weit-weg/thumb.webp",
+    "thumbW": 2048,
+    "thumbH": 2048,
+    "heightPct": 0.72,
+    "width": 320,
+    "height": 420,
+    "sections": [
+      {
+        "label": "Edit",
+        "rows": [
+          {
+            "cols": 1,
+            "padding": "0 22%",
+            "mobilePadding": "0 16px",
+            "items": [
+              {
+                "type": "video",
+                "src": "so-weit-weg/edit.mp4",
+                "aspectRatio": "1/1",
+                "fit": "cover",
+                "controls": true,
+                "poster": "so-weit-weg/hero.webp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Fotografien",
+        "rows": [
+          {
+            "cols": 1,
+            "padding": "0 22%",
+            "items": [
+              {
+                "type": "component",
+                "name": "StillsCarousel",
+                "labelAbove": "Karlsbad, Winter 2025",
+                "props": {
+                  "stills": [
+                    {
+                      "src": "so-weit-weg/2911karlsbad-01.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-02.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-03.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-04.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-05.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-07.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-08.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-09.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-10.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-12.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-13.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-14.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-15.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-16.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-18.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-19.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-20.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-21.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-27.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-29.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-30.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-33.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-34.webp"
+                    },
+                    {
+                      "src": "so-weit-weg/2911karlsbad-36.webp"
+                    }
+                  ]
+                }
+              }
+            ],
+            "mobilePadding": "0 16px"
+          }
+        ]
+      },
+      {
+        "label": "Process",
+        "rows": [
+          {
+            "gridTemplateColumns": "1fr 1fr",
+            "mobileGridTemplateColumns": "1fr",
+            "padding": "0 48px",
+            "gap": 32,
+            "items": [
+              {
+                "type": "text",
+                "labelAbove": "Workflow",
+                "title": "Echte Orte, bewegte Bilder.",
+                "body": "Die Keyframes entstanden auf einem Winterspaziergang durch Karlsbad — Kamera in der Hand, kein Konzept außer dem Ort selbst. Dazu kam ein Foto von Souly selbst: als AI-Basis für Security-Cam-Footage, die ihn als unscharfe, überwachte Figur in das Bildmaterial einwebt. Aus den Fotos wurden AI-Clips generiert, die dann zerschnitten, mehrfach benutzt und neu zusammengesetzt wurden. Looks in After Effects, eigenes Sound Design für Raum und Tiefe."
               }
             ]
           }
@@ -669,7 +1361,10 @@
     "slug": "mach-kaputt",
     "title": "MACH KAPUTT",
     "tag": "Music Video",
-    "tags": ["Music Video", "AI"],
+    "tags": [
+      "Music Video",
+      "AI"
+    ],
     "year": "2026",
     "tagLine": "MUSIC VIDEO / AI / 2026",
     "blurb": "Konzept-Edit zu OG Keemo & Schmyt",
@@ -758,20 +1453,48 @@
                 "labelAbove": "Stills",
                 "props": {
                   "stills": [
-                    { "src": "mach-kaputt/still-01.webp" },
-                    { "src": "mach-kaputt/still-02.webp" },
-                    { "src": "mach-kaputt/still-03.webp" },
-                    { "src": "mach-kaputt/still-04.webp" },
-                    { "src": "mach-kaputt/still-05.webp" },
-                    { "src": "mach-kaputt/still-06.webp" },
-                    { "src": "mach-kaputt/still-07.webp" },
-                    { "src": "mach-kaputt/still-08.webp" },
-                    { "src": "mach-kaputt/still-09.webp" },
-                    { "src": "mach-kaputt/still-10.webp" },
-                    { "src": "mach-kaputt/still-11.webp" },
-                    { "src": "mach-kaputt/still-12.webp" },
-                    { "src": "mach-kaputt/still-13.webp" },
-                    { "src": "mach-kaputt/still-14.webp" }
+                    {
+                      "src": "mach-kaputt/still-01.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-02.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-03.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-04.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-05.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-06.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-07.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-08.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-09.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-10.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-11.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-12.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-13.webp"
+                    },
+                    {
+                      "src": "mach-kaputt/still-14.webp"
+                    }
                   ]
                 }
               }

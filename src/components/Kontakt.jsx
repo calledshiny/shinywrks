@@ -1,10 +1,12 @@
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
 import { SOCIAL_ICONS } from './SocialIcons';
 
 const STAR_CURSOR = 'none';
 
 export default function Kontakt() {
   const mobile = useMobile();
+  const { t } = useLang();
   return (
     <div style={{ minHeight: '100vh', padding: mobile ? '120px 20px 80px' : '180px 48px 96px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <div>
@@ -13,7 +15,7 @@ export default function Kontakt() {
         </h2>
 
         <div className="fu1" style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 12 }}>
-          Kontakt
+          {t('contactLabel')}
         </div>
 
         <a
@@ -48,7 +50,7 @@ export default function Kontakt() {
         </div>
 
         <div className="fu4">
-          <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 10 }}>Standort</div>
+          <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 9, letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 10 }}>{t('location')}</div>
           <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 12, color: '#1A1209', letterSpacing: '0.04em' }}>Hof, DE</div>
         </div>
       </div>

@@ -135,6 +135,23 @@ nav { background: rgba(245,243,239,0.94) !important; }
 .nav-link:hover { color: #0D0B08; }
 .nav-link.active { color: #0D0B08; border-bottom: 1px solid #0D0B08; padding-bottom: 1px; }
 
+.lang-btn {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #C4B8A4;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 0;
+  transition: color 300ms;
+}
+@media (max-width: 720px) {
+  .lang-btn { font-size: 10px; }
+}
+.lang-btn:hover { color: #3D3428; }
+.lang-btn.active { color: #0D0B08; }
+
 .filter-tag {
   font-family: 'Space Mono', monospace;
   font-size: clamp(9px, 0.55vw, 13px);
@@ -476,7 +493,6 @@ a, button, .strip-item, [role="button"] {
   width: 24px; height: 24px;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
   transform: translate3d(-100px, -100px, 0);
   will-change: transform;
   opacity: 0;

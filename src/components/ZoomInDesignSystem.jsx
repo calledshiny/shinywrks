@@ -1,4 +1,21 @@
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
+
+const COPY = {
+  wordmark:   { de: 'Wortmarke', en: 'Wordmark' },
+  wordmarkBody: {
+    de: <>Asymmetrisch gestretched, von der Mitte aus aufgezogen — das <strong style={{ fontWeight: 500 }}>O</strong> wird zur Kameralinse, die ganze Marke zum Zoom. Nicht perfekt, aber genau richtig.</>,
+    en: <>Asymmetrically stretched, pulled open from the center — the <strong style={{ fontWeight: 500 }}>O</strong> becomes the camera lens, the whole mark a zoom. Not perfect, but exactly right.</>,
+  },
+  colors:     { de: 'Farben', en: 'Colors' },
+  colorsBody: {
+    de: 'Schwarz und Off-White tragen das System. Die Akzenttöne stammen aus den Motiven selbst — jedes Plakat bringt seinen eigenen Filmton mit. Keine starre CI-Palette, sondern eine wandernde.',
+    en: 'Black and off-white carry the system. The accent tones come from the motifs themselves — every poster brings its own film hue. Not a rigid brand palette, but a wandering one.',
+  },
+  type:       { de: 'Schrift', en: 'Type' },
+  body:       { de: 'Fließtext', en: 'Body Text' },
+  deepBlack:  { de: 'Tiefschwarz', en: 'Deep Black' },
+};
 
 const BG = '#EFEEEA';
 const INK = '#1D1D1B';
@@ -46,12 +63,14 @@ function Swatch({ value, name, light }) {
 
 export default function ZoomInDesignSystem() {
   const m = useMobile();
+  const { lang } = useLang();
+  const c = (k) => COPY[k][lang];
   const pad = m ? '40px 20px' : '64px 48px';
   return (
     <div style={{ background: BG, padding: pad, color: INK }}>
 
       {/* LOGO */}
-      <SectionLabel index="01">Wortmarke</SectionLabel>
+      <SectionLabel index="01">{c('wordmark')}</SectionLabel>
       <div style={{
         display: 'grid',
         gridTemplateColumns: m ? '1fr' : '1.4fr 1fr',
@@ -63,28 +82,28 @@ export default function ZoomInDesignSystem() {
           <HofMark height={m ? 90 : 140} />
         </div>
         <p style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 400, fontSize: m ? 14 : 16, lineHeight: 1.6, color: '#1A1209', margin: 0, maxWidth: 460 }}>
-          Asymmetrisch gestretched, von der Mitte aus aufgezogen — das <strong style={{ fontWeight: 500 }}>O</strong> wird zur Kameralinse, die ganze Marke zum Zoom. Nicht perfekt, aber genau richtig.
+          {c('wordmarkBody')}
         </p>
       </div>
 
       {/* FARBEN */}
-      <SectionLabel index="02">Farben</SectionLabel>
+      <SectionLabel index="02">{c('colors')}</SectionLabel>
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
         gap: m ? 14 : 20,
         marginBottom: m ? 24 : 32,
       }}>
-        <Swatch value="#1D1D1B" name="Tiefschwarz" />
+        <Swatch value="#1D1D1B" name={c('deepBlack')} />
         <Swatch value="#EFEEEA" name="Off-White" light />
         <Swatch value="#B89BD8" name="Sunset Lavender" />
       </div>
       <p style={{ fontFamily: FUTURA, fontWeight: 500, fontSize: m ? 13 : 14, lineHeight: 1.55, color: INK_DIM, maxWidth: 640, margin: 0, marginBottom: m ? 56 : 96 }}>
-        Schwarz und Off-White tragen das System. Die Akzenttöne stammen aus den Motiven selbst — jedes Plakat bringt seinen eigenen Filmton mit. Keine starre CI-Palette, sondern eine wandernde.
+        {c('colorsBody')}
       </p>
 
       {/* SCHRIFT */}
-      <SectionLabel index="03">Schrift</SectionLabel>
+      <SectionLabel index="03">{c('type')}</SectionLabel>
       <div style={{
         display: 'grid',
         gridTemplateColumns: m ? '1fr' : '1.4fr 1fr',
@@ -104,7 +123,7 @@ export default function ZoomInDesignSystem() {
             <div style={{ fontFamily: FUTURA, fontWeight: 700, fontSize: m ? 20 : 24, color: INK }}>Futura Bold</div>
           </div>
           <div>
-            <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: INK_DIM, marginBottom: 6 }}>Fließtext</div>
+            <div style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: INK_DIM, marginBottom: 6 }}>{c('body')}</div>
             <div style={{ fontFamily: FUTURA, fontWeight: 500, fontSize: m ? 18 : 22, color: INK }}>Futura Medium</div>
           </div>
         </div>

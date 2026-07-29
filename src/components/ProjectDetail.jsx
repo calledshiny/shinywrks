@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
 import SpotrightUxFlow from './SpotrightUxFlow';
 import SpotrightDesignSystem from './SpotrightDesignSystem';
 import IPhoneMockup from './IPhoneMockup';
@@ -28,6 +29,7 @@ const COMPONENT_REGISTRY = {
 
 export default function ProjectDetail({ project, projects, onNav }) {
   const m = useMobile();
+  const { t } = useLang();
   const p = project || projects[0];
   const currentIndex = projects.findIndex(x => x.id === p.id);
 
@@ -242,7 +244,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           fontFamily: 'Space Mono, monospace', fontSize: 11,
           letterSpacing: '0.14em', textTransform: 'uppercase', color: '#3D3428',
           flexShrink: 0, paddingTop: 4,
-        }}>Beschreibung</div>
+        }}>{t('description')}</div>
         <div style={{ maxWidth: 600 }}>
           <p style={{
             fontFamily: 'Space Grotesk, sans-serif',
@@ -255,7 +257,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
               color: '#3D3428', margin: '24px 0 0',
               display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap',
             }}>
-              <span style={{ letterSpacing: '0.14em', textTransform: 'uppercase' }}>Live unter</span>
+              <span style={{ letterSpacing: '0.14em', textTransform: 'uppercase' }}>{t('liveAt')}</span>
               <a href={p.liveUrl} target="_blank" rel="noopener noreferrer" style={{
                 color: '#0D0B08', textDecoration: 'underline', textUnderlineOffset: 3, letterSpacing: '0.04em',
               }}>{p.liveUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')} ↗</a>
@@ -267,7 +269,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
               fontWeight: 400, fontSize: 19, lineHeight: 1.4,
               letterSpacing: '-0.01em',
               color: '#0D0B08', margin: '28px 0 0',
-            }}>Claim: <span style={{ fontWeight: 700 }}>{p.claim}</span></p>
+            }}>{t('claim')} <span style={{ fontWeight: 700 }}>{p.claim}</span></p>
           )}
           {p.disclaimer && (
             <p style={{
@@ -337,7 +339,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           <div style={{
             fontFamily: 'Space Mono, monospace', fontSize: 10,
             letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 20,
-          }}>← Vorheriges</div>
+          }}>← {t('prev')}</div>
           <div style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
             fontSize: 'clamp(28px, 4vw, 72px)', letterSpacing: '-0.03em',
@@ -352,7 +354,7 @@ export default function ProjectDetail({ project, projects, onNav }) {
           <div style={{
             fontFamily: 'Space Mono, monospace', fontSize: 10,
             letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428', marginBottom: 20,
-          }}>Nächstes →</div>
+          }}>{t('next')} →</div>
           <div style={{
             fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
             fontSize: 'clamp(28px, 4vw, 72px)', letterSpacing: '-0.03em',

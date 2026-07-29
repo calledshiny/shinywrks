@@ -1,4 +1,5 @@
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
 
 const TERRA = '#B07050';
 const GLASS_BG = 'rgba(255,255,255,0.06)';
@@ -8,19 +9,29 @@ const FG = 'white';
 const FG_DIM = 'rgba(255,255,255,0.55)';
 
 const STEPS = {
-  landing:   { title: 'Landing',      sub: 'STADT + PILLS' },
-  entdecken: { title: 'Entdecken',    sub: 'DATUM + LISTE' },
-  wann:      { title: 'Wann?',        sub: 'JETZT / HEUTE / …' },
-  was:       { title: 'Was?',         sub: 'ROOFTOP / MUSIK / …' },
-  wer:       { title: 'Wer?',         sub: 'GRUPPE / 18+ / …' },
-  resultate: { title: 'Resultate',    sub: 'PERSONALISIERT' },
-  detail:    { title: 'Event Detail', sub: 'SHEET' },
-  save:      { title: 'Save',         sub: 'BOOKMARK' },
-  spots:     { title: 'Meine Spots',  sub: 'GESPEICHERT' },
+  landing:   { title: { de: 'Landing',      en: 'Landing' },      sub: { de: 'STADT + PILLS',       en: 'CITY + PILLS' } },
+  entdecken: { title: { de: 'Entdecken',    en: 'Discover' },     sub: { de: 'DATUM + LISTE',       en: 'DATE + LIST' } },
+  wann:      { title: { de: 'Wann?',        en: 'When?' },        sub: { de: 'JETZT / HEUTE / …',   en: 'NOW / TODAY / …' } },
+  was:       { title: { de: 'Was?',         en: 'What?' },        sub: { de: 'ROOFTOP / MUSIK / …', en: 'ROOFTOP / MUSIC / …' } },
+  wer:       { title: { de: 'Wer?',         en: 'Who?' },         sub: { de: 'GRUPPE / 18+ / …',    en: 'GROUP / 18+ / …' } },
+  resultate: { title: { de: 'Resultate',    en: 'Results' },      sub: { de: 'PERSONALISIERT',      en: 'PERSONALIZED' } },
+  detail:    { title: { de: 'Event Detail', en: 'Event Detail' }, sub: { de: 'SHEET',               en: 'SHEET' } },
+  save:      { title: { de: 'Save',         en: 'Save' },         sub: { de: 'BOOKMARK',            en: 'BOOKMARK' } },
+  spots:     { title: { de: 'Meine Spots',  en: 'My Spots' },     sub: { de: 'GESPEICHERT',         en: 'SAVED' } },
 };
 
-function StepCard({ stepKey }) {
-  const s = STEPS[stepKey];
+const T = {
+  userFlow:  { de: 'User Flow', en: 'User Flow' },
+  heading:   { de: 'Zwei Wege zum richtigen Event.', en: 'Two paths to the right event.' },
+  open:      { de: 'Öffnen', en: 'Open' },
+  decide:    { de: 'Entscheiden — zwei Wege', en: 'Decide — two paths' },
+  keep:      { de: 'Merken', en: 'Keep' },
+  or:        { de: 'oder', en: 'or' },
+};
+
+function StepCard({ stepKey, lang }) {
+  const step = STEPS[stepKey];
+  const s = { title: step.title[lang], sub: step.sub[lang] };
   return (
     <div style={{
       background: GLASS_BG,
@@ -57,7 +68,7 @@ function ArrowV() {
   );
 }
 
-function HorizFlow({ keys, mobile }) {
+function HorizFlow({ keys, mobile, lang }) {
   return (
     <div style={{
       display: 'flex',
@@ -67,7 +78,7 @@ function HorizFlow({ keys, mobile }) {
     }}>
       {keys.map((k, i) => (
         <FlowFragment key={k}>
-          <div style={{ flex: 1, minWidth: 0 }}><StepCard stepKey={k}/></div>
+          <div style={{ flex: 1, minWidth: 0 }}><StepCard stepKey={k} lang={lang}/></div>
           {i < keys.length - 1 && (mobile ? <ArrowV/> : <ArrowH/>)}
         </FlowFragment>
       ))}
@@ -109,18 +120,20 @@ function PathRow({ label, children }) {
   );
 }
 
-function OrSeparator() {
+function OrSeparator({ label }) {
   return (
     <div style={{
       fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.2em',
       textTransform: 'lowercase', color: TERRA,
       textAlign: 'center',
-    }}>oder</div>
+    }}>{label}</div>
   );
 }
 
 export default function SpotrightUxFlow() {
   const mobile = useMobile();
+  const { lang } = useLang();
+  const tr = (k) => T[k][lang];
 
   return (
     <div style={{
@@ -131,38 +144,38 @@ export default function SpotrightUxFlow() {
       <div style={{
         fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em',
         textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)', marginBottom: 6,
-      }}>User Flow</div>
+      }}>{tr('userFlow')}</div>
       <h3 style={{
         fontFamily: 'Space Grotesk, sans-serif', fontWeight: 500,
         fontSize: mobile ? 18 : 22, letterSpacing: '-0.02em',
         color: 'white', margin: 0, marginBottom: 24,
-      }}>Zwei Wege zum richtigen Event.</h3>
+      }}>{tr('heading')}</h3>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
         {/* Phase 1 */}
         <div>
-          <PhaseHeader num="01" label="Öffnen"/>
-          <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="landing"/></div>
+          <PhaseHeader num="01" label={tr('open')}/>
+          <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="landing" lang={lang}/></div>
         </div>
 
         {/* Phase 2 */}
         <div>
-          <PhaseHeader num="02" label="Entscheiden — zwei Wege"/>
+          <PhaseHeader num="02" label={tr('decide')}/>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <PathRow label="Browse">
-              <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="entdecken"/></div>
+              <div style={{ maxWidth: mobile ? '100%' : 280 }}><StepCard stepKey="entdecken" lang={lang}/></div>
             </PathRow>
-            <OrSeparator/>
+            <OrSeparator label={tr('or')}/>
             <PathRow label="Funnel">
-              <HorizFlow keys={['wann', 'was', 'wer', 'resultate']} mobile={mobile}/>
+              <HorizFlow keys={['wann', 'was', 'wer', 'resultate']} mobile={mobile} lang={lang}/>
             </PathRow>
           </div>
         </div>
 
         {/* Phase 3 */}
         <div>
-          <PhaseHeader num="03" label="Merken"/>
-          <HorizFlow keys={['detail', 'save', 'spots']} mobile={mobile}/>
+          <PhaseHeader num="03" label={tr('keep')}/>
+          <HorizFlow keys={['detail', 'save', 'spots']} mobile={mobile} lang={lang}/>
         </div>
       </div>
     </div>

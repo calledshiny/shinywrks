@@ -57,7 +57,8 @@
                 "aspectRatio": "2.5/1",
                 "fit": "contain",
                 "padding": "7% 8%",
-                "caption": "Wortmarke"
+                "caption": "Wortmarke",
+                "captionEn": "Wordmark"
               },
               {
                 "type": "img",
@@ -66,7 +67,8 @@
                 "fit": "contain",
                 "padding": "7% 22%",
                 "caption": "Signet",
-                "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas."
+                "captionSub": "Abstrahierte Kassette — Sinnbild des analogen Themas.",
+                "captionSubEn": "Abstracted cassette — emblem of the analog theme."
               }
             ]
           }
@@ -216,7 +218,8 @@
         "rows": [
           {
             "type": "sublabel",
-            "text": "Plakate"
+            "text": "Plakate",
+            "textEn": "Posters"
           },
           {
             "cols": 1,
@@ -323,7 +326,11 @@
           }
         ]
       }
-    ]
+    ],
+    "blurbEn": "Techno / Trance event collective",
+    "descEn": "A complete brand identity for an independent event collective that throws authentic techno, house and trance parties at changing locations — no commerce, no staging. Every event is a take, a recording: taped-over phone cameras, disposable cameras instead of stories, events numbered like chapters of an ongoing story. From naming and logo through corporate design to posters, print, event experience and landing page — all conceived analog, executed consistently.",
+    "disclaimerEn": "Fictional project as part of a concept study. Named organizers, locations, brands or people serve purely for illustration — there is no partnership or official affiliation.",
+    "locationEn": "PERSONAL PROJECT"
   },
   {
     "id": 2,
@@ -390,35 +397,43 @@
                       "title": "Landing",
                       "src": "spotright/screens/01-landing.mp4",
                       "type": "video",
-                      "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt."
+                      "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt.",
+                      "bodyEn": "The first impression. Spotlight hero, city dropdown, category pills and a single prompt — 'What's on tonight?'. No search, no algorithm babble, just the question that matters."
                     },
                     {
                       "label": "Screen 02",
                       "title": "Entdecken",
                       "src": "spotright/screens/02-entdecken.mp4",
                       "type": "video",
-                      "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs."
+                      "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs.",
+                      "titleEn": "Discover",
+                      "bodyEn": "Date bar, category filter, curated event list. Every card shows time, venue, tags and a save button — all at a glance, without tabs or submenus."
                     },
                     {
                       "label": "Screen 03",
                       "title": "Event Detail",
                       "src": "spotright/screens/03-detail.mp4",
                       "type": "video",
-                      "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet."
+                      "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet.",
+                      "bodyEn": "Tapping a card opens the detail sheet — header image with spotlight animation, when / where / who, DJ lineup, tags and a link to the original source. A liquid-glass sheet that slides up from the list."
                     },
                     {
                       "label": "Screen 04",
                       "title": "Für dich",
                       "src": "spotright/screens/04-fuerdich.mp4",
                       "type": "video",
-                      "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste."
+                      "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste.",
+                      "titleEn": "For You",
+                      "bodyEn": "A stepwise search funnel — When? What? Who? Three questions, large glass buttons, clear progression. At the end: a personalized selection instead of an overcrowded list."
                     },
                     {
                       "label": "Screen 05",
                       "title": "Meine Spots",
                       "src": "spotright/screens/05-meinespots.mp4",
                       "type": "video",
-                      "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest."
+                      "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest.",
+                      "titleEn": "My Spots",
+                      "bodyEn": "Saved events. A calm list of the events you want to keep in mind — even when you're not deciding right now."
                     }
                   ]
                 }
@@ -442,7 +457,13 @@
           }
         ]
       }
-    ]
+    ],
+    "blurbEn": "Discover local events",
+    "descEn": "In an unfamiliar city you never know where things are actually happening tonight. Spotright solves that — an event-discovery app that shows what's going on in your city right now: clubs, concerts, bar events. Curated, current, local. For young people who don't want to google a city, but feel it. The UI deliberately holds back — liquid glass and warm terra accents let the city itself be the stage.",
+    "claimEn": "The city. Now.",
+    "disclaimerEn": "Realized end-to-end with AI. Concept, direction and iteration by me; UI and code via Figma Make and Claude.",
+    "locationEn": "COLLABORATION",
+    "dateEn": "OCT 2025"
   },
   {
     "id": 5,
@@ -495,7 +516,9 @@
                 "fit": "contain",
                 "padding": "10% 12%",
                 "caption": "Wortmarke",
-                "captionSub": "„m\" als Pause-Symbol — leise Aufforderung zur bewussten Pause."
+                "captionSub": "„m\" als Pause-Symbol — leise Aufforderung zur bewussten Pause.",
+                "captionEn": "Wordmark",
+                "captionSubEn": "The 'm' as a pause symbol — a quiet invitation to a deliberate break."
               },
               {
                 "type": "img",
@@ -504,13 +527,15 @@
                 "fit": "contain",
                 "padding": "10% 30%",
                 "caption": "Signet",
-                "captionSub": "Kompakte Marke aus Pause-Symbol und „y\" — für App-Icon und Favicon."
+                "captionSub": "Kompakte Marke aus Pause-Symbol und „y\" — für App-Icon und Favicon.",
+                "captionSubEn": "Compact mark from pause symbol and 'y' — for app icon and favicon."
               }
             ]
           },
           {
             "type": "sublabel",
-            "text": "Farben"
+            "text": "Farben",
+            "textEn": "Colors"
           },
           {
             "cols": 1,
@@ -525,7 +550,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Typografie"
+            "text": "Typografie",
+            "textEn": "Typography"
           },
           {
             "cols": 1,
@@ -555,7 +581,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Motive"
+            "text": "Motive",
+            "textEn": "Artworks"
           },
           {
             "cols": 1,
@@ -589,7 +616,8 @@
               }
             ]
           }
-        ]
+        ],
+        "labelEn": "Posters"
       },
       {
         "label": "Visitenkarten",
@@ -606,7 +634,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Vorderseiten"
+            "text": "Vorderseiten",
+            "textEn": "Fronts"
           },
           {
             "cols": 1,
@@ -639,7 +668,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Rückseiten — Pause"
+            "text": "Rückseiten — Pause",
+            "textEn": "Backs — Pause"
           },
           {
             "cols": 1,
@@ -670,7 +700,8 @@
           {
             "type": "sublabel",
             "text": "Rückseiten — Route",
-            "tight": true
+            "tight": true,
+            "textEn": "Backs — Route"
           },
           {
             "cols": 1,
@@ -701,7 +732,8 @@
           {
             "type": "sublabel",
             "text": "Rückseiten — MY",
-            "tight": true
+            "tight": true,
+            "textEn": "Backs — MY"
           },
           {
             "cols": 1,
@@ -729,7 +761,8 @@
               }
             ]
           }
-        ]
+        ],
+        "labelEn": "Business Cards"
       },
       {
         "label": "Social Campaign",
@@ -781,7 +814,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Karussell — Two Days Berlin"
+            "text": "Karussell — Two Days Berlin",
+            "textEn": "Carousel — Two Days Berlin"
           },
           {
             "cols": 1,
@@ -824,7 +858,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Feature-Posts"
+            "text": "Feature-Posts",
+            "textEn": "Feature Posts"
           },
           {
             "cols": 1,
@@ -862,7 +897,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Kategorien"
+            "text": "Kategorien",
+            "textEn": "Categories"
           },
           {
             "cols": 1,
@@ -928,7 +964,11 @@
           }
         ]
       }
-    ]
+    ],
+    "blurbEn": "Short-trip platform for creatives",
+    "descEn": "Brand identity and campaign for a fictional platform that plans short, uncomplicated day trips for creative professionals — from transport and accommodation to curated spots. It addresses a real tension: creative block from constant stress and an overloaded everyday life. From this grows a campaign system of posters, business cards and social posts with route lines and geometric pause shapes.",
+    "disclaimerEn": "Coursework for the Campaign module (HTK Academy, winter semester 2023/24). Named cities, brands or people serve purely for illustration — myndful is a fictional brand concept.",
+    "lensEn": "PRINT / BUSINESS CARDS /"
   },
   {
     "id": 3,
@@ -991,7 +1031,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Motive"
+            "text": "Motive",
+            "textEn": "Artworks"
           },
           {
             "cols": 1,
@@ -1028,7 +1069,8 @@
               }
             ]
           }
-        ]
+        ],
+        "labelEn": "Poster Campaign"
       },
       {
         "label": "Postkarten",
@@ -1046,7 +1088,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Vorderseite"
+            "text": "Vorderseite",
+            "textEn": "Front"
           },
           {
             "cols": 2,
@@ -1092,7 +1135,8 @@
               }
             ]
           }
-        ]
+        ],
+        "labelEn": "Postcards"
       },
       {
         "label": "Sticker",
@@ -1110,7 +1154,8 @@
           },
           {
             "type": "sublabel",
-            "text": "Motive"
+            "text": "Motive",
+            "textEn": "Artworks"
           },
           {
             "cols": 4,
@@ -1124,14 +1169,16 @@
                 "src": "zoom-in/sticker/sticker-dark.webp",
                 "aspectRatio": "1/1",
                 "fit": "cover",
-                "caption": "HOF Negativ"
+                "caption": "HOF Negativ",
+                "captionEn": "HOF Negative"
               },
               {
                 "type": "img",
                 "src": "zoom-in/sticker/sticker-light.webp",
                 "aspectRatio": "1/1",
                 "fit": "cover",
-                "caption": "HOF Positiv"
+                "caption": "HOF Positiv",
+                "captionEn": "HOF Positive"
               },
               {
                 "type": "img",
@@ -1188,9 +1235,14 @@
               }
             ]
           }
-        ]
+        ],
+        "labelEn": "Landing Page (static)"
       }
-    ]
+    ],
+    "blurbEn": "Image campaign for the city of Hof",
+    "descEn": "An image campaign for the city of Hof that plays with the city's own reputation. Familiar, supposedly boring places turn into film sets the moment you look closely. 'Hof ist dein Film' invites residents to see their city through a new lens — because the magic lies not in the spectacular but in the detail. Logo, poster series, postcards, stickers and landing page form a coherent system of viewfinder marks, split motifs and one clear call: just zoom in.",
+    "disclaimerEn": "Coursework for the Corporate Design Advanced module (HTK Academy, summer semester 2024). The city of Hof, named places or people serve purely for illustration — there is no partnership or official affiliation.",
+    "lensEn": "POSTER CAMPAIGN / PRINT /"
   },
   {
     "id": 6,
@@ -1333,7 +1385,8 @@
             ],
             "mobilePadding": "0 16px"
           }
-        ]
+        ],
+        "labelEn": "Photographs"
       },
       {
         "label": "Process",
@@ -1348,13 +1401,20 @@
                 "type": "text",
                 "labelAbove": "Workflow",
                 "title": "Echte Orte, bewegte Bilder.",
-                "body": "Die Keyframes entstanden auf einem Winterspaziergang durch Karlsbad — Kamera in der Hand, kein Konzept außer dem Ort selbst. Dazu kam ein Foto von Souly selbst: als AI-Basis für Security-Cam-Footage, die ihn als unscharfe, überwachte Figur in das Bildmaterial einwebt. Aus den Fotos wurden AI-Clips generiert, die dann zerschnitten, mehrfach benutzt und neu zusammengesetzt wurden. Looks in After Effects, eigenes Sound Design für Raum und Tiefe."
+                "body": "Die Keyframes entstanden auf einem Winterspaziergang durch Karlsbad — Kamera in der Hand, kein Konzept außer dem Ort selbst. Dazu kam ein Foto von Souly selbst: als AI-Basis für Security-Cam-Footage, die ihn als unscharfe, überwachte Figur in das Bildmaterial einwebt. Aus den Fotos wurden AI-Clips generiert, die dann zerschnitten, mehrfach benutzt und neu zusammengesetzt wurden. Looks in After Effects, eigenes Sound Design für Raum und Tiefe.",
+                "titleEn": "Real places, moving images.",
+                "bodyEn": "The keyframes came from a winter walk through Karlsbad — camera in hand, no concept beyond the place itself. Added to that: a photo of Souly himself, used as the AI basis for security-cam footage that weaves him into the material as a blurry, surveilled figure. AI clips were generated from the photos, then cut up, reused and reassembled. Looks in After Effects, original sound design for space and depth."
               }
             ]
           }
         ]
       }
-    ]
+    ],
+    "blurbEn": "Concept edit for Souly",
+    "descEn": "Concept edit for the song 'So weit weg' by Souly. The basis: my own photographs from Karlsbad, shot in winter. These frames were translated into AI motion footage as keyframes, cut to the beat in Premiere and layered with original sound design.",
+    "disclaimerEn": "Personal concept project for the song 'So weit weg' by Souly. Not an official collaboration or commissioned work, no claim to the original music.",
+    "cameraEn": "PHOTOGRAPHY /",
+    "locationEn": "SELF-INITIATED"
   },
   {
     "id": 4,
@@ -1418,7 +1478,9 @@
                 "type": "text",
                 "labelAbove": "Workflow",
                 "title": "Frame für Frame, Cut für Cut.",
-                "body": "Bildidee zuerst — Mood, Komposition, Licht. Schlüsselframes mit Nano Banana Pro generiert, Varianten kuratiert, Inkonsistenzen retuschiert. Aus jedem Frame ein Veo-Clip mit präzisem Motion-Prompt: Kamerafahrt, Blickrichtung, Detail. Schnitt in Premiere auf den Beat der Strophe, Looks und Glitches in After Effects, eigenes Sound Design für Atmo und Akzente."
+                "body": "Bildidee zuerst — Mood, Komposition, Licht. Schlüsselframes mit Nano Banana Pro generiert, Varianten kuratiert, Inkonsistenzen retuschiert. Aus jedem Frame ein Veo-Clip mit präzisem Motion-Prompt: Kamerafahrt, Blickrichtung, Detail. Schnitt in Premiere auf den Beat der Strophe, Looks und Glitches in After Effects, eigenes Sound Design für Atmo und Akzente.",
+                "titleEn": "Frame by frame, cut by cut.",
+                "bodyEn": "Image idea first — mood, composition, light. Key frames generated with Nano Banana Pro, variants curated, inconsistencies retouched. From each frame a Veo clip with a precise motion prompt: camera move, gaze direction, detail. Cut in Premiere to the beat of the verse, looks and glitches in After Effects, original sound design for atmosphere and accents."
               },
               {
                 "type": "img",
@@ -1502,6 +1564,10 @@
           }
         ]
       }
-    ]
+    ],
+    "blurbEn": "Concept edit for OG Keemo & Schmyt",
+    "descEn": "Cinematic concept edit for OG Keemo's verse in 'Mach Kaputt' (OG Keemo & Schmyt). A dark visual language, generated entirely — single frames with Nano Banana Pro, motion footage with Google Veo. Assembled into a short film in Premiere and After Effects and layered with original sound design.",
+    "disclaimerEn": "Personal concept project for OG Keemo's verse from 'Mach Kaputt' (OG Keemo & Schmyt). Not an official collaboration or commissioned work, no claim to the original music.",
+    "locationEn": "SELF-INITIATED"
   }
 ]

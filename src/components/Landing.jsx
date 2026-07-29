@@ -1,15 +1,17 @@
 import { useEffect, useRef, useState } from 'react';
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
 import ProjectCard from './ProjectCard';
 import MobileProjectCard from './MobileProjectCard';
 import { SOCIAL_ICONS } from './SocialIcons';
 
-const FILTER_TAGS = ['All', 'Visual Identity', 'Event', 'Web', 'AI'];
+const FILTER_TAGS = ['All', 'Visual Identity', 'Video', 'Event', 'AI'];
 const STAR_CURSOR = 'none';
 const INFINITE_STRIP_ENABLED = false;
 
 export default function Landing({ onNav, projects, activeFilter, setActiveFilter }) {
   const mobile = useMobile();
+  const { lang, t } = useLang();
 
   const filtered = activeFilter === 'All'
     ? projects
@@ -138,7 +140,11 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
 
   const [textOpen, setTextOpen] = useState(false);
 
-  const aboutCopy = (
+  const aboutCopy = lang === 'en' ? (
+    <>
+      Sometimes quiet, sometimes loud — always with <strong style={{ fontWeight: 600 }}>character</strong>. I build visual identities, campaigns and (web) experiences for brands, events, artists, studios and more that shape <strong style={{ fontWeight: 600 }}>modern culture</strong> — and have something to say. <strong style={{ fontWeight: 600 }}>AI</strong> is part of the toolkit, like pencil and camera.
+    </>
+  ) : (
     <>
       Manchmal ruhig, manchmal laut — immer mit <strong style={{ fontWeight: 600 }}>Charakter</strong>. Ich entwickle Visuelle Identitäten, Kampagnen und (Web) Experiences für Brands, Events, Artists, Studios, uvm, die <strong style={{ fontWeight: 600 }}>moderne Kultur</strong> prägen — und etwas zu sagen haben. <strong style={{ fontWeight: 600 }}>AI</strong> gehört dabei zum Werkzeug wie Bleistift und Kamera.
     </>
@@ -189,7 +195,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
                 cursor: STAR_CURSOR, display: 'inline-flex', alignItems: 'center', gap: 5,
                 margin: '0 auto', transition: 'background 200ms, color 200ms',
               }}>
-                <span>{textOpen ? 'weniger' : 'mehr'}</span>
+                <span>{textOpen ? t('less') : t('more')}</span>
                 <span style={{ display: 'inline-block', transition: 'transform 300ms', transform: textOpen ? 'rotate(180deg)' : 'none' }}>↓</span>
               </button>
               {textOpen && (
@@ -211,7 +217,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
             alignSelf: mobile ? 'center' : undefined,
             display: 'inline-flex', alignItems: 'center', gap: 6,
           }}>
-            <span>Kontakt</span>
+            <span>{t('contactCta')}</span>
             <span className="cta-arrow" aria-hidden="true">→</span>
           </button>
         </div>
@@ -232,7 +238,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
                 Justin Wiemann
               </div>
               <div style={{ fontFamily: 'Space Mono, monospace', fontWeight: 700, fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#C4B8A4', whiteSpace: 'nowrap' }}>
-                Kommunikationsdesigner
+                {t('role')}
               </div>
             </div>
 
@@ -243,7 +249,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
                 <div className="availability-dot" style={{ width: 6, height: 6, borderRadius: '50%', background: '#4a9e5c', flexShrink: 0 }}/>
-                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>Verfügbar</span>
+                <span style={{ fontFamily: 'Space Mono, monospace', fontSize: mobile ? 9 : 'clamp(9px, 0.55vw, 13px)', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#4a9e5c' }}>{t('available')}</span>
               </div>
             </div>
 
@@ -280,7 +286,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           padding: mobile ? '0 20px 6px' : '0 48px 6px',
           fontFamily: 'Space Mono, monospace', fontSize: mobile ? 10 : 'clamp(10px, 0.6vw, 14px)',
           letterSpacing: '0.16em', textTransform: 'uppercase', color: '#3D3428',
-        }}>Meine Projekte</div>
+        }}>{t('myProjects')}</div>
         <div className="fu4" style={{
           padding: mobile ? '8px 20px' : '8px 48px',
           display: 'flex', gap: 4, flexShrink: 0,

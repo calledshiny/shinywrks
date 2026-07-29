@@ -1,4 +1,5 @@
 import { useMobile } from '../hooks/useMobile';
+import { useLang } from '../i18n';
 
 const TERRA = '#B07050';
 const FG = '#FFFFFF';
@@ -65,6 +66,9 @@ function Block({ label, children }) {
 
 export default function SpotrightDesignSystem() {
   const mobile = useMobile();
+  const { lang } = useLang();
+  const loraSpecimen = lang === 'en' ? 'The city. Now.' : 'Die Stadt. Jetzt.';
+  const dmSpecimen = lang === 'en' ? "What's on tonight?" : 'Was geht heute?';
 
   return (
     <div style={{
@@ -112,12 +116,12 @@ export default function SpotrightDesignSystem() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <span style={{ fontFamily: 'Lora, serif', fontSize: mobile ? 36 : 48, lineHeight: 1, color: FG, letterSpacing: '-0.02em' }}>Lora</span>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: FG_MUTED }}>Logo · Hero · Section Titles</span>
-              <span style={{ fontFamily: 'Lora, serif', fontSize: 16, color: FG_DIM, marginTop: 2 }}>Die Stadt. Jetzt.</span>
+              <span style={{ fontFamily: 'Lora, serif', fontSize: 16, color: FG_DIM, marginTop: 2 }}>{loraSpecimen}</span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 500, fontSize: mobile ? 36 : 48, lineHeight: 1, color: FG }}>DM Sans</span>
               <span style={{ fontFamily: 'Space Mono, monospace', fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', color: FG_MUTED }}>UI · Buttons · Pills · Body</span>
-              <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 300, fontSize: 16, color: FG_DIM, marginTop: 2 }}>Was geht heute?</span>
+              <span style={{ fontFamily: 'DM Sans, sans-serif', fontWeight: 300, fontSize: 16, color: FG_DIM, marginTop: 2 }}>{dmSpecimen}</span>
             </div>
           </div>
         </Block>

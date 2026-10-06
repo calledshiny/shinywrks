@@ -20,6 +20,10 @@ const UI = {
   claim:            { de: 'Claim:',            en: 'Claim:' },
   prev:             { de: 'Vorheriges',        en: 'Previous' },
   next:             { de: 'Nächstes',          en: 'Next' },
+  showreel:         { de: 'Showreel',          en: 'Showreel' },
+  reelTitle:        { de: 'Showreel 2026',     en: 'Showreel 2026' },
+  reelPlay:         { de: 'Mit Ton abspielen', en: 'Play with sound' },
+  close:            { de: 'Schließen',         en: 'Close' },
 };
 
 const LangContext = createContext(null);

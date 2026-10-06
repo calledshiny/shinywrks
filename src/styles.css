@@ -506,3 +506,60 @@ a, button, .strip-item, [role="button"] {
 @media (hover: none), (pointer: coarse) {
   .custom-cursor { display: none; }
 }
+
+/* Showreel: einzige Signalfarbe der Seite */
+@keyframes reel-rec {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.reel-dot {
+  display: inline-block;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  animation: reel-rec 1.6s ease-in-out infinite;
+}
+.filter-tag.reel-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #CC3A1F; border-color: #CC3A1F; color: #F5F3EF;
+  margin-right: 8px;
+}
+.filter-tag.reel-pill:hover { background: #A82E17; border-color: #A82E17; color: #F5F3EF; }
+
+.reel-player {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(13,11,8,0.96);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 64px 4vw 32px;
+  animation: reel-in 450ms cubic-bezier(0.16,1,0.3,1);
+}
+@keyframes reel-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.reel-close {
+  position: absolute; top: 20px; right: 24px;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: #F5F3EF; background: none; border: 1px solid rgba(245,243,239,0.35);
+  padding: 7px 12px;
+  transition: border-color 200ms;
+}
+.reel-close:hover { border-color: #F5F3EF; }
+body.reel-open .custom-cursor line { stroke: #F5F3EF; }
+.reel-start {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(13,11,8,0.18); border: none;
+  transition: background 300ms;
+}
+.reel-start:hover { background: rgba(13,11,8,0.32); }
+.reel-start-badge {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: 'Space Mono', monospace; font-size: clamp(10px, 0.75vw, 14px);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: #F5F3EF; background: #CC3A1F;
+  padding: clamp(12px, 1vw, 16px) clamp(20px, 1.6vw, 28px);
+  transition: background 200ms;
+}
+.reel-start:hover .reel-start-badge { background: #A82E17; }

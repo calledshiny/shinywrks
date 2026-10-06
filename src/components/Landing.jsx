@@ -1,8 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useMobile } from '../hooks/useMobile';
 import { useLang } from '../i18n';
 import ProjectCard from './ProjectCard';
 import MobileProjectCard from './MobileProjectCard';
+import { ShowreelPill, ShowreelCard, MobileShowreelCard, ShowreelPlayer, REEL_FILTERS, REEL_PATH } from './Showreel';
 import { SOCIAL_ICONS } from './SocialIcons';
 
 const FILTER_TAGS = ['All', 'Visual Identity', 'Video', 'Event', 'AI'];
@@ -16,6 +17,26 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
   const filtered = activeFilter === 'All'
     ? projects
     : projects.filter(p => (p.tags || [p.tag]).includes(activeFilter));
+
+  const showReel = REEL_FILTERS.includes(activeFilter);
+  // null = zu. Über den direkten Link öffnet das Reel, startet aber erst auf Klick.
+  const [reel, setReel] = useState(() => window.location.pathname === REEL_PATH ? { autoStart: false } : null);
+  const openReel = () => {
+    if (window.location.pathname !== REEL_PATH) window.history.pushState({ reel: true }, '', REEL_PATH);
+    setReel({ autoStart: true });
+  };
+  const closeReel = useCallback(() => {
+    setReel(null);
+    if (window.location.pathname !== REEL_PATH) return;
+    if (window.history.state?.reel) window.history.back();
+    else window.history.replaceState(null, '', '/#/');
+  }, []);
+
+  useEffect(() => {
+    const onPop = () => { if (window.location.pathname !== REEL_PATH) setReel(null); };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   const stripRef = useRef();
   const wrapRef = useRef();
@@ -294,12 +315,14 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           scrollbarWidth: 'none',
           WebkitOverflowScrolling: 'touch',
         }}>
+          <ShowreelPill onOpen={openReel}/>
           {FILTER_TAGS.map(t => (
             <button key={t} className={`filter-tag${activeFilter === t ? ' active' : ''}`} onClick={() => setActiveFilter(t)} style={{ flexShrink: 0 }}>{t}</button>
           ))}
         </div>
         {mobile ? (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 22, padding: '16px 20px 24px' }}>
+            {showReel && <MobileShowreelCard onOpen={openReel}/>}
             {filtered.map(p => <MobileProjectCard key={p.id} p={p} onNav={onNav} />)}
           </div>
         ) : (
@@ -315,6 +338,7 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
               MsOverflowStyle: 'none',
             }}
           >
+            {showReel && !isInfinite && <ShowreelCard onOpen={openReel}/>}
             {(isInfinite ? Array.from({ length: 3 * tileMultiplier }, (_, i) => i) : [0]).flatMap(copy => filtered.map((p, i) => (
               <ProjectCard key={`${copy}-${p.id}`} p={p} hPct={heightPcts[i % heightPcts.length]} onNav={onNav} />
             )))}
@@ -359,6 +383,8 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
           })()}
         </div>
       )}
+
+      {reel && <ShowreelPlayer autoStart={reel.autoStart} onClose={closeReel}/>}
 
     </div>
   );

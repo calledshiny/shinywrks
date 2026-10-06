@@ -339,34 +339,173 @@
     "tag": "Web",
     "tags": [
       "Visual Identity",
-      "Web",
-      "AI",
+      "App",
       "Event"
     ],
-    "year": "2025",
-    "tagLine": "VISUAL IDENTITY / WEB / AI / EVENT / 2025",
+    "year": "2026",
+    "tagLine": "VISUAL IDENTITY / APP / EVENT / 2026",
     "blurb": "Entdecken von lokalen Events",
     "liveUrl": "https://spotright.de",
-    "desc": "In einer fremden Stadt weißt du nicht, wo heute Abend wirklich was los ist. Spotright löst das — eine Event-Discovery-App, die zeigt was in deiner Stadt gerade passiert: Clubs, Konzerte, Bar-Events. Kuratiert, aktuell, lokal. Für junge Leute, die eine Stadt nicht googeln wollen, sondern spüren. Die UI hält sich bewusst zurück — Liquid Glass und warme Terra-Akzente lassen die Stadt selbst die Bühne sein.",
+    "desc": "In einer fremden Stadt weißt du nicht, wo heute Abend wirklich was los ist. spotright zeigt es: Club-Nächte, Konzerte und Bar-Events in Hof, an einem Ort. Die Events kommen automatisch aus Instagram und Facebook, niemand trägt sie von Hand ein. Gemeinsam mit Tim entwickelt, von der Marke über die App bis zum Launch auf der Semester Opening Party am 01.10.2026.",
     "claim": "Die Stadt. Jetzt.",
-    "disclaimer": "End-to-End mit AI umgesetzt. Konzept, Direction und Iteration durch mich, UI und Code via Figma Make und Claude.",
-    "camera": "DESIGN SYSTEM /",
-    "lens": "UX FLOW /",
-    "film": "SCREENS",
+    "camera": "CORPORATE DESIGN /",
+    "lens": "APP DESIGN /",
+    "film": "LAUNCH-KAMPAGNE",
     "studio": "SHINYWRKS",
     "location": "KOOPERATION",
-    "date": "OKT 2025",
+    "date": "LAUNCH OKT 2026",
     "bg": "radial-gradient(ellipse at 30% 40%, #3a1f14 0%, #1a0f0a 55%, #0a0a0d 100%)",
     "heroPhoto": "spotright/hero.webp",
     "thumb": "spotright/hero-thumb.webp",
     "thumbW": 1024,
-    "thumbH": 1537,
+    "thumbH": 1536,
     "heightPct": 0.95,
     "width": 320,
     "height": 420,
     "sections": [
       {
-        "label": "Design System",
+        "id": "launch",
+        "label": "Launch",
+        "labelEn": "Launch",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              {
+                "type": "text",
+                "title": "Launch-Kampagne",
+                "body": "Plakate auf Deutsch und Englisch, ein Tischaufsteller mit einem Shot aufs Haus und Posts auf Instagram. Gelauncht wurde am 01.10.2026 auf der Semester Opening Party in der Auszeit, mit einem Collab-Post zusammen mit der Auszeit.",
+                "titleEn": "Launch campaign",
+                "bodyEn": "Posters in German and English, a table stand with a free shot, and posts on Instagram. The launch itself took place on 1 October 2026 at the Semester Opening Party at the Auszeit, with a collab post together with the Auszeit."
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "Plakate",
+            "textEn": "Posters"
+          },
+          {
+            "cols": 4,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-01-standard-de-frau.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-03-ersti-de-frau.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-05-ausgang-de-mann.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-07-tuer-mann.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)"
+          },
+          {
+            "cols": 4,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-04-ersti-en-mann.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-06-ausgang-en-frau.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-09-pissoir.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/plakat-10-toilette-frau.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)",
+            "marginTop": 2
+          },
+          {
+            "type": "sublabel",
+            "text": "Tischaufsteller",
+            "textEn": "Table stand"
+          },
+          {
+            "cols": 1,
+            "padding": "0 25%",
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/launch/tischaufsteller.webp"
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "Collab-Post mit der Auszeit",
+            "textEn": "Collab post with the Auszeit"
+          },
+          {
+            "cols": 2,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/launch/collab-1.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/collab-2.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)",
+            "padding": "0 25%"
+          },
+          {
+            "type": "sublabel",
+            "text": "Der Abend",
+            "textEn": "The night"
+          },
+          {
+            "cols": 3,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-1.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-2.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-4.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-6.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-8.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/launch/abend-13.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)"
+          }
+        ]
+      },
+      {
+        "id": "marke",
+        "label": "Marke",
+        "labelEn": "Brand",
         "rows": [
           {
             "cols": 1,
@@ -381,7 +520,9 @@
         ]
       },
       {
-        "label": "Screens",
+        "id": "app",
+        "label": "App",
+        "labelEn": "App",
         "rows": [
           {
             "cols": 1,
@@ -394,60 +535,49 @@
                   "screens": [
                     {
                       "label": "Screen 01",
-                      "title": "Landing",
-                      "src": "spotright/screens/01-landing.mp4",
-                      "type": "video",
-                      "body": "Der erste Eindruck. Spotlight-Hero, Stadt-Dropdown, Kategorie-Pills und eine einzige Aufforderung — „Was geht heute?“. Keine Suche, kein Algorithmus-Geschwafel, nur die Frage die zählt.",
-                      "bodyEn": "The first impression. Spotlight hero, city dropdown, category pills and a single prompt — 'What's on tonight?'. No search, no algorithm babble, just the question that matters."
+                      "title": "Entdecken",
+                      "titleEn": "Discover",
+                      "src": "spotright/app/01-feed.webp",
+                      "type": "image",
+                      "body": "Die Startseite fragt, was in Hof geht. Darunter Zeitraum, Datum und Kategorien, dann die Events nach Tagen sortiert. Was gerade läuft, ist grün markiert.",
+                      "bodyEn": "The home screen asks what's on in Hof. Below it: time range, date and categories, then the events sorted by day. Whatever is happening right now is marked in green."
                     },
                     {
                       "label": "Screen 02",
-                      "title": "Entdecken",
-                      "src": "spotright/screens/02-entdecken.mp4",
-                      "type": "video",
-                      "body": "Datums-Bar, Kategorien-Filter, kuratierte Event-Liste. Jede Karte zeigt Zeit, Venue, Tags und einen Save-Button — alles auf einem Blick, ohne Tabs oder Untermenüs.",
-                      "titleEn": "Discover",
-                      "bodyEn": "Date bar, category filter, curated event list. Every card shows time, venue, tags and a save button — all at a glance, without tabs or submenus."
+                      "title": "Event-Detail",
+                      "titleEn": "Event detail",
+                      "src": "spotright/app/02-event-detail.webp",
+                      "type": "image",
+                      "body": "Wann, wo und Eintritt auf einen Blick, darunter Bild und Beschreibung. Ein Tap speichert das Event in Meine Spots.",
+                      "bodyEn": "When, where and entry at a glance, followed by image and description. One tap saves the event to My Spots."
                     },
                     {
                       "label": "Screen 03",
-                      "title": "Event Detail",
-                      "src": "spotright/screens/03-detail.mp4",
-                      "type": "video",
-                      "body": "Tap auf eine Karte öffnet das Detail-Sheet — Header-Bild mit Spotlight-Animation, Wann / Wo / Wer, DJ-Lineup, Tags und ein Link zur Originalquelle. Liquid-Glass-Sheet das aus der Liste hochgleitet.",
-                      "bodyEn": "Tapping a card opens the detail sheet — header image with spotlight animation, when / where / who, DJ lineup, tags and a link to the original source. A liquid-glass sheet that slides up from the list."
+                      "title": "Filter",
+                      "titleEn": "Filter",
+                      "src": "spotright/app/03-filter-clubs.webp",
+                      "type": "image",
+                      "body": "Clubs, Bar Events, Konzerte oder Outside: Die Kategorien filtern die Liste direkt, ohne neue Seite.",
+                      "bodyEn": "Clubs, bar events, concerts or outside: the categories filter the list instantly, without a new page."
                     },
                     {
                       "label": "Screen 04",
-                      "title": "Für dich",
-                      "src": "spotright/screens/04-fuerdich.mp4",
-                      "type": "video",
-                      "body": "Stepwise Search-Funnel — Wann? Was? Wer? Drei Fragen, große Glass-Buttons, klare Progression. Am Ende: eine personalisierte Auswahl statt einer überfüllten Liste.",
-                      "titleEn": "For You",
-                      "bodyEn": "A stepwise search funnel — When? What? Who? Three questions, large glass buttons, clear progression. At the end: a personalized selection instead of an overcrowded list."
-                    },
-                    {
-                      "label": "Screen 05",
-                      "title": "Meine Spots",
-                      "src": "spotright/screens/05-meinespots.mp4",
-                      "type": "video",
-                      "body": "Gespeicherte Events. Eine ruhige Liste der Veranstaltungen, die du dir merken willst — auch wenn du gerade nicht entscheidest.",
-                      "titleEn": "My Spots",
-                      "bodyEn": "Saved events. A calm list of the events you want to keep in mind — even when you're not deciding right now."
+                      "title": "Kalender",
+                      "titleEn": "Calendar",
+                      "src": "spotright/app/04-datumswahl.webp",
+                      "type": "image",
+                      "body": "Der Kalender zeigt, an welchen Tagen etwas los ist. Tage mit Events haben einen Punkt.",
+                      "bodyEn": "The calendar shows which days have something on. Days with events get a dot."
                     }
                   ]
                 }
               }
             ]
-          }
-        ]
-      },
-      {
-        "label": "UX Flow",
-        "rows": [
+          },
           {
             "cols": 1,
             "padding": "0",
+            "marginTop": 48,
             "items": [
               {
                 "type": "component",
@@ -456,14 +586,157 @@
             ]
           }
         ]
+      },
+      {
+        "id": "social",
+        "label": "Social",
+        "labelEn": "Social",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              {
+                "type": "text",
+                "title": "Zwei Accounts, ein Feed, der sich selbst füllt",
+                "body": "spotright.hof zeigt die Stadt, spotright.de zeigt, wie wir sie nach draußen bringen. Der Wochen-Carousel und die Picks-Stories entstehen automatisch aus den Events in der App.",
+                "titleEn": "Two accounts, a feed that fills itself",
+                "bodyEn": "spotright.hof shows the city, spotright.de shows how we take it outside. The weekly carousel and the picks stories are generated automatically from the events in the app."
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "Startpost",
+            "textEn": "Launch post"
+          },
+          {
+            "cols": 5,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/social/startpost-1.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/startpost-2.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/startpost-3.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/startpost-4.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/startpost-5.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)"
+          },
+          {
+            "type": "sublabel",
+            "text": "Auto-Post: Wochen-Carousel",
+            "textEn": "Auto post: weekly carousel"
+          },
+          {
+            "cols": 4,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/social/autopost-1.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/autopost-2.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/autopost-4.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/autopost-5.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)"
+          },
+          {
+            "type": "sublabel",
+            "text": "Stories",
+            "textEn": "Stories"
+          },
+          {
+            "cols": 4,
+            "items": [
+              {
+                "type": "image",
+                "src": "spotright/social/story-daily-picks.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/story-weekend-picks.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/story-so-gehts.webp"
+              },
+              {
+                "type": "image",
+                "src": "spotright/social/story-app-store.webp"
+              }
+            ],
+            "mobileGridTemplateColumns": "repeat(2, 1fr)"
+          }
+        ]
+      },
+      {
+        "id": "video",
+        "label": "Video",
+        "labelEn": "Video",
+        "rows": [
+          {
+            "cols": 2,
+            "items": [
+              {
+                "type": "video",
+                "src": "spotright/video/auszeit-reel.mp4",
+                "poster": "spotright/video/auszeit-reel.webp",
+                "controls": true,
+                "aspectRatio": "9 / 16",
+                "caption": "Auszeit-Reel · Semester Opening",
+                "captionEn": "Auszeit reel · Semester Opening"
+              },
+              {
+                "type": "video",
+                "src": "spotright/video/launch-reel.mp4",
+                "poster": "spotright/video/launch-reel.webp",
+                "controls": true,
+                "aspectRatio": "9 / 16",
+                "caption": "Launch-Reel · Motion Design",
+                "captionEn": "Launch reel · Motion design"
+              }
+            ],
+            "mobileGridTemplateColumns": "1fr",
+            "padding": "0 25%",
+            "gap": 24
+          }
+        ]
       }
     ],
     "blurbEn": "Discover local events",
-    "descEn": "In an unfamiliar city you never know where things are actually happening tonight. Spotright solves that — an event-discovery app that shows what's going on in your city right now: clubs, concerts, bar events. Curated, current, local. For young people who don't want to google a city, but feel it. The UI deliberately holds back — liquid glass and warm terra accents let the city itself be the stage.",
+    "descEn": "In an unfamiliar city you never know where things are actually happening tonight. spotright shows you: club nights, concerts and bar events in Hof, all in one place. Events come in automatically from Instagram and Facebook, nobody enters them by hand. Developed together with Tim, from the brand and the app to the launch at the Semester Opening Party on 1 October 2026.",
     "claimEn": "The city. Now.",
-    "disclaimerEn": "Realized end-to-end with AI. Concept, direction and iteration by me; UI and code via Figma Make and Claude.",
     "locationEn": "COLLABORATION",
-    "dateEn": "OCT 2025"
+    "dateEn": "LAUNCH OCT 2026",
+    "filterTags": [
+      "Visual Identity",
+      "Event",
+      "Video",
+      "AI"
+    ],
+    "filmEn": "LAUNCH CAMPAIGN"
   },
   {
     "id": 5,

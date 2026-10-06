@@ -14,9 +14,10 @@ export default function Landing({ onNav, projects, activeFilter, setActiveFilter
   const mobile = useMobile();
   const { lang, t } = useLang();
 
+  // filterTags: wonach gefiltert wird, wenn das breiter ist als die angezeigten tags.
   const filtered = activeFilter === 'All'
     ? projects
-    : projects.filter(p => (p.tags || [p.tag]).includes(activeFilter));
+    : projects.filter(p => (p.filterTags || p.tags || [p.tag]).includes(activeFilter));
 
   const showReel = REEL_FILTERS.includes(activeFilter);
   // null = zu. Über den direkten Link öffnet das Reel, startet aber erst auf Klick.

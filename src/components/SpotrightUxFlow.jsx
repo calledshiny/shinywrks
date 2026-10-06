@@ -1,7 +1,7 @@
 import { useMobile } from '../hooks/useMobile';
 import { useLang } from '../i18n';
 
-const TERRA = '#B07050';
+const TERRA = '#F53702'; // Signal, ersetzt Terra seit 21.09.2026
 const GLASS_BG = 'rgba(255,255,255,0.06)';
 const GLASS_BORDER = 'rgba(255,255,255,0.18)';
 const GLASS_TOP = 'rgba(255,255,255,0.28)';
@@ -137,7 +137,7 @@ export default function SpotrightUxFlow() {
 
   return (
     <div style={{
-      background: 'radial-gradient(ellipse at 50% 28%, #3a1f14 0%, #1a0f0a 55%, #0a0a0d 100%)',
+      background: '#171110',
       padding: mobile ? '24px 18px' : '32px 32px',
       color: FG,
     }}>

@@ -739,6 +739,216 @@
     "filmEn": "LAUNCH CAMPAIGN"
   },
   {
+    "id": 7,
+    "slug": "traphall",
+    "title": "TRAPHALL",
+    "tag": "Event",
+    "tags": [
+      "Visual Identity",
+      "Event",
+      "Video"
+    ],
+    "filterTags": [
+      "Visual Identity",
+      "Event",
+      "Video",
+      "AI"
+    ],
+    "year": "2026",
+    "tagLine": "VISUAL IDENTITY / EVENT / VIDEO / 2026",
+    "blurb": "Live-Abend in der FT-Halle Naila",
+    "blurbEn": "Live night at FT-Halle Naila",
+    "desc": "Traphall war ein Live-Abend am 17.01.2026 in der FT-Halle Naila, möglich gemacht von Eventnetz Frankenwald. CXDEX, HXDEX und ich als JShiny standen auf der Bühne, THRE$H und LKC waren Support, danach lief eine Trap- und Hip-Hop-Party mit DJ 2FLY. Von mir kamen außerdem die Visual Identity mit Social Creatives und Tickets und die Videos.",
+    "descEn": "Traphall was a live night on 17 January 2026 at FT-Halle Naila, made possible by Eventnetz Frankenwald. CXDEX, HXDEX and I as JShiny were on stage, THRE$H and LKC were support, followed by a trap and hip-hop party with DJ 2FLY. I also created the visual identity with social creatives and tickets, and the videos.",
+    "camera": "EVENT VISUAL IDENTITY /",
+    "lens": "SOCIAL CREATIVES / TICKETS /",
+    "film": "MUSIKVIDEO / RECAP",
+    "filmEn": "MUSIC VIDEO / RECAP",
+    "studio": "SHINYWRKS",
+    "location": "KOOPERATION",
+    "locationEn": "COLLABORATION",
+    "date": "JAN 2026",
+    "dateEn": "JAN 2026",
+    "bg": "#0D0B08",
+    "heroPhoto": "traphall/hero.webp",
+    "thumb": "traphall/hero-thumb.webp",
+    "thumbW": 1024,
+    "thumbH": 1271,
+    "heightPct": 0.9,
+    "width": 320,
+    "height": 397,
+    "sections": [
+      {
+        "id": "visual-identity",
+        "label": "Visual Identity",
+        "rows": [
+          {
+            "cols": 3,
+            "mobileGridTemplateColumns": "1fr",
+            "items": [
+              {
+                "type": "image",
+                "src": "traphall/vi/mainpost.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/vi/artists.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/vi/giveaway.webp"
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "Artist-Carousel",
+            "textEn": "Artist carousel"
+          },
+          {
+            "cols": 1,
+            "items": [
+              {
+                "type": "image",
+                "src": "traphall/vi/carousel.webp"
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "Ticket und Story",
+            "textEn": "Ticket and story"
+          },
+          {
+            "cols": 2,
+            "gridTemplateColumns": "2.44fr 0.5625fr",
+            "mobileGridTemplateColumns": "1fr",
+            "items": [
+              {
+                "type": "image",
+                "src": "traphall/vi/ticket.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/vi/story.webp"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "abend",
+        "label": "Der Abend",
+        "labelEn": "The night",
+        "rows": [
+          {
+            "cols": 3,
+            "mobileGridTemplateColumns": "repeat(2, 1fr)",
+            "items": [
+              {
+                "type": "image",
+                "src": "traphall/abend/01.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/02.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/03.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/04.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/05.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/06.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/07.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/08.webp"
+              },
+              {
+                "type": "image",
+                "src": "traphall/abend/09.webp"
+              }
+            ]
+          },
+          {
+            "type": "sublabel",
+            "text": "AI-Visuals für die Projektion",
+            "textEn": "AI visuals for the projection"
+          },
+          {
+            "cols": 3,
+            "gap": 24,
+            "padding": "0 25%",
+            "mobileGridTemplateColumns": "repeat(3, 1fr)",
+            "items": [
+              {
+                "type": "video",
+                "src": "traphall/abend/projektion-codex.mp4",
+                "aspectRatio": "9 / 16"
+              },
+              {
+                "type": "video",
+                "src": "traphall/abend/projektion-shiny.mp4",
+                "aspectRatio": "9 / 16"
+              },
+              {
+                "type": "video",
+                "src": "traphall/abend/projektion-hxdex.mp4",
+                "aspectRatio": "9 / 16"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "video",
+        "label": "Video",
+        "rows": [
+          {
+            "cols": 1,
+            "items": [
+              {
+                "type": "youtube",
+                "id": "K9gBoUuUw-I",
+                "title": "JShiny x CXDEX ft. LKC: Keys · Traphall Recap",
+                "caption": "Keys · JShiny x CXDEX ft. LKC · Musikvideo und Traphall-Recap",
+                "captionEn": "Keys · JShiny x CXDEX ft. LKC · Music video and Traphall recap"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "heroOverlay": {
+      "src": "traphall/schriftzug.webp",
+      "style": {
+        "left": "50%",
+        "top": "7%",
+        "width": "46%",
+        "transform": "translateX(-50%)"
+      },
+      "mobileStyle": {
+        "left": "50%",
+        "top": "6%",
+        "width": "78%",
+        "transform": "translateX(-50%)"
+      }
+    }
+  },
+  {
     "id": 5,
     "slug": "myndful",
     "title": "MYNDFUL",

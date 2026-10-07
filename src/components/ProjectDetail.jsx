@@ -84,7 +84,21 @@ export default function ProjectDetail({ project, projects, onNav }) {
           );
         }
         let inner;
-        if (item.type === 'video') {
+        if (item.type === 'youtube') {
+          inner = (
+            <div style={{ aspectRatio: item.aspectRatio || '16 / 9', background: '#0D0B08', position: 'relative', zIndex: 1 }}>
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${item.id}?rel=0`}
+                title={item.title || p.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+                style={{ width: '100%', height: '100%', border: 0, display: 'block' }}
+              />
+            </div>
+          );
+        } else if (item.type === 'video') {
           const videoProps = item.controls
             ? { controls: true, playsInline: true, poster: item.poster }
             : { autoPlay: true, muted: true, loop: true, playsInline: true };
@@ -218,6 +232,10 @@ export default function ProjectDetail({ project, projects, onNav }) {
           <img src={p.heroPhoto} alt={p.title} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: p.heroFit || 'cover', display: 'block' }}/>
         )}
         <div className="noise"/>
+        {/* Schriftzug als eigene Ebene, damit er bei jedem Seitenverhältnis ganz sichtbar bleibt */}
+        {p.heroOverlay && (
+          <img src={p.heroOverlay.src} alt="" style={{ position: 'absolute', display: 'block', height: 'auto', pointerEvents: 'none', ...(m && p.heroOverlay.mobileStyle ? p.heroOverlay.mobileStyle : p.heroOverlay.style) }}/>
+        )}
         {p.heroImg && (
           <div style={{ position: 'absolute', inset: 0, padding: '5% 12%', boxSizing: 'border-box' }}>
             <img src={p.heroImg} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'contain', filter: 'invert(1)' }}/>

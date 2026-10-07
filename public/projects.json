@@ -773,7 +773,7 @@
     "heroPhoto": "traphall/hero.webp",
     "thumb": "traphall/hero-thumb.webp",
     "thumbW": 1024,
-    "thumbH": 1271,
+    "thumbH": 1024,
     "heightPct": 0.9,
     "width": 320,
     "height": 397,
@@ -936,13 +936,13 @@
       "src": "traphall/schriftzug.webp",
       "style": {
         "left": "50%",
-        "top": "7%",
+        "top": "14%",
         "width": "46%",
         "transform": "translateX(-50%)"
       },
       "mobileStyle": {
         "left": "50%",
-        "top": "6%",
+        "top": "13%",
         "width": "78%",
         "transform": "translateX(-50%)"
       }

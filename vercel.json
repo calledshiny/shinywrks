@@ -1,6 +1,13 @@
 {
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/showreel", "destination": "/index.html" }
+    {
+      "source": "/showreel",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/go",
+      "destination": "/api/go"
+    }
   ]
 }

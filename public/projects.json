@@ -373,10 +373,10 @@
             "items": [
               {
                 "type": "text",
-                "title": "Launch-Kampagne",
-                "body": "Plakate auf Deutsch und Englisch, ein Tischaufsteller mit einem Shot aufs Haus und Posts auf Instagram. Gelauncht wurde am 01.10.2026 auf der Semester Opening Party in der Auszeit, mit einem Collab-Post zusammen mit der Auszeit.",
-                "titleEn": "Launch campaign",
-                "bodyEn": "Posters in German and English, a table stand with a free shot, and posts on Instagram. The launch itself took place on 1 October 2026 at the Semester Opening Party at the Auszeit, with a collab post together with the Auszeit."
+                "title": "Launch-Kampagne in Hof",
+                "body": "Für den Start in Hof: Plakate auf Deutsch und Englisch, ein Tischaufsteller mit einem Shot aufs Haus und Posts auf Instagram. Gelauncht wurde am 01.10.2026 auf der Semester Opening Party in der Auszeit, mit einem Collab-Post zusammen mit der Auszeit.",
+                "titleEn": "Launch campaign in Hof",
+                "bodyEn": "For the start in Hof: posters in German and English, a table stand with a free shot, and posts on Instagram. The launch itself took place on 1 October 2026 at the Semester Opening Party at the Auszeit, with a collab post together with the Auszeit."
               }
             ]
           },
@@ -597,10 +597,10 @@
             "items": [
               {
                 "type": "text",
-                "title": "Zwei Accounts, ein Feed, der sich selbst füllt",
-                "body": "spotright.hof zeigt die Stadt, spotright.de zeigt, wie wir sie nach draußen bringen. Der Wochen-Carousel und die Picks-Stories entstehen automatisch aus den Events in der App.",
-                "titleEn": "Two accounts, a feed that fills itself",
-                "bodyEn": "spotright.hof shows the city, spotright.de shows how we take it outside. The weekly carousel and the picks stories are generated automatically from the events in the app."
+                "title": "Ein Feed, der sich selbst füllt",
+                "body": "Der Wochen-Carousel und die Picks-Stories entstehen automatisch aus den Events in der App. Dazu kommen eigene Posts wie der Startpost.",
+                "titleEn": "A feed that fills itself",
+                "bodyEn": "The weekly carousel and the picks stories are generated automatically from the events in the app, alongside our own posts like the launch post."
               }
             ]
           },
